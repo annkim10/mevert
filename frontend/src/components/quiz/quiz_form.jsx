@@ -71,20 +71,23 @@ class QuizForm extends React.Component {
 
     handleChange(e) {
         console.log("inside handle", e)
-        this.setState({[e.target.name]: e.target.id, questionCount: this.state.questionCount + 1, checked: e.target.id})
+        this.setState({[e.target.htmlFor]: e.target.id, questionCount: this.state.questionCount + 1, checked: e.target.id})
     } 
 
     renderQuestions(field) {
             console.log("field", field, this.state.field)
             return(
                 <div className="question-div">
+                    <h1>Question: {this.state.questionCount+1} of 10</h1>
                     <p className="question">{this.state.quiz[field].question}</p>
                     <div className="question-choice-div">
                         {this.state.quiz[field].answers.map((answer, idx) => {
                             return (
-                                <label className="quiz-question-label" key={idx} htmlFor="a1">{answer}
-                                    <input type="radio" className="quiz-question-input" name={field} id={idx} value={answer} checked={this.state.checked === idx} onChange={this.handleChange} />
-                                </label>
+                                <div> 
+                                    <label onClick={this.handleChange} className="quiz-question-label" key={idx} id={idx} htmlFor={field}>{answer}
+                                        <input type="radio" className="quiz-question-input" name={field} id={idx} value={answer} checked={this.state.checked === idx} />
+                                    </label>
+                                </div>
                             )}) 
                         }                     
                     </div>
