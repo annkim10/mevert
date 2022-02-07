@@ -4,13 +4,14 @@ import QuizForm from "./quiz_form";
 
 const mapStateToProps = (state) => {
   return {
+    loggedIn: state.session.isAuthenticated,
     errors: state.errors.session
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-  
+    
   }
 }
 
