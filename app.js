@@ -12,9 +12,10 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use("/api/users", users);
+
 app.get("/", (req, res) => res.send("Hello World"));
 const port = process.env.PORT || 8001;
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
-app.use("/api/users", users);
