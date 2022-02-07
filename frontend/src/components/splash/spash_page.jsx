@@ -1,4 +1,5 @@
 import React from "react"
+import "./splash.css"
 
 class SplashPage extends React.Component {
 
@@ -6,6 +7,7 @@ class SplashPage extends React.Component {
         return (
             <div>
                 <h1>Splash</h1>
+              
             </div>
         )
     }
