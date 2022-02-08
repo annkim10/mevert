@@ -5,6 +5,7 @@ const users = require("./routes/api/users");
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const activities = require("./routes/api/activities")
 
 mongoose.connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
@@ -16,6 +17,8 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use(passport.initialize());
 require('./config/passport')(passport);
+
+app.use("/api/activities", activities)
 
 // app.get("/", (req, res) => res.send("Hello World"));
 const port = process.env.PORT || 8001;
