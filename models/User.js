@@ -18,6 +18,9 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  quiz: {
+    type: Array
   }
 }, {
   timestamps: true

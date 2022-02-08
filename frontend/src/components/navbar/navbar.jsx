@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import './navbar.css'
+import "./navbar.css"
+import logo from "../../assets/mevert_logo.png"
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -18,16 +19,30 @@ class Navbar extends React.Component {
   getLinks() {
       if (this.props.loggedIn) {
         return (
-            <div>
+            <div className='navbar-div'>
+              <div className='logo-div'>
+                <Link to="/"> <img className='logo-img' src={logo} /></Link>
+              </div>
                 {/* <Link to={'/profile'}>Profile</Link> */}
-                <button onClick={this.logoutUser}>Logout</button>
+              <div className='nav-links-div'>
+                  <p>{this.props.user.firstName} {this.props.user.lastName}</p>
+                  <div className="logout-button" onClick={this.logoutUser}>LOGOUT</div>
+              </div>
+               
             </div>
         );
       } else {
         return (
-            <div>
-                <Link to={'/signup'}>Signup</Link>
-                <Link to={'/login'}>Login</Link>
+            <div className='navbar-div'>
+              <div className='logo-div'>
+                  <Link to="/"> <img className='logo-img' src={logo} /></Link>
+              </div>
+              <div className='nav-links-div'>
+                <button className="nav-links" onClick={() => this.props.openModal('signup')}>SIGN UP</button>
+                <button className="nav-links" onClick={() => this.props.openModal('login')}>LOG IN</button>
+                {/* <Link className='nav-links' to={'/signup'}>SIGN UP</Link>
+                <Link  className='nav-links' to={'/login'}>LOG IN</Link> */}
+              </div>
             </div>
         );
       }
@@ -35,8 +50,7 @@ class Navbar extends React.Component {
 
   render() {
       return (
-        <div>
-            <h1>MEvert</h1>
+        <div className='navbar-wrapper'>
             { this.getLinks() }
         </div>
       );
