@@ -21,7 +21,7 @@ class Navbar extends React.Component {
         return (
             <div className='navbar-div'>
               <div className='logo-div'>
-                  <img className='logo-img' src={logo} />
+                <Link to="/"> <img className='logo-img' src={logo} /></Link>
               </div>
                 {/* <Link to={'/profile'}>Profile</Link> */}
                 <button onClick={this.logoutUser}>Logout</button>
@@ -31,7 +31,7 @@ class Navbar extends React.Component {
         return (
             <div className='navbar-div'>
               <div className='logo-div'>
-                  <img className='logo-img' src={logo} />
+                  <Link to="/"> <img className='logo-img' src={logo} /></Link>
               </div>
               <div className='nav-links-div'>
                 <Link className='nav-links' to={'/signup'}>SIGN UP</Link>

@@ -71,7 +71,11 @@ class QuizForm extends React.Component {
 
     handleChange(e) {
         console.log("inside handle", e)
-        this.setState({[e.target.htmlFor]: e.target.id, questionCount: this.state.questionCount + 1, checked: e.target.id})
+        if (this.state.questionCount === 9) {
+            this.setState({[e.target.htmlFor]: e.target.id, checked: e.target.id})
+        } else{
+            this.setState({[e.target.htmlFor]: e.target.id, questionCount: this.state.questionCount + 1, checked: e.target.id})
+        }
     } 
 
     renderQuestions(field) {

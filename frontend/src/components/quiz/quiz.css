@@ -74,7 +74,7 @@
     width: 0;
 }
 
-.quiz-question-label:hover {
+.quiz-question-label:hover, .quiz-question-label:active, .quiz-question-label:visited {
     background-color:#5bbd66;
     border: none;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
