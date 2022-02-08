@@ -1,13 +1,14 @@
 import React from "react"
-
+import "./activity.css"
+import Images from "./activity_images"
 
 
 const ActivityIndexItem = ({activity}) => {
 
     return (
-        <div>
-            <div className="card-body">
-                {/* <img src={} className="pup-card-img"/> */}
+        <div className="card-wrapper">
+           <div className="card-body">
+                <img src={Images[activity.title]} className="pup-card-img"/>
                 <div className="pup-card-text">
                     <h1 className="pup-card-name">{activity.title}</h1>
                     <ul className="pup-card-description">
@@ -17,6 +18,7 @@ const ActivityIndexItem = ({activity}) => {
                 </div>
             </div>
         </div>
+            
     )
 
 }

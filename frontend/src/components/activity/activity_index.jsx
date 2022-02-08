@@ -1,5 +1,6 @@
 import React from "react"
 import ActivityIndexItem from "./activity_index_item"
+import "./activity.css"
 
 class ActivityIndex extends React.Component {
 
@@ -35,7 +36,9 @@ class ActivityIndex extends React.Component {
         return(
             <div className="activities-user-outer-div">
                 <h1>Activities for me</h1>
-                {activities.map(activity => <ActivityIndexItem activity={activity} />)}
+                <div className="card-div">
+                        {activities.map(activity => <ActivityIndexItem activity={activity} />)}
+                </div>
             </div>
         )
     }
