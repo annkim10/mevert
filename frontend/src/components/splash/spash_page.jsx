@@ -15,7 +15,6 @@ class SplashPage extends React.Component {
                 </div>
                 <div className="how-to-div">
                     <div className="how-to-inner-div">
-                     
                         <h1>how it works</h1>
                         <div className="how-to-copy-div"> 
                             <div className="take-quiz-div">
@@ -33,11 +32,11 @@ class SplashPage extends React.Component {
                         </div>
                        
                     </div>
-                 
                 </div>
+            </div>
         )
     }
 
-}
+};
 
 export default SplashPage
