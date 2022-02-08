@@ -7,7 +7,6 @@ class SplashPage extends React.Component {
         return (
             <div>
                 <h1>Splash</h1>
-              
             </div>
         )
     }

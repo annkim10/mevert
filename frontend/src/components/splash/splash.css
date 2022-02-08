@@ -3,3 +3,10 @@
     height: 635px;
     object-fit: cover;
 }
+
+.calender{
+    display: flex;
+    margin-left: 700px;
+}
+
+

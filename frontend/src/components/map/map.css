@@ -1,0 +1,28 @@
+/* .map-div {
+    position:absolute; 
+    top:0; 
+    bottom:0; 
+    width:100%;
+} */
+
+body { 
+    margin:0; 
+    padding:0;
+}
+.map-App{
+    display: flex;
+    /* width: 800px; */
+    /* height: 800px; */
+    position: absolute; 
+    /* width: 800px;  */
+    bottom: 10px;
+    top: 80px;
+    height: 600px;
+    margin-left: 450px;
+    /* margin-top: 30px; */
+}
+.map-params{
+    /* display: inline-block; */
+    position: absolute; 
+    
+}
