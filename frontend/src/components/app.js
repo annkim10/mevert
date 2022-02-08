@@ -11,6 +11,7 @@ import NavbarContainer from "./navbar/navbar_container"
 import QuizFormContainer from './quiz/quiz_container';
 import QuizResultsContainer from './quiz/quiz_results_container';
 
+import ProfileContainer from './user_profile/profile';
 const App = () => (
     <div className='app-div'>
         <Modal />
@@ -21,6 +22,9 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignupContainer} /> */}
             <ProtectedRoute exact path="/quiz" component={QuizFormContainer} />
             <ProtectedRoute exact path="/quiz/results" component={QuizResultsContainer} />
+
+            <ProtectedRoute exact path='/users/:userId' component={ProfileContainer} />
+
         </Switch>
         
     </div>
