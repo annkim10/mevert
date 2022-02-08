@@ -38,8 +38,10 @@ class Navbar extends React.Component {
                   <Link to="/"> <img className='logo-img' src={logo} /></Link>
               </div>
               <div className='nav-links-div'>
-                <Link className='nav-links' to={'/signup'}>SIGN UP</Link>
-                <Link  className='nav-links' to={'/login'}>LOG IN</Link>
+                <button className="nav-links" onClick={() => this.props.openModal('signup')}>SIGN UP</button>
+                <button className="nav-links" onClick={() => this.props.openModal('login')}>LOG IN</button>
+                {/* <Link className='nav-links' to={'/signup'}>SIGN UP</Link>
+                <Link  className='nav-links' to={'/login'}>LOG IN</Link> */}
               </div>
             </div>
         );
