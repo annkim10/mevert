@@ -8,12 +8,11 @@ const ActivityIndexItem = ({activity}) => {
     return (
         <div className="card-wrapper">
            <div className="card-body">
-                <img src={Images[activity.title]} className="pup-card-img"/>
-                <div className="pup-card-text">
-                    <h1 className="pup-card-name">{activity.title}</h1>
-                    <ul className="pup-card-description">
-                        <li className="pup-card-age">{activity.type}</li>
-                        <li className="pup-card-breed">{activity.category}</li>
+                <img src={Images[activity.title]} className="activity-card-img"/>
+                <div className="activity-card-text">
+                    <h1 className="activity-card-name">{activity.title}</h1>
+                    <ul className="activity-description">
+                        <li className="activity-type">{activity.type}</li>
                     </ul>
                 </div>
             </div>

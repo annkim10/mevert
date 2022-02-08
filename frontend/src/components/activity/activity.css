@@ -40,29 +40,31 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
-.pup-card-description {
-    background-color: blueviolet;
+.activity-card-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #0b6565;
+}
+
+.activity-description {
     color: rgb(65, 65, 65);
-    font-size: 12px;
-    font-weight: 300;
     text-align: center;
     text-overflow: hidden;
     padding-top: 10px;
 }
 
-.pup-card-age {
+.activity-type {
     padding: 3px;
-    font-weight: 600;
+    font-weight: 300;
+    font-size: 17px
 }
 
-.pup-card-breed {
-    padding: 8px;
-    text-overflow: ellipsis;
-}
-
-.pup-card-img {
+.activity-card-img {
     width: 260px;
+    height: 150px;
     object-fit: cover;
 }
