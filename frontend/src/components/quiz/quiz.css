@@ -66,6 +66,7 @@
     border: 1px solid white;
     border-radius: 40px;
     color: white;
+    cursor: pointer;
 }
 
 .quiz-question-label > input[type="radio"], .quiz-question-label-active > input[type="radio"]   {
@@ -89,4 +90,18 @@
     border-radius: 40px;
     color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.quiz-form-button {
+    margin-top: 40px;
+    width: fit-content;
+    padding: 5px 10px;
+    background-color: #0749496e;
+    border: none;
+    font-size: 15px;
+    color: white;
+}
+
+.quiz-form-button:hover {
+    cursor: pointer;
 }

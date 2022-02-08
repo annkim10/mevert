@@ -1,5 +1,6 @@
 import React from "react";
 import "./quiz.css"
+import QuizResults from "./quiz_results";
 
 class QuizForm extends React.Component {
 
@@ -65,9 +66,9 @@ class QuizForm extends React.Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
-    // componentDidMount() {
-      
-    // }
+    componentDidMount() {
+      window.scroll(0,0)
+    }
 
     handleChange(e) {
         console.log("inside handle", e)
@@ -77,13 +78,25 @@ class QuizForm extends React.Component {
             this.setState({[e.target.htmlFor]: e.target.id, checked: e.target.innerText})
         }
     } 
-    // questionCount: this.state.questionCount + 1
+    
+    checkComplete() {
+        let question = this.questions[this.state.questionCount]
+        if (!this.state[question]) {
+            return <h1>Please select an answer</h1>
+        } else {
+            return null
+        }
+    }
 
     renderButton() {
          if (this.state.questionCount === 9) {
-             return <button>GET RESULTS</button>
+             return <button className="quiz-form-button" onClick={() => this.props.history.push('/quizresults')}>GET RESULTS</button>
          } else {
-             return <button onClick={() => this.setState({questionCount: this.state.questionCount + 1}, () => {return null})}>NEXT</button>
+             return (
+                 <div>
+                     <button className="quiz-form-button" onClick={() => this.setState({questionCount: this.state.questionCount + 1}, () => {return null})}>NEXT</button>
+                 </div>
+             )
          }
     }
 
@@ -96,9 +109,9 @@ class QuizForm extends React.Component {
                     <div className="question-choice-div">
                         {this.state.quiz[field].answers.map((answer, idx) => {
                             return (
-                                <div> 
-                                    <label onClick={this.handleChange} className={this.state.checked === answer ? "quiz-question-label-active" : "quiz-question-label"} key={idx} id={idx} htmlFor={field}>{answer}
-                                        <input type="radio" className="quiz-question-input" name={field} id={idx} value={answer} checked={this.state.checked === idx} />
+                                <div key={idx} > 
+                                    <label onClick={this.handleChange} className={this.state.checked === answer ? "quiz-question-label-active" : "quiz-question-label"} id={idx} htmlFor={field}>{answer}
+                                        <input type="radio" className="quiz-question-input" name={field} id={idx} value={answer} defaultChecked={this.state.checked === idx} />
                                     </label>
                                 </div>
                             )}) 
@@ -110,7 +123,7 @@ class QuizForm extends React.Component {
     }
 
     render() {
-        console.log("render", this.state)
+        console.log("render", this.props)
         return(
             <div className="quiz-form-outer-div">
                 <div className="quiz-form-header-div">
@@ -119,7 +132,6 @@ class QuizForm extends React.Component {
                 </div>
                 <form className="quiz-form-container">
                     {this.renderQuestions(this.questions[this.state.questionCount])}
-                    
                 </form>
             </div>
         )
