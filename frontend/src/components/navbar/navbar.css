@@ -42,15 +42,20 @@
     margin-left: 50%
 }
 
-.nav-links {
+.nav-links, .logout-button {
     width: 100px;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
-.nav-links:hover {
+.nav-links:hover, .logout-button:hover {
     background-color: rgb(236, 236, 236);
     border-radius: 40px;
+}
+
+.nav-links-div > p {
+    text-transform: uppercase;
 }

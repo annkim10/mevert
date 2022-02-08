@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
+const quiz = require("./routes/api/quizzes")
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
+app.use("/api/quiz", quiz)
 app.use(passport.initialize());
 require('./config/passport')(passport);
 

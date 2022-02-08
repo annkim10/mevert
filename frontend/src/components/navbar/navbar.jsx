@@ -24,7 +24,11 @@ class Navbar extends React.Component {
                 <Link to="/"> <img className='logo-img' src={logo} /></Link>
               </div>
                 {/* <Link to={'/profile'}>Profile</Link> */}
-                <button onClick={this.logoutUser}>Logout</button>
+              <div className='nav-links-div'>
+                  <p>{this.props.user.firstName} {this.props.user.lastName}</p>
+                  <div className="logout-button" onClick={this.logoutUser}>LOGOUT</div>
+              </div>
+               
             </div>
         );
       } else {

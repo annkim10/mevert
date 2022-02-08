@@ -64,6 +64,7 @@ class QuizForm extends React.Component {
         }
         this.questions = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10']
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     componentDidMount() {
@@ -88,9 +89,30 @@ class QuizForm extends React.Component {
         }
     }
 
+    handleSubmit(e) {
+        e.preventDefault()
+        const quizResults = {
+            userId: this.props.user.id,
+            quiz: [
+                this.state.q1,
+                this.state.q2,
+                this.state.q3,
+                this.state.q4,
+                this.state.q5,
+                this.state.q6,
+                this.state.q7,
+                this.state.q8,
+                this.state.q9,
+                this.state.q10
+            ]
+        }
+        console.log("results", quizResults)
+        this.props.postQuiz(quizResults).then(this.props.history.push('/quiz/results'))
+    }
+
     renderButton() {
          if (this.state.questionCount === 9) {
-             return <button className="quiz-form-button" onClick={() => this.props.history.push('/quizresults')}>GET RESULTS</button>
+             return <button className="quiz-form-button" onClick={this.handleSubmit}>GET RESULTS</button>
          } else {
              return (
                  <div>
