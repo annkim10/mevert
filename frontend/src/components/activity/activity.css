@@ -1,0 +1,70 @@
+.activities-user-outer-div {
+    font-family: 'Roboto Condensed', sans-serif;
+    min-width: 1224px;
+    max-width: 1420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.activities-user-outer-div > h1 {
+    font-size: 35px;
+    font-weight: 300;
+    color: #0b6565;
+    padding-bottom: 50px
+}
+
+
+.card-div {
+    margin-top: 20px;
+    min-width: 50%;
+    min-height: 400px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.card-wrapper {
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 250px;
+    border-radius: 40px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    cursor: pointer;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.activity-card-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #0b6565;
+}
+
+.activity-description {
+    color: rgb(65, 65, 65);
+    text-align: center;
+    text-overflow: hidden;
+    padding-top: 10px;
+}
+
+.activity-type {
+    padding: 3px;
+    font-weight: 300;
+    font-size: 17px
+}
+
+.activity-card-img {
+    width: 260px;
+    height: 150px;
+    object-fit: cover;
+}

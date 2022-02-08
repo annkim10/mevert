@@ -7,12 +7,15 @@ class ActivityShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getactivity(this.props.match.params.activityId)
+        // this.props.getactivity(this.props.match.params.activityId)
     }
 
     render() {
+        console.log("inside show", this.props)
         return(
-            this.props.activity
+            <div>
+                <h1>activity show</h1>
+            </div>
         )
     }
 

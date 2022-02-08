@@ -10,6 +10,8 @@ import SplashPage from "./splash/spash_page"
 import NavbarContainer from "./navbar/navbar_container"
 import QuizFormContainer from './quiz/quiz_container';
 import QuizResultsContainer from './quiz/quiz_results_container';
+import ActivityContainer from './activity/activity_container';
+import ActivityShowContainer from "./activity/activity_show_container"
 
 import ProfileContainer from './user_profile/profile';
 const App = () => (
@@ -22,9 +24,9 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignupContainer} /> */}
             <ProtectedRoute exact path="/quiz" component={QuizFormContainer} />
             <ProtectedRoute exact path="/quiz/results" component={QuizResultsContainer} />
-
+            <ProtectedRoute exact path="/activities" component={ActivityContainer} />
+            <ProtectedRoute exact path="/activities/:activityId" component={ActivityShowContainer} />
             <ProtectedRoute exact path='/users/:userId' component={ProfileContainer} />
-
         </Switch>
         
     </div>
