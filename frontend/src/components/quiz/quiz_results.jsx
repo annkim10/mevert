@@ -30,6 +30,7 @@ class QuizResults extends React.Component {
                         <progress className="progress-bar" id="file" value={intro} max="100"> {intro.toString() + '%'} </progress>
                     </div>
                 </div>
+                <button onClick={() => this.props.history.push({ pathname:'/activities', state: {extro: extro, intro: intro} })}>GENERATE ACTIVITIES</button>
             </div>
         )
     }

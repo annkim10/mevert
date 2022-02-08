@@ -10,6 +10,7 @@ import SplashPage from "./splash/spash_page"
 import NavbarContainer from "./navbar/navbar_container"
 import QuizFormContainer from './quiz/quiz_container';
 import QuizResultsContainer from './quiz/quiz_results_container';
+import ActivityContainer from './activity/activity_container';
 
 const App = () => (
     <div className='app-div'>
@@ -21,6 +22,7 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignupContainer} /> */}
             <ProtectedRoute exact path="/quiz" component={QuizFormContainer} />
             <ProtectedRoute exact path="/quiz/results" component={QuizResultsContainer} />
+            <ProtectedRoute exact path="/activities" component={ActivityContainer} />
         </Switch>
         
     </div>
