@@ -72,11 +72,20 @@ class QuizForm extends React.Component {
     handleChange(e) {
         console.log("inside handle", e)
         if (this.state.questionCount === 9) {
-            this.setState({[e.target.htmlFor]: e.target.id, checked: e.target.id})
+            this.setState({[e.target.htmlFor]: e.target.id, checked: e.target.innerText})
         } else{
-            this.setState({[e.target.htmlFor]: e.target.id, questionCount: this.state.questionCount + 1, checked: e.target.id})
+            this.setState({[e.target.htmlFor]: e.target.id, checked: e.target.innerText})
         }
     } 
+    // questionCount: this.state.questionCount + 1
+
+    renderButton() {
+         if (this.state.questionCount === 9) {
+             return <button>GET RESULTS</button>
+         } else {
+             return <button onClick={() => this.setState({questionCount: this.state.questionCount + 1}, () => {return null})}>NEXT</button>
+         }
+    }
 
     renderQuestions(field) {
             console.log("field", field, this.state.field)
@@ -88,13 +97,14 @@ class QuizForm extends React.Component {
                         {this.state.quiz[field].answers.map((answer, idx) => {
                             return (
                                 <div> 
-                                    <label onClick={this.handleChange} className="quiz-question-label" key={idx} id={idx} htmlFor={field}>{answer}
+                                    <label onClick={this.handleChange} className={this.state.checked === answer ? "quiz-question-label-active" : "quiz-question-label"} key={idx} id={idx} htmlFor={field}>{answer}
                                         <input type="radio" className="quiz-question-input" name={field} id={idx} value={answer} checked={this.state.checked === idx} />
                                     </label>
                                 </div>
                             )}) 
                         }                     
                     </div>
+                    {this.renderButton()}
                 </div>
             )
     }
@@ -109,6 +119,7 @@ class QuizForm extends React.Component {
                 </div>
                 <form className="quiz-form-container">
                     {this.renderQuestions(this.questions[this.state.questionCount])}
+                    
                 </form>
             </div>
         )

@@ -68,14 +68,25 @@
     color: white;
 }
 
-.quiz-question-label input[type="radio"] {
+.quiz-question-label > input[type="radio"], .quiz-question-label-active > input[type="radio"]   {
     opacity: 0;
     position: fixed;
     width: 0;
 }
 
-.quiz-question-label:hover, .quiz-question-label:active, .quiz-question-label:visited {
+/* .quiz-question-label:hover {
     background-color:#5bbd66;
     border: none;
+  
+} */
+
+.quiz-question-label-active {
+    display: inline-block;
+    background-color: #5bbd66;
+    padding: 15px 50px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border-radius: 40px;
+    color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
