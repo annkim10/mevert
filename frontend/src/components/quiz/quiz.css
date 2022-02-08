@@ -105,3 +105,10 @@
 .quiz-form-button:hover {
     cursor: pointer;
 }
+
+
+/* RESULTS PAGE */
+
+.quiz-results-outer-div {
+    font-family: 'Roboto Condensed', sans-serif;
+}
