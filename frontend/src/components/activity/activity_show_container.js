@@ -1,12 +1,12 @@
 import {connect} from "react-redux"
-import {fetchActivity} from "../../actions/activity_actions"
+import {fetchActivity} from "../../actions/activity_action"
 import ActivityShow from "./activity_show"
 
-mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, ownProps) => ({
     activity: state.activities[ownProps.match.params.activityId]
 })
 
-mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
     getactivity: id => dispatch(fetchActivity(id))
 })
 

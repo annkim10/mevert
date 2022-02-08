@@ -1,4 +1,4 @@
-import {RECEIVE_ACTIVITIES, RECEIVE_ACTIVITY} from "../actions/activity_actions"
+import {RECEIVE_ACTIVITIES, RECEIVE_ACTIVITY} from "../actions/activity_action"
 
 const ActivityReducer = (state={}, action) => {
     Object.freeze(state)

@@ -12,8 +12,9 @@ class ActivityIndex extends React.Component {
     }
 
     render() {
+        console.log(this.props.activities)
         return(
-            console.log(this.props.activities)
+            <h1>Test</h1>
         )
     }
 }
