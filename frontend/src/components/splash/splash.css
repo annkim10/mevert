@@ -95,3 +95,9 @@
     font-size: 17px;
     font-weight: 300;
 }
+
+.calender{
+    display: flex;
+    margin-left: 700px;
+}
+

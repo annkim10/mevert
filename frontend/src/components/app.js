@@ -22,6 +22,7 @@ const App = () => (
             <ProtectedRoute exact path="/quiz" component={QuizFormContainer} />
             <ProtectedRoute exact path="/quiz/results" component={QuizResultsContainer} />
         </Switch>
+        
     </div>
 );
 
