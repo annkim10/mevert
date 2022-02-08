@@ -13,9 +13,12 @@ class SplashPage extends React.Component {
                     <h1 className="splash-header">Everyone is different.</h1>
                     <p className="splash-main">Carpe Diem <span>your</span> <span>way</span> with personalized activity suggestions.</p>
                 </div>
-                <div className="how-div">
-                    <Link to="/quiz">QUIZ</Link>
-                    <h1>how it works</h1>
+                <div className="how-to-div">
+                    <div className="how-to-inner-div">
+                        <Link to="/quiz">QUIZ</Link>
+                        <h1>how it works</h1>
+                    </div>
+                 
                 </div>
                 
                 
