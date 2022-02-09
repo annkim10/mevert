@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const CalendarSchema = new Schema({
+const EventSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
@@ -24,4 +24,4 @@ const CalendarSchema = new Schema({
     timestamps: true
 })
 
-module.exports = Calendar = mongoose.model('Calendar', CalendarSchema);
+module.exports = Event = mongoose.model('Event', EventSchema);
