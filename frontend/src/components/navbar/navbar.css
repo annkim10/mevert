@@ -64,3 +64,10 @@
 .nav-links-div > p {
     text-transform: uppercase;
 }
+
+.user-show-link{
+    cursor: pointer;
+    color: rgb(44, 44, 44);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 18px
+}

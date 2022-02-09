@@ -4,13 +4,15 @@ import errors from "./errors_reducer"
 import quiz from "./secondary/quiz_reducer"
 import modal from "./secondary/modal_reducer"
 import activities from "./activity_reducer"
+import calendar from './secondary/calendar_reducer'
 
 const RootReducer = combineReducers({
   session,
   errors,
   quiz,
   modal,
-  activities
+  activities,
+  calendar
 });
 
 export default RootReducer;
