@@ -7,10 +7,17 @@ class ActivityShow extends React.Component {
 
     constructor(props) {
         super(props)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     componentDidMount() {
         this.props.getactivity(this.props.match.params.activityId)
+    }
+
+    handleSubmit(e) {
+        e.preventDefault()
+        const activityData = {activityId: this.props.match.params.activityId}
+        this.props.postUserActivity(this.props.currentUser.id, activityData)
     }
 
     render() {
@@ -36,7 +43,7 @@ class ActivityShow extends React.Component {
                                 <h1 className="activity-accessibility"><span><FiInfo /></span> Accessibility</h1>
                                 <p>{activity.accessibility}</p>
                             </div>
-                            <button>ADD TO MY PLAN</button>
+                            <button onClick={this.handleSubmit}>ADD TO MY PLAN</button>
                         </div>
                     </div>
                 </div>

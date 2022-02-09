@@ -105,17 +105,18 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
 // POST ACTIVITY TO USER 
 
 router.post("/:id/activities", (req, res) => {
-  
-  User.findOne({ "_id": req.params.id }).then( user => {
+
+   User.findOne({ "_id": req.params.id }).then( user => {
         if (!user) {
            res.status(400).send("User is not found");
         } else {
-            user.updateOne({ _id: req.params.id }, { $addToSet: { activities: req.body.activityId } }) 
-            res.json({user: user})
+            user.activities.push(req.body.activityId)
+            user.save()
+            res.json(user)
         }
     });
+  
 }); 
-
 
 
 module.exports = router;
