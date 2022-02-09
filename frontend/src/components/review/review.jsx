@@ -1,0 +1,69 @@
+import React from "react"
+import {BsLightningChargeFill} from "react-icons/bs"
+import {useState} from "react"
+import "./review.css"
+
+class Review extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = this.props.review
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleSubmit(e) {
+        e.preventDefault()
+        this.props.createreview(this.state)
+        
+    }
+
+    update(field) {
+        return e => {
+            this.setState({ [field]: e.currentTarget.value })
+        }
+    }
+
+    // updatehover(ratingValue) {
+    //     return e => {
+    //         this.setState({ ["hover"]: ratingValue })
+    //     }
+    // }
+
+    componentDidMount() {
+        this.props.getactivity(this.props.match.params.activityId)
+    }
+
+
+    render() {
+        // console.log(this.props.activity)
+        return(
+            <div id="outterreviewpagediv">
+                <h1 id="reviewheader">New Diary Entry</h1>
+                <form id="reviewformouter" onSubmit={this.handleSubmit}>
+                    
+                    <label id="reviewratingdiv"  >How did this activity make you feel?
+                    <div id="lightradio">
+                    {[...Array(5)].map((star,i) => {
+                        const ratingValue = i + 1
+                        return(
+                        <label id="lightradio" key={i}>
+                            <input id="lighteningradioinput" type="radio" value={ratingValue} onChange={this.update("ratings")}/>
+                            <BsLightningChargeFill color={ratingValue <= this.state.ratings ? "#4eeb1e" : "#e4e5e9"} id="lighteningratinginreview" size={35}/>
+                        </label>
+                    )})}
+                    </div>
+                    </label>
+                
+                    <label id="reviewtitleentry">Diary Entry Title
+                        <input id="reviewtitleinput" type="text" value={this.state.title} placeholder="What was the most important takeaway from this activity?" onChange={this.update("title")}/>
+                    </label>
+                    <label id="reviewbodyentry">Diary Entry
+                        <input id="reviewbodyinput" type="text" value={this.state.body} placeholder="What did you like and dislike about this activity? Would you want to do again? Write down all your thoughts" onChange={this.update("body")}/>
+                    </label>
+                    <input id="reviewsubmit" type="submit" value="Submit Review"/>        
+                </form>
+            </div>
+        )
+    }
+}
+
+export default Review

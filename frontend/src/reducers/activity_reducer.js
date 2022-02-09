@@ -7,7 +7,7 @@ const ActivityReducer = (state={}, action) => {
         case RECEIVE_ACTIVITIES:
             return action.activities 
         case RECEIVE_ACTIVITY:
-            nextState[action.activity._id] = action.activity 
+            nextState[action.activity.data._id] = action.activity.data 
             return nextState 
         default: 
             return state 
