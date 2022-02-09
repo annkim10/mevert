@@ -15,4 +15,9 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(400).json(err))
 })
 
+router.patch("/:id", (req, res) => {
+    Activity.findByIdAndUpdate(req.params.id, req.body)
+    .then(activity => res.json(activity)) 
+})
+
 module.exports = router;
