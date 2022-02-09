@@ -21,9 +21,6 @@ const UserSchema = new Schema({
   },
   quiz: {
     type: Array
-  },
-  activities: {
-    type: Array
   }
 }, {
   timestamps: true

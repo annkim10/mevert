@@ -24,7 +24,7 @@ require('./config/passport')(passport);
 app.use("/api/activities", activities)
 app.use("/api/calendar", calendar)
 
-app.get("/", (req, res) => res.send("Hello World"));
+// app.get("/", (req, res) => res.send("Hello World"));
 const port = process.env.PORT || 8001;
 
 

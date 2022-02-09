@@ -1,7 +1,5 @@
 import React from "react"
 import "./quiz.css"
-import introvert from "../../assets/introvert.jpg"
-import extrovert from "../../assets/extrovert.jpg"
 
 class QuizResults extends React.Component {
 
@@ -9,6 +7,8 @@ class QuizResults extends React.Component {
         super(props)
     }
 
+    
+    
     render() {
         
         const { quiz } = this.props
@@ -23,38 +23,14 @@ class QuizResults extends React.Component {
             <div className="quiz-results-outer-div">
                 <h1>YOUR RESULTS</h1>
                 <div className="results-div">
-                    <div className="score-wrapper">
-                        <div className="score-div">
-                            <div className="score-header-div">
-                                <h1 className="score">{intro}<span>%</span></h1>
-                                <p className="score-label">INTROVERT</p>
-                            </div>
-                            <div className="img-div" >
-                                <img className="intro-img" src={introvert} />
-                            </div>
-                            <div className="descrip-div">
-                                <p className="descrip">Introverts are characterized as being reserved, withdrawn, and introspective with small social circles.</p>
-                            </div>     
-                        </div>
-                        <div className="score-div">
-                            <div className="score-header-div">
-                                <h1 className="score">{extro}<span>%</span></h1>
-                                <p className="score-label">EXTROVERT</p>
-                            </div>
-                            <div className="img-div" >
-                                <img className="img" src={extrovert} />
-                            </div>
-                            <div className="descrip-div">
-                                <p className="descrip">Extroverts are typically described as being outgoing, fun-loving, friendly, and talkative.</p>
-                            </div>     
-                        </div>
-                    </div>    
+                    <h1>You are {extro}% Extrovert, {intro}% Introvert  </h1>
                 </div>
-                <div className="quiz-results-lower-div">
-                    <div className="quiz-results-button-div">
-                      <button onClick={() => this.props.history.push({ pathname:'/activities', state: {extro: extro, intro: intro} })}>GENERATE ACTIVITIES</button>
+                <div className="bar-graph-div">
+                    <div className="bar-graph">
+                        <progress className="progress-bar" id="file" value={intro} max="100"> {intro.toString() + '%'} </progress>
                     </div>
                 </div>
+                <button onClick={() => this.props.history.push({ pathname:'/activities', state: {extro: extro, intro: intro} })}>GENERATE ACTIVITIES</button>
             </div>
         )
     }
