@@ -12,15 +12,16 @@ class AddEvent extends React.Component {
             title: '',
             start: new Date(),
             end: new Date(),
-            user_id: this.props.user.id
+            // user_id: this.props.user.id
         })
         this.handleSubmit = this.handleSubmit.bind(this)
         // this.update = this.update.bind(this)
     }
 
     handleSubmit(e){
+        // debugger
         e.preventDefault();
-        this.props.createEvent(this.state);
+        this.props.createEvent(this.state).then(this.props.closeModal)
         // this.props.closeModal();
     }
 
@@ -49,8 +50,9 @@ class AddEvent extends React.Component {
                         <Datetime value={this.state.end} onChange={moment => this.handleDateTimePicker(moment, 'end')}/>
                     </div>
 
-                    <button onClick={this.props.closeModal} type='button' className="event-save">Save</button>
+                    <button onClick={this.handleSubmit} type='button' className="event-save">Save</button>
                     <button onClick={this.props.closeModal} type='button' className="event-cancel">Cancel</button>
+                    
                 </form>
             </div>
         )

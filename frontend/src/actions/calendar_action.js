@@ -19,7 +19,7 @@ export const receiveNewEvent = event => ({
   event
 })
 
-export const fetchEvent = () => dispatch => (
+export const fetchEvents = () => dispatch => (
     CalendarApiUtil.getEvents()
     .then(events => dispatch(receiveEvents(events)))
     .catch(err => console.log(err))
@@ -31,8 +31,9 @@ export const getUserEvents = id => dispatch => (
     .catch(err => console.log(err))
 );
 
-export const createEvent = event => dispatch => (
-    CalendarApiUtil.createEvent(event)
+export const createEvent = event => dispatch => {
+  // debugger
+    return CalendarApiUtil.createEvent(event)
     .then(event => dispatch(receiveNewEvent(event)))
     .catch(err => console.log(err))
-);
+};

@@ -1,21 +1,22 @@
 import React from 'react';
 import FullCalendar from '@fullcalendar/react'; // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from "@fullcalendar/interaction";
 import { connect } from 'react-redux';
 import {openModal} from '../../actions/modal_actions';
 import moment from 'moment';
 import axios from 'axios';
-
+import {getUserEvents} from '../../actions/calendar_action';
 
  class  Calendar extends React.Component {
     
     constructor(props){
         super(props)
         this.calendarRef = null;
-        this.events =[]
+        // this.events =[]
         // this.setEvents = []
 
-        this.handleEventAdd = this.handleEventAdd.bind(this)
+        // this.handleEventAdd = this.handleEventAdd.bind(this)
     }
     // const calendarRef = useState(null);
     // const [events, setEvents] = useState([]);
@@ -26,33 +27,45 @@ import axios from 'axios';
             start: moment(event.start).toDate(),
             end: moment(event.end).toDate(),
             title: event.title,
-            user_id: this.props.user.id
+            // user_id: this.props.user.id
         })
     }
 
-    handleEventAdd(data) {
-        console.log("hello")
-        axios.post('/api/calendar/createEvent', data.event)
-    }
+    // handleEventAdd(data) {
+    //     // console.log("hello")
+    //     axios.post('/api/calendar/createEvent', data.event)
+    // }
    
-    handleDatesSet(data){
-        // console.log("from datesset")
-        const response = axios.get('/api/calendar/events?start='+moment(data.start).toISOString()
-        +'&end='+moment(data.end).toISOString())
-        this.events.push(response.data);
-    }
+    // handleDatesSet(data){
+    //     // console.log(this.props.events)
+    //     // console.log("from datesset")
+    //     const response = axios.get('/api/calendar/events?start='+moment(data.start).toISOString()
+    //     +'&end='+moment(data.end).toISOString())
+    //     // this.events.props.push(response.data);
+    // }
     render(){
+        let events = [];
+        this.props.allEvents.forEach(event => {
+            let eventObj = {
+                title: event.title,
+                start: event.start,
+                end: event.end
+            }
+            events.push(eventObj)
+        })
+        console.log(events)
+
         return (
             <section >
                 <button onClick={() => this.props.openModal('addEvent')}>Add Event</button>
                 <div className='calendar-div'>
                     <FullCalendar
                         ref={this.calendarRef}
-                        events={this.events}
-                        plugins={[ dayGridPlugin ]}
+                        events={events}
+                        plugins={[ dayGridPlugin, interactionPlugin ]}
                         initialView="dayGridMonth"
-                        eventAdd={(event) => this.handleEventAdd(event)}
-                        datesSet={(date) => this.handleDatesSet(date)}
+                        // eventAdd={(event) => this.handleEventAdd(event)}
+                        // datesSet={(date) => this.handleDatesSet(date)}
                     />
                 </div>
             </section>
@@ -61,12 +74,17 @@ import axios from 'axios';
 }
 
 
-const mapStateToProps = state => ({
-  user: state.session.user
-});
+const mapStateToProps = state => {
+    let user = state.session.user
+    return ({
+        user,
+        allEvents: Object.values(state.calendar.all).filter(event => event.user == user.id)
+    })
+};
 
 const mapDispatchToProps = dispatch => ({
-  openModal: modal => dispatch(openModal(modal)),
+    openModal: modal => dispatch(openModal(modal)),
+    getUserEvents: user_id => dispatch(getUserEvents(user_id))
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )(Calendar);
