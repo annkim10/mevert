@@ -52,6 +52,7 @@ class QuizResults extends React.Component {
                 </div>
                 <div className="quiz-results-lower-div">
                     <div className="quiz-results-button-div">
+                      <h1>See your curated list of activities</h1>
                       <button onClick={() => this.props.history.push({ pathname:'/activities', state: {extro: extro, intro: intro} })}>GENERATE ACTIVITIES</button>
                     </div>
                 </div>
