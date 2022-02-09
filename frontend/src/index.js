@@ -7,6 +7,7 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import "./index.css"
 
+import "react-datetime/css/react-datetime.css";
 import './components/map/map.css'
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -6,9 +6,9 @@ module.exports = function validateCalendarInput(data) {
 
     data.title = validText(data.title) ? data.title : '';
 
-    if (!Validator.isLength(data.title, { min: 2, max: 10 })) {
-        errors.title = 'Event Title must be between 2 and 10 characters';
-    }
+    // if (!Validator.isLength(data.title, { min: 2, max: 10 })) {
+    //     errors.title = 'Event Title must be between 2 and 10 characters';
+    // }
 
     if (Validator.isEmpty(data.title)) {
         errors.title = 'Title field is required';
