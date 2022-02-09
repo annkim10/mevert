@@ -1,7 +1,6 @@
 import React from 'react';
 import FullCalendar from '@fullcalendar/react'; // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
-// import interactionPlugin from "@fullcalendar/interaction";
 import { connect } from 'react-redux';
 import {openModal} from '../../actions/modal_actions';
 import moment from 'moment';
@@ -14,7 +13,9 @@ import axios from 'axios';
         super(props)
         this.calendarRef = null;
         this.events =[]
-        this.setEvents = []
+        // this.setEvents = []
+
+        this.handleEventAdd = this.handleEventAdd.bind(this)
     }
     // const calendarRef = useState(null);
     // const [events, setEvents] = useState([]);
@@ -25,18 +26,20 @@ import axios from 'axios';
             start: moment(event.start).toDate(),
             end: moment(event.end).toDate(),
             title: event.title,
-            // user_id: this.props.user.id
+            user_id: this.props.user.id
         })
     }
 
     handleEventAdd(data) {
+        console.log("hello")
         axios.post('/api/calendar/createEvent', data.event)
     }
    
     handleDatesSet(data){
+        // console.log("from datesset")
         const response = axios.get('/api/calendar/events?start='+moment(data.start).toISOString()
         +'&end='+moment(data.end).toISOString())
-        this.setEvents = (response.data);
+        this.events.push(response.data);
     }
     render(){
         return (
@@ -49,7 +52,7 @@ import axios from 'axios';
                         plugins={[ dayGridPlugin ]}
                         initialView="dayGridMonth"
                         eventAdd={(event) => this.handleEventAdd(event)}
-                        // datesSet={(date) => this.handleDatesSet(date)}
+                        datesSet={(date) => this.handleDatesSet(date)}
                     />
                 </div>
             </section>

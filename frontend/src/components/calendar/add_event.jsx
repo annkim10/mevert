@@ -15,7 +15,7 @@ class AddEvent extends React.Component {
             user_id: this.props.user.id
         })
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.update = this.update.bind(this)
+        // this.update = this.update.bind(this)
     }
 
     handleSubmit(e){
