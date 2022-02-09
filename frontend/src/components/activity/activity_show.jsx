@@ -1,5 +1,7 @@
 import React from "react"
 import Images from "./activity_images"
+import { BiCategory } from "react-icons/bi"
+import { FiInfo } from "react-icons/fi"
 
 class ActivityShow extends React.Component {
 
@@ -25,7 +27,17 @@ class ActivityShow extends React.Component {
                     </div>
                     <div className="activity-show-description">
                         <h1 className="activity-show-main-header">{activity.title}</h1>
-                        
+                        <div className="activity-show-description">
+                            <div className="activity-show-category">
+                                <h1 className="activity-type"><span><BiCategory /></span> Type</h1>
+                                <p>{activity.type}</p>
+                            </div>
+                            <div className="activity-show-accessibility">
+                                <h1 className="activity-accessibility"><span><FiInfo /></span> Accessibility</h1>
+                                <p>{activity.accessibility}</p>
+                            </div>
+                            <button>ADD TO MY PLAN</button>
+                        </div>
                     </div>
                 </div>
             </div>
