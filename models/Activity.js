@@ -28,7 +28,7 @@ const ActivitySchema = new Schema ({
     },
 
     link: {
-        type: Array,
+        type: Object,
         required: true 
     },
     reviews: {
