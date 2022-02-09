@@ -22,7 +22,7 @@ class SplashPage extends React.Component {
                                 <p>Are you more of an Introvert or an Extrovert?</p>
                             </div>
                             <div className="activities-div">
-                                <h1>Get curated activities</h1>
+                                <h1>Get personalized activities</h1>
                                 <p>Things to do that are tailored to your personality traits</p>
                             </div>
                             <div className="planner-div">

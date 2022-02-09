@@ -13,11 +13,6 @@ export const signup = (userData) => {
 };
 
 export const login = (userData) => {
-  debugger
   return axios.post('/api/users/login', userData);
 };
 
-export const postUserActivity = (userId, activityId) => {
-  debugger
-   return axios.post(`/api/users/${userId}/activities`, activityId)
-};

@@ -1,7 +1,7 @@
 import * as APIUtil from '../util/session_api_util';
 import jwt_decode from 'jwt-decode';
 
-//SESSION
+
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
@@ -53,21 +53,3 @@ export const logout = () => dispatch => {
     APIUtil.setAuthToken(false)
     dispatch(logoutUser())
 };
-
-
-
-//ACTIVITIES
-export const ADD_USER_ACTIVITY = "ADD_USER_ACTIVITY"
-
-const addUserActivity = userActivities => ({
-    type: ADD_USER_ACTIVITY,
-    userActivities
-})
-
-export const postUserActivity = (userId, activityId) => dispatch => (
-    APIUtil.postUserActivity(userId, activityId).then(res => {
-        dispatch(addUserActivity(res.data.activities))
-    }, err => (
-        dispatch(receiveErrors(err.response.data))
-    ))
-)

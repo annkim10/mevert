@@ -7,4 +7,3 @@ export const getActivities = () => {
 export const getActivity = id => {
     return axios.get(`/api/activities/${id}`)
 }
-
