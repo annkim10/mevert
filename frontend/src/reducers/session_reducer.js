@@ -1,4 +1,4 @@
-import { RECEIVE_USER_LOGOUT, RECEIVE_CURRENT_USER, RECEIVE_USER_SIGN_IN } from '../actions/session_actions';
+import { RECEIVE_USER_LOGOUT, RECEIVE_CURRENT_USER, RECEIVE_USER_SIGN_IN, ADD_USER_ACTIVITY } from '../actions/session_actions';
 
 const initialState = {
   isAuthenticated: false,
@@ -22,6 +22,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isSignedIn: true
+      };
+    case ADD_USER_ACTIVITY:
+      return {
+        ...state, 
+        userActivities: action.userActivities
       };
     default:
       return state;
