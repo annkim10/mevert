@@ -1,5 +1,6 @@
+/* ACTVITIES INDEX */
+
 .activities-user-outer-div {
-    font-family: 'Roboto Condensed', sans-serif;
     min-width: 1224px;
     max-width: 1420px;
     display: flex;
@@ -13,7 +14,6 @@
     color: #0b6565;
     padding-bottom: 50px
 }
-
 
 .card-div {
     margin-top: 20px;
@@ -43,11 +43,19 @@
     overflow: hidden;
 }
 
+.activity-card-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .activity-card-name {
     font-size: 15px;
     font-weight: 600;
     margin-top: 20px;
     color: #0b6565;
+    text-align: center;
 }
 
 .activity-description {
@@ -67,4 +75,222 @@
     width: 260px;
     height: 150px;
     object-fit: cover;
+}
+
+
+/* ACTIVITY SHOW PAGE */
+
+.activity-img {
+    width: 600px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.activity-show-outer-div {
+    min-width: 1024px;
+    max-width: 1220px;
+    min-height: 1500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-show-main-div {
+    display: flex;
+    height: 450px;
+    width: 100%;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border: 1px solid rgb(236, 236, 236);
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.activity-show-description {
+    padding: 0 0 20px 30px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem
+}
+
+.activity-show-main-header {
+    width: 60%;
+    font-size: 30px;
+    color: #0b6565;
+    font-weight: 700;
+    padding-top: 40px;
+    padding-left: 25px;
+    line-height: 1.4;
+}
+
+.activity-show-description h2 {
+    font-size: 20px;
+    font-weight: 300
+}
+
+.activity-show-description p {
+    font-weight: 700;
+    color:#689d9d;
+    padding-top: 10px;
+}
+
+.add-activity-button {
+    margin-top: 20px;
+    background-color: rgb(236, 236, 236);
+    height: 40px;
+    width: 180px;
+    border-radius: 40px;
+    border: none;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 0 15px
+}
+
+.add-activity-button:hover {
+    background-color: #e4e4e4;
+    height: 40px;
+    width: 180px;
+    border-radius: 40px;
+    border: none;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 0 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    cursor: pointer;
+}
+
+.activity-icon {
+    font-size: 1rem;
+}
+
+.activity-icon-add {
+    font-size: 1.3rem;
+    padding: 2px
+}
+
+/* RESOURCES */
+
+.activity-show-resources-div {
+    /* background-color: #0b6565; */
+    height: 500px;
+    margin-top: 40px;
+    /* border-top: 1px solid rgb(230, 230, 230); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
+    border: 1px solid rgb(236, 236, 236);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.resources-list-div {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+}
+.resources-list-header {
+    font-size: 30px;
+    font-weight: 700;
+    padding: 40px 40px 20px;
+    /* background-color: #0b6565; */
+    color: #0b6565;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+.resource-wrapper {
+    padding: 30px 40px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-wrapper h1 {
+    line-height: 1.3;
+    padding-top: 25px;
+    width: 300px;
+}
+
+.resources-map-div {
+    background-color: gray;
+    width: 47%;
+    border-radius: 40px;
+    margin-top: 40px;
+}
+
+/* ADD ACTIVITY MODAL */
+
+.modal-background-transparent {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.activity-add-modal {
+    background-color:#689d9df6;
+    width: 280px;
+    height: 161px;
+    z-index: 150;
+    position: fixed;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.add-modal-copy-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px
+}
+
+.add-modal-text {
+    padding-left: 10px;
+    font-size: 20px;
+    color:white;
+    line-height: 1.4;
+}
+
+.add-modal-icon {
+    font-size: 2rem;
+    color: white;
+}
+
+.add-modal-button {
+    background-color: #0b656500;
+    border: 1px solid white;
+    margin-top: 20px;
+    width: 180px;
+    height: 40px;
+    border-radius: 40px;
+    color: white;
+}
+
+
+.add-modal-button:hover {
+    background-color: #5bbd66;
+    border: none;
+    cursor: pointer;
+}
+
+.close-button {
+    font-size: 1.3rem;
+    color: white;
+    margin-left: 210px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.close-button:hover {
+    background-color: #5bbd66;
+    border-radius: 50%;
 }

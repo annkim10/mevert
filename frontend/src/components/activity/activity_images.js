@@ -10,6 +10,9 @@ import origami from "../../assets/origami.jpg"
 import roadtrip from "../../assets/roadtrip.jpg"
 import sports from "../../assets/sports_team.jpg"
 import videogames from "../../assets/video_game.jpg"
+import festival from "../../assets/festival.jpg"
+import beach from "../../assets/beach.jpg"
+import cpr from "../../assets/cpr.jpg"
 
 
 const Images = {
@@ -24,8 +27,10 @@ const Images = {
     "Go to the library and find a new book": book,
     "Go to an escape room with friends": escape,
     "Learn origami": origami,
-    "Play monopoly": monopoly
-
+    "Play monopoly": monopoly,
+    "Go to a music festival with friends": festival,
+    "Go to the beach with a friend": beach,
+    "Learn CPR": cpr
 }
 
 

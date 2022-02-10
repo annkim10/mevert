@@ -8,11 +8,14 @@ class SplashPage extends React.Component {
     render() {
         return (
             <div className="splash-div">
-                <img className="splash-img" src={img} />
-                <div className="splash-copy-div">
-                    <h1 className="splash-header">Everyone is different.</h1>
-                    <p className="splash-main">Carpe Diem <span>your</span> <span>way</span> with personalized activity suggestions.</p>
+                <div className="splash-main-div">
+                    <img className="splash-img" src={img} />
+                    <div className="splash-copy-div">
+                        <h1 className="splash-header">Everyone is different.</h1>
+                        <p className="splash-main-copy">Carpe Diem <span>your</span> <span>way</span> with personalized activity suggestions.</p>
+                    </div>
                 </div>
+                
                 <div className="how-to-div">
                     <div className="how-to-inner-div">
                         <h1>how it works</h1>
