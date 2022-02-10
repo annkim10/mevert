@@ -33,7 +33,7 @@ const ActivitySchema = new Schema ({
     },
     reviews: {
         type: Array,
-        required: true 
+        default: []
     },
     category: {
         type: String,

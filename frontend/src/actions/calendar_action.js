@@ -3,6 +3,8 @@ import * as CalendarApiUtil from '../util/calendar_api_util';
 export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
 export const RECEIVE_USER_EVENTS = "RECEIVE_USER_EVENTS";
 export const RECEIVE_NEW_EVENT = "RECEIVE_NEW_EVENT";
+export const REMOVE_EVENT = "REMOVE_EVENT";
+
 
 export const receiveEvents = events => ({
   type: RECEIVE_EVENTS,
@@ -19,7 +21,12 @@ export const receiveNewEvent = event => ({
   event
 })
 
-export const fetchEvent = () => dispatch => (
+export const removeEvent = eventId => ({
+  type: REMOVE_EVENT,
+  eventId
+})
+
+export const fetchEvents = () => dispatch => (
     CalendarApiUtil.getEvents()
     .then(events => dispatch(receiveEvents(events)))
     .catch(err => console.log(err))
@@ -31,8 +38,19 @@ export const getUserEvents = id => dispatch => (
     .catch(err => console.log(err))
 );
 
-export const createEvent = event => dispatch => (
-    CalendarApiUtil.createEvent(event)
+export const createEvent = event => dispatch => {
+  // debugger
+    return CalendarApiUtil.createEvent(event)
     .then(event => dispatch(receiveNewEvent(event)))
     .catch(err => console.log(err))
+};
+
+export const updateEvent = event => dispatch => (
+  CalendarApiUtil.updateEvent(event)
+  .then(event => dispatch(receiveNewEvent(event)))
+);
+
+export const deleteEvent = eventId => dispatch => (
+  CalendarApiUtil.deleteEvent(eventId)
+  .then( () => dispatch(removeEvent(eventId)))
 );

@@ -1,4 +1,126 @@
 .calendar-div{
     position: relative;
     z-index: 0;
+    width: 1000px;
+    background-color: white;
+    margin-left: 100px;
+}
+
+.add-event-btn{
+    margin-left: 100px;
+    background-color: cadetblue;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+/* .fc {
+    width: 700px;
+} */
+
+.fc .fc-col-header-cell-cushion {
+    display: inline-block;
+    padding: 2px 4px;
+
+    /* width: 400px; */
+}
+
+.fc-toolbar-title {
+    color: rgb(41, 41, 41);
+}
+
+.fc-daygrid-event{
+    /* border-color: aquamarine; */
+    background-color: cadetblue;
+    cursor: pointer;
+}
+
+/* .fc-daygrid-event:hover{
+
+} */
+
+.add-event-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 500px;
+    max-width: 700px;
+    height: 600px;
+    /* padding: 0px; */
+    /* margin-left: 200px; */
+}
+
+.add-event-form{
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    background-color: rgb(241, 239, 239);
+    border-radius: 20px;
+    height: 200px;
+    width: 400px;
+    padding-left: 60px;
+    padding-top: 20px;
+}
+.event-title, .event-start, .event-end{
+    color: rgb(83, 83, 83);
+    font-size: 20px;
+    font-weight: 300;
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+.title-select, .start-select{
+    /* width: 100px; */
+    height: 25px;
+    margin-left: 10px;
+    color: rgb(75, 75, 75);
+    /* border: 1px solid lightgray; */
+}
+.end-select{
+    height: 25px;
+    margin-left: 16px;
+    padding-bottom: 10px;
+}
+
+.btn-div{
+    margin-left: 200px;
+    margin-top: 20px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: space-around; */
+}
+
+.event-save{
+    cursor: pointer;
+    margin-right: 40px;
+    background-color: cadetblue;
+    width: 55px;
+}
+
+.event-cancel{
+    cursor: pointer;
+    background-color: cadetblue;
+    width: 60px;
+
+}
+.event-cancel:hover, .event-save:hover{
+    background-color: rgb(98, 148, 150);
+}
+
+
+.edit-btn-div{
+    /* margin-left: 220px; */
+    margin-top: 20px;
+}
+
+.event-delete{
+    cursor: pointer;
+    background-color: cadetblue;
+    width: 60px;
+    margin-right: 80px;
+    margin-left: 40px;
+}
+
+.event-delete:hover{
+    background-color: rgb(98, 148, 150);
 }

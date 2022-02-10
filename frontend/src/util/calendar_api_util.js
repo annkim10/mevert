@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const getEvents = () => {
-  return axios.get('/api/calendar')
+  return axios.get('/api/calendar/events')
 };
 
 export const getUserEvents = id => {
@@ -9,5 +9,14 @@ export const getUserEvents = id => {
 };
 
 export const createEvent = data => {
-  return axios.post('/api/calendar/', data)
+  // debugger
+  return axios.post('/api/calendar/createEvent', data)
+}
+
+export const updateEvent = event => {
+  return axios.patch(`api/calendar/update/${event.id}`, event)
+}
+
+export const deleteEvent = eventId => {
+  return axios.delete(`api/calendar/${eventId}`)
 }

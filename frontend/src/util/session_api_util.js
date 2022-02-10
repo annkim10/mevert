@@ -17,5 +17,9 @@ export const login = (userData) => {
 };
 
 export const postUserActivity = (userId, activityId) => {
+<<<<<<< HEAD
+=======
+  // debugger
+>>>>>>> main
    return axios.post(`/api/users/${userId}/activities`, activityId)
 };

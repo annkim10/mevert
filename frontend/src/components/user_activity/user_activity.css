@@ -1,0 +1,171 @@
+#useractivityimg {
+    width: 300px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom:10px;
+}
+
+#acttitle {
+    font-weight:700;
+    margin-bottom:5px;
+    font-size:18px;
+}
+
+#acttype {
+    margin-bottom: 5px;
+}
+
+#pricediv {
+    display:flex;
+    flex-direction:row;
+    margin-bottom:15px;
+}
+
+#calenderlink, #reviewlink, #linktoeditreview, #buttontodelete {
+    line-height:26px;
+    background-color:#e9b0aa;
+    border-radius:10px;
+    width:150px;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+    font-weight:700;
+    text-decoration: none;
+    color:rgb(11,101,101);
+    margin-bottom:15px;
+}
+
+#reviewlink {
+    margin-bottom:4px;
+}
+
+#linktoeditreview {
+    margin-top:px;
+}
+
+#linktoeditreview, #buttontodelete {
+    margin-top:10px;
+    border:1px solid #e9b0aa;
+    width:100%;
+    font-weight:700;
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+#linktoeditreview {
+    margin-top:20px;
+}
+
+#individualactivityuseractivity {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    border-radius:40px;
+    width:300px;
+    overflow: hidden;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    cursor: pointer;
+    height:max-content;
+    padding-bottom:20px;
+    font-family: 'Roboto Condensed', sans-serif ;
+}
+
+#activitiesdisplayinuseractivities {
+    display:grid;
+    /* align-self:flex-start; */
+    grid-template-columns: repeat(2, 260px);
+    gap:80px;
+    /* background-color: aqua; */
+}
+
+#useractivityactivityandreviews {
+    display:flex;
+    min-width: 1224px;
+    max-width: 1420px;
+    flex-direction:row;
+    justify-content: space-between;
+    /* background-color: blueviolet; */
+}
+
+#reviewdivuseractivities {
+    display:flex;
+    flex-direction:column;
+    width:395px;
+    margin-right:10px;
+}
+
+#innerreviewdivuseractivities {
+    display:flex;
+    flex-direction:column;
+    background-color: rgb(11,101,101);
+    height:MAX-CONTENT;
+    width:350px;
+    color:white;
+    align-self:flex-end;
+    border-radius:40px;
+    padding:1.5rem;
+    font-family: 'Roboto Condensed', sans-serif ;
+    margin-bottom:20px;
+}
+
+#reviewdate {
+    color:rgb(202, 189, 189);
+    margin-bottom: 5px;
+    font-family: 'Roboto Condensed', sans-serif ;
+}
+
+#reviewactivity {
+    font-weight:700;
+    margin-bottom:8px;
+    font-family: 'Roboto Condensed', sans-serif ;
+}
+
+#hline {
+    height:2px;
+    background:rgb(202, 189, 189);
+    width:100%
+}
+
+#reviewentrytitle {
+    margin-top:10px;
+    font-weight:700;
+    align-self: center;
+    font-size:20px;
+}
+
+#reviewstaruseractivity{
+    margin-top:6px;
+    align-self:center;
+}
+
+#reviewtitleuseractivity {
+    margin-top:10px;
+    font-weight:700;
+    font-size:18px;
+}
+
+#reviewbodyuseractivity {
+    margin-top:4px;
+    color:rgb(230, 222, 222);
+}
+
+#vline {
+    border-right: 1px solid rgb(128, 128, 129);
+    MARGIN-LEFT:38PX;
+}
+
+#UserWelcome {
+    align-self:center;
+    font-size:45px;
+    margin-top:10px;
+    margin-bottom:35px;
+    font-family: 'Dawning of a New Day', cursive ;
+    
+}
+
+#selectedactivities, #reviewactivities {
+    font-weight:700;
+    font-size:32px;
+    margin-bottom:10px;
+}
+

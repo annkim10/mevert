@@ -9,5 +9,5 @@ export const getActivity = id => {
 }
 
 export const updateActivity = activity => {
-    return axios.patch(`api/activities/${activity.id}`, activity)
+    return axios.patch(`api/activities/${activity._id}`, activity)
 }

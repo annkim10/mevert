@@ -8,6 +8,7 @@ import { logout } from './actions/session_actions';
 import "./index.css"
 
 import "react-datetime/css/react-datetime.css";
+import './components/calendar/calendar.css'
 import './components/map/map.css'
 
 document.addEventListener('DOMContentLoaded', () => {

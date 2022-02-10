@@ -73,7 +73,7 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName };
+        const payload = { id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, activities: user.activities };
 
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           res.json({
@@ -96,9 +96,12 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
     id: req.user.id,
     firstName: req.user.firstName,
     lastName: req.user.lastName,
-    email: req.user.email
+    email: req.user.email,
+    activities: req.user.activities
   });
 })
+
+
 
 
 module.exports = router;
