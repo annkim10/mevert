@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Datetime from 'react-datetime';
 import { closeModal } from '../../actions/modal_actions';
 import { createEvent } from '../../actions/calendar_action';
-
+import moment from 'moment';
 
 class AddEvent extends React.Component {
 
@@ -29,6 +29,16 @@ class AddEvent extends React.Component {
 
     handleDateTimePicker = (moment, name) => this.setState({ [name]: moment.toDate() });
 
+    disablePastDt = current => {
+        const yesterday = moment().subtract(1, 'day');
+        return current.isAfter(yesterday);
+    };
+
+    disableEndLessThanStart = current => {
+        const startDate = this.state.start
+        return current.isAfter(startDate);
+    };
+
     render(){
      
         let title = (this.props.activities.map((activity, index) => {
@@ -50,12 +60,12 @@ class AddEvent extends React.Component {
                     
                     <div className="event-start">
                         <label>Start</label>
-                        <Datetime value={this.state.start} onChange={moment => this.handleDateTimePicker(moment, 'start')} className="start-select"/>
+                        <Datetime isValidDate={this.disablePastDt} value={this.state.start} onChange={moment => this.handleDateTimePicker(moment, 'start')} className="start-select"/>
                     </div>
 
                     <div className="event-end">
                         <label>End</label>
-                        <Datetime value={this.state.end} onChange={moment => this.handleDateTimePicker(moment, 'end')} className="end-select"/>
+                        <Datetime isValidDate={this.disableEndLessThanStart} value={this.state.end} onChange={moment => this.handleDateTimePicker(moment, 'end')} className="end-select"/>
                     </div>
                     <div className="btn-div">
                         <button onClick={this.handleSubmit} type='button' className="event-save">Save</button>
