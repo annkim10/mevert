@@ -26,7 +26,6 @@ export let EVENTINFO = null ;
         })
     }
 
-
     handleEventClick = (clickInfo) => {
         // if ((`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
         //   clickInfo.event.remove()
