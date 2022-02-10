@@ -1,6 +1,6 @@
 const express = require('express')
 const Review = require('../../models/Review')
-const Activity = require('../../models/Activity')
+const User = require('../../models/User')
 const router = express.Router()
 const passport = require('passport');
 const validateReviewInput = require("../../validations/review")
@@ -27,9 +27,26 @@ router.post("/", passport.authenticate("jwt", {session: false}),
     })
 
 
+router.get("/", (req, res) => {
+    Review.find()
+    .then(reviews => res.json(reviews))
+})
+
 router.get("/:id", (req, res) => {
-    Activity.findById(req.params.id)
-    .then()
+    Review.findById(req.params.id)
+    .then(review => res.json(review))
+    .catch(err => res.status(400).json(err))
+})
+
+router.delete("/:id", (req, res) => {
+    Review.findByIdAndDelete(req.params.id)
+    .then(() => res.json("hello"))
+    .catch(err => res.status(400).json(err))
+})
+
+router.patch("/:id", (req, res) => {
+    Review.findByIdAndUpdate(req.params.id, req.body)
+    .then(review => res.json(review))
 })
 
 module.exports = router;

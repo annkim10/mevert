@@ -24,7 +24,10 @@ const UserSchema = new Schema({
   },
   activities: {
     type: Array
-  }
+  },
+  reviews: {
+    type: Array
+  },
 }, {
   timestamps: true
 })
