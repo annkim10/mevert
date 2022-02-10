@@ -4,7 +4,7 @@ import {fetchActivity, updateactivity} from "../../actions/activity_action"
 import EditReview from "./editreview"
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
+    // debugger
     return {
     // reviews: state.review[ownProps.match.params.reviewId],
     activity: state.activities[ownProps.match.params.activityId],

@@ -14,9 +14,11 @@ export const createEvent = data => {
 }
 
 export const updateEvent = event => {
-  return axios.patch(`api/calendar/update/${event.id}`, event)
+  // debugger
+  return axios.patch(`/api/calendar/update/${event._id}`, event)
 }
 
 export const deleteEvent = eventId => {
-  return axios.delete(`api/calendar/${eventId}`)
+  // debugger
+  return axios.delete(`/api/calendar/${eventId}`)
 }

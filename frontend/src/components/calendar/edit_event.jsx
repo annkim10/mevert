@@ -15,12 +15,14 @@ class EditEvent extends React.Component{
         this.updateDropdown = this.updateDropdown.bind(this)
         this.handleDelete = this.handleDelete.bind(this)
     }
-    componentDidUpdate(preprops){
+
+    componentDidUpdate(prevProps, prevState){
         // console.log(preprops)
-        if(this.props.allEvents.length !== preprops.allEvents.length){
+        if(prevProps.eventObj !== this.state){
             this.props.fetchEvents()
         }
     }
+
     handleSubmit(e){
         // debugger
         e.preventDefault();
@@ -36,15 +38,17 @@ class EditEvent extends React.Component{
     }
 
     handleDelete(e){
+        debugger
         e.preventDefault();
-        this.props.deleteEvent(this.state.id)
+        this.props.deleteEvent(this.state._id)
         .then(this.props.closeModal)
     }
 
     handleDateTimePicker = (moment, name) => this.setState({ [name]: moment.toDate() });
 
     render(){
-        console.log(this.state);
+        console.log("inside edit event render, printing props",this.props);
+        console.log("inside edit event render, printing state",this.state);
          let title = (this.props.activities.map((activity, index) => {
             return (<option key={index} value={activity.title}>{activity.title}</option>)
         }));
@@ -86,21 +90,23 @@ const mapStateToProps = (state) => {
     let eventObj;
     let allEvents;
 // if(state.calendar.all){
-    let event = Object.values(state.calendar.all).filter(event => event.title === EVENTINFO )
-    // console.log(event)
+    let event = Object.values(state.calendar).filter(event => event.title === EVENTINFO )
+    console.log(event)
     // if(event){
-        eventObj = {
-            title: event[0].title,
-            start: event[0].start,
-            end: event[0].end,
-            id: event[0]._id
-        }
+        // eventObj = {
+        //     title: event[0].title,
+        //     start: event[0].start,
+        //     end: event[0].end,
+        //     _id: event[0]._id
+        // }
     // }
-    allEvents= Object.values(state.calendar.all)
+    eventObj = event[0]
+    allEvents = Object.values(state.calendar)
+    console.log(allEvents)
 // }
     // console.log(eventObj)
     return {
-        activities: Object.values(state.activities.data),
+        activities: Object.values(state.activities),
         eventObj,
         allEvents
     }

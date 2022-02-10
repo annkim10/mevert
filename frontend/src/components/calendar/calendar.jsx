@@ -93,7 +93,7 @@ const mapStateToProps = state => {
     let user = state.session.user
     return ({
         user,
-        allEvents: Object.values(state.calendar.all).filter(event => event.user === user.id)
+        allEvents: Object.values(state.calendar).filter(event => event.user === user.id)
     })
 };
 

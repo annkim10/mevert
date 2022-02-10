@@ -70,7 +70,7 @@ class AddEvent extends React.Component {
 
 const mapStateToProps = state => ({
     user: state.session.user,
-    activities: Object.values(state.activities.data)
+    activities: Object.values(state.activities)
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -39,7 +39,6 @@ export const getUserEvents = id => dispatch => (
 );
 
 export const createEvent = event => dispatch => {
-  // debugger
     return CalendarApiUtil.createEvent(event)
     .then(event => dispatch(receiveNewEvent(event)))
     .catch(err => console.log(err))
@@ -50,7 +49,8 @@ export const updateEvent = event => dispatch => (
   .then(event => dispatch(receiveNewEvent(event)))
 );
 
-export const deleteEvent = eventId => dispatch => (
-  CalendarApiUtil.deleteEvent(eventId)
+export const deleteEvent = eventId => dispatch => {
+  return CalendarApiUtil.deleteEvent(eventId)
   .then( () => dispatch(removeEvent(eventId)))
-);
+
+};
