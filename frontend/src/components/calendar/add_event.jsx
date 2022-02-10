@@ -4,6 +4,7 @@ import Datetime from 'react-datetime';
 import {openModal, closeModal} from '../../actions/modal_actions';
 import {createEvent} from '../../actions/calendar_action';
 
+
 class AddEvent extends React.Component {
 
     constructor(props){
@@ -12,17 +13,15 @@ class AddEvent extends React.Component {
             title: '',
             start: new Date(),
             end: new Date(),
-            // user_id: this.props.user.id
         })
         this.handleSubmit = this.handleSubmit.bind(this)
-        // this.update = this.update.bind(this)
+        
     }
 
     handleSubmit(e){
         // debugger
         e.preventDefault();
         this.props.createEvent(this.state).then(this.props.closeModal)
-        // this.props.closeModal();
     }
 
     update(field){
@@ -32,12 +31,22 @@ class AddEvent extends React.Component {
     handleDateTimePicker = (moment, name) => this.setState({ [name]: moment.toDate() });
 
     render(){
+     
+        let title = (this.props.activities.map((activity, index) => {
+            return (<option key={index} value={activity.title}>{activity.title}</option>)
+        }));
+
         return(
             <div className="add-event-div">
                 <form className="add-event-form" onSubmit={this.handleSubmit}> 
                     <div className="event-title">
                         <label>Title</label>
-                        <input placeholder="Title" value={this.state.title} onChange={this.update('title')}/>
+                        <div className="title-selector">
+                            <select onChange={this.update('title')}>
+                                <option defaultValue>Title</option>
+                                {title}
+                            </select>
+                        </div>
                     </div>
                     
                     <div className="event-start">
@@ -60,14 +69,15 @@ class AddEvent extends React.Component {
 }
 
 
-
 const mapStateToProps = state => ({
-    user: state.session.user
+    user: state.session.user,
+    activities: Object.values(state.activities.data)
 });
 
 const mapDispatchToProps = dispatch => ({
     closeModal: () => dispatch(closeModal()),
-    createEvent: event => dispatch(createEvent(event))
+    createEvent: event => dispatch(createEvent(event)),
+    
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )(AddEvent);

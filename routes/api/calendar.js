@@ -2,8 +2,8 @@ const express = require('express')
 const Event = require('../../models/Event')
 const router = express.Router()
 const passport = require('passport');
-const validateCalendarInput = require('../../validations/calendar');
-const moment = require('moment');
+
+// const moment = require('moment');
 
 router.get("/events", (req, res) => {
     // const events = Event.find({
@@ -36,12 +36,7 @@ router.get('/:id', (req, res) => {
 router.post('/createEvent',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-      const { errors, isValid } = validateCalendarInput(req.body);
-  
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
-  
+      
       const newEvent = new Event({
         title: req.body.title,
         start: req.body.start,

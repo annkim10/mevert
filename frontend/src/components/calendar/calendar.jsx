@@ -32,7 +32,7 @@ import {getUserEvents} from '../../actions/calendar_action';
     }
 
     // handleEventAdd(data) {
-    //     // console.log("hello")
+    //    
     //     axios.post('/api/calendar/createEvent', data.event)
     // }
    
@@ -53,7 +53,7 @@ import {getUserEvents} from '../../actions/calendar_action';
             }
             events.push(eventObj)
         })
-        console.log(events)
+        // console.log(events)
 
         return (
             <section >
