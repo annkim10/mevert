@@ -57,7 +57,7 @@ import {getUserEvents} from '../../actions/calendar_action';
 
         return (
             <section >
-                <button onClick={() => this.props.openModal('addEvent')}>Add Event</button>
+                <button onClick={() => this.props.openModal('addEvent')} className='add-event-btn'>Add Event</button>
                 <div className='calendar-div'>
                     <FullCalendar
                         ref={this.calendarRef}

@@ -1,4 +1,38 @@
 .calendar-div{
     position: relative;
     z-index: 0;
+    width: 800px;
+    background-color: white;
+    margin-left: 100px;
+}
+
+.add-event-btn{
+    margin-left: 100px;
+    background-color: cadetblue;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+/* .fc {
+    width: 700px;
+} */
+
+.fc .fc-col-header-cell-cushion {
+    display: inline-block;
+    padding: 2px 4px;
+
+    /* width: 400px; */
+}
+
+.fc-toolbar-title {
+    color: rgb(41, 41, 41);
+}
+
+.fc-daygrid-event{
+    /* border-color: aquamarine; */
+    background-color: cadetblue;
+    cursor: pointer;
+}
+
+.fc-daygrid-event:hover{
+
 }
