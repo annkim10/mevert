@@ -41,7 +41,7 @@ export let EVENTINFO = null ;
         //     //     <addEventContainer />
         //     // </div>
        EVENTINFO = (clickInfo.event.title)
-        // console.log(EVENTINFO);
+        console.log("inside handle event click, clickinfo", clickInfo);
         return (
             // <div>
             //     <button onClick={() => this.show()}>
