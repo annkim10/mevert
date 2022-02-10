@@ -2,7 +2,9 @@ import React from "react"
 import Images from "./activity_images"
 import { BiCategory } from "react-icons/bi"
 import { FiInfo } from "react-icons/fi"
+import { MdAdd } from "react-icons/md"
 import ResourceItem from "./activity_resource_item"
+import Map from "../map/map"
 
 class ActivityShow extends React.Component {
 
@@ -12,6 +14,7 @@ class ActivityShow extends React.Component {
     }
 
     componentDidMount() {
+        window.scroll(0,0)
         this.props.getactivity(this.props.match.params.activityId)
     }
 
@@ -37,32 +40,32 @@ class ActivityShow extends React.Component {
                         <h1 className="activity-show-main-header">{activity.title}</h1>
                         <div className="activity-show-description">
                             <div className="activity-show-category">
-                                <h1 className="activity-type"><span><BiCategory /></span> Type</h1>
+                                <h2 className="activity-type"><span><BiCategory className="activity-icon" /></span> Type</h2>
                                 <p>{activity.type}</p>
                             </div>
                             <div className="activity-show-accessibility">
-                                <h1 className="activity-accessibility"><span><FiInfo /></span> Accessibility</h1>
+                                <h2 className="activity-accessibility"><span><FiInfo className="activity-icon"/></span> Accessibility</h2>
                                 <p>{activity.accessibility}</p>
                             </div>
-                            <button onClick={this.handleSubmit}>ADD TO MY PLAN</button>
+                            <button className="add-activity-button" onClick={this.handleSubmit}><MdAdd className="activity-icon-add" />ADD TO MY PLAN</button>
                         </div>
                     </div>
                 </div>
                 <div className="activity-show-resources-div">
+                    <h1 className="resources-list-header">Resources</h1>
                     <div className="resources-list-div">
-                        <h1 className="resources-list-header">Resources</h1>
-                        <div className="resources-list">
                             {activity.link.map((link, idx) => <ResourceItem key={idx} link={link} />)}
-                        </div>
-                    </div>
-                    <div className="resources-map-div">
-                        <h1>Map goes here</h1>
                     </div>
                 </div>
+                 <div className="resources-map-div">
+                        <h1>Map goes here</h1>
+                        <Map />
+                    </div>
+
             </div>
         )
     }
 
 }
 
-export default ActivityShow 
+export default ActivityShow

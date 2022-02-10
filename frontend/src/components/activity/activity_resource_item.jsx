@@ -15,8 +15,8 @@ class ResourceItem extends React.Component {
         if (link.type === 'video') {
 
             const opts = {
-                height: '202',
-                width: '360',
+                height: '178',
+                width: '320',
             }
 
         return (
