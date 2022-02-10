@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => {
     // reviews: state.review[ownProps.match.params.reviewId],
     activity: state.activities[ownProps.match.params.activityId],
     review: state.review[ownProps.match.params.reviewId],
+    user: state.session.user.id,
     // review: {
     //     ratings: state.review[ownProps.match.params.reviewId].ratings,
     //     title: state.review[ownProps.match.params.reviewId].title,
