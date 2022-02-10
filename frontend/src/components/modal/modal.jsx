@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import LoginContainer from "../session/login_container"
 import SignupContainer from "../session/signup_container"
 import AddEvent from '../calendar/add_event';
+import EditEvent from '../calendar/edit_event';
 
 function Modal({modal, closeModal}) {
 
@@ -20,6 +21,9 @@ function Modal({modal, closeModal}) {
       break;
     case 'addEvent':
       component = <AddEvent />;
+      break;  
+    case 'editEvent':
+      component = <EditEvent />;
       break;  
     default:
       return null;
