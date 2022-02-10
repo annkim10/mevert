@@ -19,6 +19,7 @@ time, mark, audio, video, a {
 	vertical-align: baseline;
 	text-decoration: none;
 	list-style: none;
+	font-family: 'Open Sans', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 

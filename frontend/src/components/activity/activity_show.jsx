@@ -2,7 +2,7 @@ import React from "react"
 import Images from "./activity_images"
 import { BiCategory } from "react-icons/bi"
 import { FiInfo } from "react-icons/fi"
-import { MdAdd } from "react-icons/md"
+import { MdAdd, MdClose, MdOutlinePostAdd } from "react-icons/md"
 import ResourceItem from "./activity_resource_item"
 import Map from "../map/map"
 
@@ -11,6 +11,9 @@ class ActivityShow extends React.Component {
     constructor(props) {
         super(props)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.state = {
+            addedActivity: false 
+        }
     }
 
     componentDidMount() {
@@ -18,10 +21,28 @@ class ActivityShow extends React.Component {
         this.props.getactivity(this.props.match.params.activityId)
     }
 
+    renderAddedPopup() {
+        if (this.state.addedActivity) {
+                return (
+                <div className="activity-add-modal">
+                    <div onClick={() => this.setState({addedActivity: false})}><MdClose className="close-button" /></div>
+                    <div className="add-modal-copy-div">
+                        <MdOutlinePostAdd className="add-modal-icon"/>
+                        <h1 className="add-modal-text">Activity added</h1>
+                    </div>
+                    <button className="add-modal-button">SEE ALL ACTIVITIES</button>
+                </div>
+            )
+        } else {
+            return null
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault()
         const activityData = {activityId: this.props.match.params.activityId}
-        this.props.postUserActivity(this.props.currentUser.id, activityData)
+        this.props.postUserActivity(this.props.currentUser.id, activityData).then(this.setState({addedActivity: true}))
+        // this.props.openModal('addActivity')
     }
 
     render() {
@@ -47,6 +68,7 @@ class ActivityShow extends React.Component {
                                 <h2 className="activity-accessibility"><span><FiInfo className="activity-icon"/></span> Accessibility</h2>
                                 <p>{activity.accessibility}</p>
                             </div>
+                            {this.renderAddedPopup()}
                             <button className="add-activity-button" onClick={this.handleSubmit}><MdAdd className="activity-icon-add" />ADD TO MY PLAN</button>
                         </div>
                     </div>
