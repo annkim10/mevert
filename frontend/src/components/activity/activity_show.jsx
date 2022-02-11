@@ -1,5 +1,6 @@
 import React from "react"
 import Images from "./activity_images"
+import { Link } from "react-router-dom"
 import { BiCategory } from "react-icons/bi"
 import { FiInfo } from "react-icons/fi"
 import { MdAdd, MdClose, MdOutlinePostAdd } from "react-icons/md"
@@ -23,6 +24,7 @@ class ActivityShow extends React.Component {
         this.props.allreviews()
     }
 
+
     renderAddedPopup() {
         if (this.state.addedActivity) {
                 return (
@@ -32,7 +34,7 @@ class ActivityShow extends React.Component {
                         <MdOutlinePostAdd className="add-modal-icon"/>
                         <h1 className="add-modal-text">Activity added</h1>
                     </div>
-                    <button className="add-modal-button">SEE ALL ACTIVITIES</button>
+                    <Link className="add-modal-button" to={`/users/${this.props.currentUser.id}`}>SEE ALL ACTIVITIES</Link>
                 </div>
             )
         } else {
@@ -93,7 +95,6 @@ class ActivityShow extends React.Component {
                             <div className="activity-show-accessibility">
                                 <h2 className="activity-accessibility"><span><FiInfo className="activity-icon"/></span> Accessibility</h2>
                                 <p>{activity.accessibility}</p>
-
                             </div>
                             {this.renderAddedPopup()}
                             <button className="add-activity-button" onClick={this.handleSubmit}><MdAdd className="activity-icon-add" />ADD TO MY PLAN</button>

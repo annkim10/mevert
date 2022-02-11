@@ -265,6 +265,9 @@
     height: 40px;
     border-radius: 40px;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
