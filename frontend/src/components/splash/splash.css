@@ -1,101 +1,160 @@
 .splash-div {
-    min-width: 1224px;
-    max-width: 1420px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .splash-main-div {
-    background: rgb(11,101,101);
-    background: linear-gradient(45deg, rgba(11,101,101,1) 0%, rgba(104,157,157,1) 100%);
     display: flex;
-    height: 400px;
-    width: 90%;
+    justify-content: center;
+    height: 780px;
     overflow: hidden;
-    border-radius: 40px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .splash-img {
-    width: 50%;
+    width: 100vw;
+    height: 900px;
     object-fit: cover;
-    object-position: 50% 50%;
+    object-position: 500px 50%;
+}
+
+.splash-main-wrapper {
+    /* background-color: rgba(0, 0, 255, 0.212); */
+    min-width: 1224px;
+    max-width: 1420px;
+    height: 85%;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.splash-nav-links-div {
+    width: 350px;
+    height: 300px;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    
+}
+
+.splash-nav-links {
+    background-color: rgb(235, 235, 235);
+    width: 220px;
+    height: 40px;
+    border: none;
+    border-radius: 40px;
+    color: #015958;
+    font-size: 16px;
+}
+
+.splash-nav-links:hover {
+    background-color: #008F8C;
+    border: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.splash-logo {
+    padding: 120px 0 20px;
+    width: 180px;
 }
 
 .splash-copy-div {
     display: flex;
     flex-direction: column;
-    color: white;
-    margin-top: 130px;
-    margin-left: 130px;
+    color: #015958;
+    margin-top: 25px;
 }
 
 .splash-header {
     /* background-color: beige; */
-    font-size: 35px;
+    font-size: 60px;
     font-weight: 700;
-    color: white;
+    color: #23606E;
 }
 
 .splash-main-copy {
-    width: 350px;
-    font-size: 20px;
-    font-weight: 300;
+    width: 500px;
+    font-size: 24px;
+    font-weight: 400;
     line-height: 1.3;
 }
 
 .splash-main-copy > span {
     font-family: 'Dawning of a New Day', cursive ;
-    font-size: 50px;
+    font-size: 55px;
     padding: 0 5px;
-    color: #6DFC74
+    color: #e77b79;
+    /* text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.062) */
 }
+
 
 /* HOW TO DIV */
 
 .how-to-div {
-    background-color: #8dc0c0;
-    margin-top: 45px;
+    background-color: #23606E;
     width: 100vw;
-    height: 380px;
+    height: 780px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     display: flex;
     flex-direction: column;
+    padding-left: 90px;
+}
+
+.how-to-inner-div {
+    min-width: 1224px;
+    max-width: 1420px;
+    padding: 50px;
 }
 
 .how-to-inner-div > h1{
-    padding: 20px 50px;
-    font-family: 'Dawning of a New Day', cursive ;
+    padding: 45px 0 100px 0;
+    /* font-family: 'Dawning of a New Day', cursive ; */
+    font-weight: 700;
     font-size: 60px;
-    color: white;
+    color: white
 }
 
 .how-to-copy-div {
     display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
+    justify-content: space-between;
     height: 270px;
-    padding-left: 50px;
+    gap: 2rem;
 }
 
-.take-quiz-div, .activities-div, .planner-div {
-    font-size: 15px;
+.how-to-wrapper {
     height: 60px;
-    width: 400px;
+    width: 300px;
     color: white;
     line-height: 1.5;
 }
 
+.take-quiz-div, .activities-div, .planner-div {
+    font-size: 15px;
+    color: white;
+}
+
 .take-quiz-div > a, .activities-div > h1, .planner-div > h1{
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 700;
-    color: #04E7F2
+    color: #FACFCE;
+    padding-bottom: 20px
 }
 
 .take-quiz-div > p, .activities-div > p, .planner-div > p{
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 300;
+    line-height: 1.5;
+}
+
+.how-to-icon {
+    font-size: 4rem;
+    padding-bottom: 35px
 }
 
 .calender{

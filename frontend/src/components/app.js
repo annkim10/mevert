@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Modal from "../components/modal/modal"
 import "./app.css"
 
-import SplashPage from "./splash/spash_page"
+import SplashContainer from './splash/splash_container';
 // import LoginContainer from "./session/login_container"
 // import SignupContainer from "./session/signup_container"
 import NavbarContainer from "./navbar/navbar_container"
@@ -20,21 +20,22 @@ import UserActivityContainer from "./user_activity/user_activity_container"
 
 
 const App = () => (
-    <div className='app-div'>
+    <div className='app-outer-div'>
         <Modal />
-        <NavbarContainer />
         <Switch>
-            <Route exact path="/" component={SplashPage} />
-            {/* <AuthRoute exact path="/login" component={LoginContainer} />
-            <AuthRoute exact path="/signup" component={SignupContainer} /> */}
-            <ProtectedRoute exact path="/quiz" component={QuizFormContainer} />
-            <ProtectedRoute exact path="/quiz/results" component={QuizResultsContainer} />
-            <ProtectedRoute exact path="/activities" component={ActivityContainer} />
-            <ProtectedRoute exact path="/activities/:activityId" component={ActivityShowContainer} />
-            <ProtectedRoute exact path="/activities/:activityId/review/:reviewId" component={EditReviewContainer} />
-            <ProtectedRoute exact path="/activities/:activityId/review" component={ReviewContainer} />
-            <ProtectedRoute exact path='/users/:userId/activities' component={UserActivityContainer} />
-            <ProtectedRoute exact path='/users/:userId' component={ProfileContainer} />
+            <Route exact path="/" component={SplashContainer} />
+            <div className='app-div'>
+                <NavbarContainer />
+                <ProtectedRoute exact path="/quiz" component={QuizFormContainer} />
+                <ProtectedRoute exact path="/quiz/results" component={QuizResultsContainer} />
+                <ProtectedRoute exact path="/activities" component={ActivityContainer} />
+                <ProtectedRoute exact path="/activities/:activityId" component={ActivityShowContainer} />
+                <ProtectedRoute exact path="/activities/:activityId/review/:reviewId" component={EditReviewContainer} />
+                <ProtectedRoute exact path="/activities/:activityId/review" component={ReviewContainer} />
+                <ProtectedRoute exact path='/users/:userId/activities' component={UserActivityContainer} />
+                <ProtectedRoute exact path='/users/:userId' component={ProfileContainer} />
+            </div>
+            
         </Switch>
         
     </div>

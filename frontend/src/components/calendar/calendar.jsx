@@ -15,10 +15,9 @@ export let EVENTINFO = null ;
         this.calendarRef = null;
         this.handleEventClick = this.handleEventClick.bind(this)
     }
-
+   
     handleEventClick = (clickInfo) => {
        EVENTINFO = (clickInfo.event.id)
-        console.log("inside handle event click, clickinfo", EVENTINFO);
         return (
             this.props.openModal('editEvent')
         )
