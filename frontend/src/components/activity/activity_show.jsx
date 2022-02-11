@@ -5,6 +5,7 @@ import { FiInfo } from "react-icons/fi"
 import { MdAdd, MdClose, MdOutlinePostAdd } from "react-icons/md"
 import ResourceItem from "./activity_resource_item"
 import Map from "../map/map"
+import {BsLightningChargeFill} from "react-icons/bs"
 
 class ActivityShow extends React.Component {
 
@@ -19,6 +20,7 @@ class ActivityShow extends React.Component {
     componentDidMount() {
         window.scroll(0,0)
         this.props.getactivity(this.props.match.params.activityId)
+        this.props.allreviews()
     }
 
     renderAddedPopup() {
@@ -51,6 +53,20 @@ class ActivityShow extends React.Component {
         const { activity } = this.props
         if (!activity) return null
 
+        let ratings = 0
+        let quantity = 0 
+        if (this.props.reviews.length) {
+            this.props.reviews.forEach(review => {
+                if (review.activity === this.props.currentactivity) {
+                    ratings += review.ratings 
+                    quantity += 1
+                }
+            })
+        }
+        let average = 0 
+        if (ratings && quantity) {
+            average = ratings/quantity
+        }
         return(
             <div className="activity-show-outer-div">
                 <div className="activity-show-main-div">
@@ -63,10 +79,21 @@ class ActivityShow extends React.Component {
                             <div className="activity-show-category">
                                 <h2 className="activity-type"><span><BiCategory className="activity-icon" /></span> Type</h2>
                                 <p>{activity.type}</p>
+                                <div id="reviewdisplay">
+                                {[...Array(5)].map((star,i) => {
+                                    const ratingValue = i + 1
+                                    return(
+                                        <label id="lightradio" key={i}>
+                                            <input id="lighteningradioinput" type="radio" value={ratingValue}/>
+                                            <BsLightningChargeFill color={ratingValue <= average ? "#4eeb1e" : "#e4e5e9"} id="lighteningratinginreview" size={20}/>
+                                        </label>
+                                )})}
+                                </div>
                             </div>
                             <div className="activity-show-accessibility">
                                 <h2 className="activity-accessibility"><span><FiInfo className="activity-icon"/></span> Accessibility</h2>
                                 <p>{activity.accessibility}</p>
+
                             </div>
                             {this.renderAddedPopup()}
                             <button className="add-activity-button" onClick={this.handleSubmit}><MdAdd className="activity-icon-add" />ADD TO MY PLAN</button>

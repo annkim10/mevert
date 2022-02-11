@@ -294,3 +294,9 @@
     background-color: #5bbd66;
     border-radius: 50%;
 }
+
+
+#reviewdisplay {
+    display:flex;
+    flex-direction:row;
+}

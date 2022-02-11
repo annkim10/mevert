@@ -13,7 +13,8 @@ class Review extends React.Component {
         e.preventDefault()
         this.props.processReview(this.state)
         .then(() => this.props.activity.reviews.push(Object.values(this.props.createdreview)[0]._id))
-        .then(() => this.props.updateActivity(this.props.activity)) 
+        .then(() => this.props.updateActivity(this.props.activity))
+        .then(() => this.props.history.push(`/users/${this.props.user}/activities`)) 
     }
 
     update(field) {

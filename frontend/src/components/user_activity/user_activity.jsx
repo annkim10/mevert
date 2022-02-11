@@ -60,7 +60,7 @@ class UserActivity extends React.Component {
             <div>
                 <h1 id="UserWelcome">Welcome to your Planning Page {this.props.user.firstName}</h1>
                 <div id="useractivityactivityandreviews">
-                    <div>
+                    <div id="useractdiv">
                     <p id="selectedactivities">Selected Activities</p>
                     <div id="activitiesdisplayinuseractivities">
                     {narray.map((act,i) => (
@@ -80,9 +80,9 @@ class UserActivity extends React.Component {
                     ))}
                      </div>
                     </div>
-                    <div id="vline"></div>
                     <div id="reviewdivuseractivities">
                         <p id="reviewactivities">Reviews</p>
+                        <div id="overflowreview">
                         {rarray.map((review,i) => (
                             <div key={i} id="innerreviewdivuseractivities">
                                 <span id="reviewdate">Date: {this.activitydate(review.date)}</span>
@@ -104,6 +104,7 @@ class UserActivity extends React.Component {
                                 <button id="buttontodelete" value={review._id} onClick={this.removereview}>Delete</button>
                             </div>
                         ))}
+                        </div>
                     </div>
                 </div>
             </div>
