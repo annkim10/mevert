@@ -16,7 +16,6 @@ export const login = (userData) => {
   return axios.post('/api/users/login', userData);
 };
 
-export const postUserActivity = (userId, activityId) => {
-  debugger
-   return axios.post(`/api/users/${userId}/activities`, activityId)
+export const postUserActivity = (userId, activityData) => {
+   return axios.post(`/api/users/${userId}/activities`, activityData)
 };

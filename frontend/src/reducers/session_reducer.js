@@ -24,10 +24,10 @@ export default function(state = initialState, action) {
         isSignedIn: true
       };
     case ADD_USER_ACTIVITY:
-      return {
-        ...state, 
-        userActivities: action.userActivities
-      };
+      const nextState = Object.assign({}, state)
+      let activities = nextState.user.activities
+      activities.push(action.userActivities)
+      return nextState;
     default:
       return state;
   }
