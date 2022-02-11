@@ -90,7 +90,7 @@ class EditEvent extends React.Component{
                     <div className="edit-btn-div">
                         <button onClick={this.handleSubmit} type='button' className="event-save">Save</button>
                         <button onClick={this.handleDelete} type='button' className="event-delete">Delete</button>
-                        <button onClick={this.props.closeModal} type='button' className="event-cancel">Cancel</button>
+                        {/* <button onClick={this.props.closeModal} type='button' className="event-cancel">Cancel</button> */}
                     </div>
                 </form>
             </div>

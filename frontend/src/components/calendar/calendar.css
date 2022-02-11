@@ -106,7 +106,7 @@
     /* justify-content: space-around; */
 }
 
-.event-save, .event-cancel{
+.event-save, .event-cancel, .event-delete{
     background-color: rgb(235, 235, 235);
     width: 140px;
     height: 35px;
@@ -116,7 +116,7 @@
     font-size: 16px;
 }
 
-.event-cancel:hover, .event-save:hover{
+.event-cancel:hover, .event-save:hover, .event-delete:hover{
     background-color: #008F8C;
     border: none;
     color: white;
@@ -128,9 +128,13 @@
 .edit-btn-div{
     /* margin-left: 220px; */
     margin-top: 20px;
+    /* height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; */
 }
 
-.event-delete{
+/* .event-delete{
     cursor: pointer;
     background-color: cadetblue;
     width: 60px;
@@ -140,7 +144,7 @@
 
 .event-delete:hover{
     background-color: rgb(98, 148, 150);
-}
+} */
 
 .form-control {
     background-color: white;
