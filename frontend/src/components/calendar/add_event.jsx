@@ -68,8 +68,8 @@ class AddEvent extends React.Component {
                         <Datetime isValidDate={this.disableEndLessThanStart} value={this.state.end} onChange={moment => this.handleDateTimePicker(moment, 'end')} className="end-select"/>
                     </div>
                     <div className="btn-div">
-                        <button onClick={this.handleSubmit} type='button' className="event-save">Save</button>
-                        <button onClick={this.props.closeModal} type='button' className="event-cancel">Cancel</button>
+                        <button onClick={this.handleSubmit} type='button' className="event-save">SAVE</button>
+                        <button onClick={this.props.closeModal} type='button' className="event-cancel">CANCEL</button>
                     </div>
                 </form>
             </div>

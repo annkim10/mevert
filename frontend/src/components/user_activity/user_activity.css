@@ -117,12 +117,9 @@
 }
 
 #activitiesdisplayinuseractivities::-webkit-scrollbar, #overflowreview::-webkit-scrollbar {
-    /* display:hidden; */
+
     width: 20px;
     background-color:transparent;
-    /* height:400px; */
-    /* height:100px;
-    margin-bottom: 100px; */
 }
 
 #activitiesdisplayinuseractivities, #overflowreview {

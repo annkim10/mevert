@@ -29,7 +29,7 @@ class Profile extends React.Component {
                         <h1 className="username">{currentUser.firstName} {currentUser.lastName} </h1>
                     </div>
                     <div className="profile-activities-div">
-                        <Link to={`/users/${currentUser.id}/activities`}>MY ACTIVITIES</Link>
+                        <Link className="profile-activities-link" to={`/users/${currentUser.id}/activities`}>MY ACTIVITIES</Link>
                     </div>
                 </div>
                 <div className="profile-right-wrapper">
