@@ -36,7 +36,7 @@ export let EVENTINFO = null ;
         })
     
         return (
-            <section >
+            <section className='calendar-outer-div'>
                 <button onClick={() => this.props.openModal('addEvent')} className='add-event-btn'>Add Event</button>
                 <div className='calendar-div'>
                     <FullCalendar

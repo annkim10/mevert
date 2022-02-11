@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    padding-top: 70px;
 }
 
 .profile-pic {
@@ -45,4 +45,26 @@
     font-size: 30px;
     margin-top: 20px;
     color: #015958;
+}
+
+.profile-activities-link {
+    background-color: rgb(235, 235, 235);
+    width: 220px;
+    height: 40px;
+    border: none;
+    border-radius: 40px;
+    color: #015958;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.profile-activities-link:hover {
+     background-color: #008F8C;
+    border: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
