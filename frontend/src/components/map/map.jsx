@@ -100,6 +100,8 @@ class MapComponent extends React.Component{
                             .setHTML( '<h4 className="popup-heading">' + location.city + '</h4>' + location.location ))
                         .addTo(map);
 		})
+
+		return () => map.remove();
 	}
 
 	render(){
