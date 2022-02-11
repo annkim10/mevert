@@ -22,9 +22,10 @@ import PersonalActivityContainer from "./activity/personal_activity_container"
 const App = () => (
     <div className='app-outer-div'>
         <Modal />
-        <Switch>
+        <div className='app-div'>
+            <Switch>
             <Route exact path="/" component={SplashContainer} />
-            <div className='app-div'>
+            <React.Fragment> 
                 <NavbarContainer />
                 <ProtectedRoute exact path="/quiz" component={QuizFormContainer} />
                 <ProtectedRoute exact path="/quiz/results" component={QuizResultsContainer} />
@@ -35,10 +36,12 @@ const App = () => (
                 <ProtectedRoute exact path="/activities/:activityId/review" component={ReviewContainer} />
                 <ProtectedRoute exact path='/users/:userId/activities' component={UserActivityContainer} />
                 <ProtectedRoute exact path='/users/:userId' component={ProfileContainer} />
-            </div>
-            
+            </React.Fragment>
+
         </Switch>
-        
+        </div>
+       
+
     </div>
 );
 

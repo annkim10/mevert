@@ -13,8 +13,8 @@ class SplashPage extends React.Component {
     }
 
     renderHeader() {
-        console.log(this.props.user)
-        if (this.props.user) {
+        console.log(this.props.loggedIn)
+        if (this.props.loggedIn) {
             return <h1 className="splash-header">Welcome {this.props.user.firstName} {this.props.user.lastName}</h1>
         } else {
             return <h1 className="splash-header">Everyone is different.</h1>
@@ -22,7 +22,7 @@ class SplashPage extends React.Component {
     }
 
     renderLinks() {
-        if (this.props.user) {
+        if (this.props.loggedIn) {
             return (
                 <div className='splash-nav-links-div-loggedin'>
                     <button className="splash-nav-links" onClick={() => this.props.history.push('/quiz')}>TAKE THE QUIZ</button>

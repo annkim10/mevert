@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from "react-router-dom"
 import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
 import SplashPage from './spash_page';
@@ -14,7 +15,7 @@ const mapDispatch = dispatch => ({
   logout: () => dispatch(logout())
 })
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatch
-)(SplashPage);
+)(SplashPage));
