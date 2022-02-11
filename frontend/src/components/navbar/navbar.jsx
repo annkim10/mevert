@@ -11,8 +11,10 @@ class Navbar extends React.Component {
   }
 
   logoutUser(e) {
+      console.log("inside logout", this.props)
       e.preventDefault();
       this.props.logout();
+      this.props.history.push("/");
   }
 
   // Selectively render links dependent on whether the user is logged in
@@ -23,8 +25,6 @@ class Navbar extends React.Component {
               <div className='logo-div'>
                 <Link to="/"> <img className='logo-img' src={logo} /></Link>
               </div>
-                {/* <Link to={'/profile'}>Profile</Link> */}
-
               <div className='nav-links-div'>
                 <Link className="user-button" to={`/users/${this.props.user.id}`}>{this.props.user.firstName} {this.props.user.lastName}</Link>
                 <div className="user-button" onClick={this.logoutUser}>LOGOUT</div>

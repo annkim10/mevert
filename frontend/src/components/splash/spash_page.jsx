@@ -9,6 +9,7 @@ class SplashPage extends React.Component {
 
     constructor(props) {
         super(props)
+        console.log("inside splash", this.props )
     }
 
     renderHeader() {
