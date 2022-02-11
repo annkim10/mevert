@@ -1,6 +1,4 @@
 .splash-div {
-    /* min-width: 1224px;
-    max-width: 1420px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,16 +31,13 @@
 }
 
 .splash-nav-links-div {
-    /* background-color: white;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    border-radius: 40px; */
     width: 350px;
     height: 300px;
     display: flex;
     gap: 2rem;
     justify-content: center;
     align-items: center;
-    /* margin-top: 190px; */
+    margin-top: 80px;
     
 }
 
@@ -94,7 +89,7 @@
     font-family: 'Dawning of a New Day', cursive ;
     font-size: 55px;
     padding: 0 5px;
-    color: #ff6764;
+    color: #e77b79;
     /* text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.062) */
 }
 
@@ -102,46 +97,64 @@
 /* HOW TO DIV */
 
 .how-to-div {
-    background-color: white;
+    background-color: #23606E;
     width: 100vw;
-    height: 380px;
+    height: 780px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     display: flex;
     flex-direction: column;
+    padding-left: 90px;
+}
+
+.how-to-inner-div {
+    min-width: 1224px;
+    max-width: 1420px;
+    padding: 50px;
 }
 
 .how-to-inner-div > h1{
-    padding: 20px 50px;
-    font-family: 'Dawning of a New Day', cursive ;
+    padding: 45px 0 100px 0;
+    /* font-family: 'Dawning of a New Day', cursive ; */
+    font-weight: 700;
     font-size: 60px;
-    color: #23606E
+    color: white
 }
 
 .how-to-copy-div {
     display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
+    justify-content: space-between;
     height: 270px;
-    padding-left: 50px;
+    gap: 2rem;
 }
 
-.take-quiz-div, .activities-div, .planner-div {
-    font-size: 15px;
+.how-to-wrapper {
     height: 60px;
-    width: 400px;
+    width: 300px;
     color: white;
     line-height: 1.5;
 }
 
+.take-quiz-div, .activities-div, .planner-div {
+    font-size: 15px;
+    color: white;
+}
+
 .take-quiz-div > a, .activities-div > h1, .planner-div > h1{
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 700;
-    color: #04E7F2
+    color: #FACFCE;
+    padding-bottom: 20px
 }
 
 .take-quiz-div > p, .activities-div > p, .planner-div > p{
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 300;
+    line-height: 1.5;
+}
+
+.how-to-icon {
+    font-size: 4rem;
+    padding-bottom: 35px
 }
 
 .calender{
