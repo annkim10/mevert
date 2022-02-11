@@ -1,46 +1,45 @@
-/* .map-div {
-    position:absolute; 
-    top:0; 
-    bottom:0; 
-    width:100%;
-} */
-
-/* .map-container{
+/* .map-outer-div{
     display: flex;
-    bottom: 10px;
-    top: 80px;
-    height: 600px;
-    width: 500px;
-    margin-top: 30px;
+    flex-direction: column;
+} */
+.map-container{
+    display: flex;
+    /* bottom: 40px; */
+    top: 30px;
+    /* height: 600px; */
+    /* width: 500px; */
+    /* margin-top: 30px; */
+    border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    margin-bottom: 50px;
 }
 .map-params{
     display: inline-block;
-    position: absolute; 
-    
-} */
-
-.map-container {
-    height: 400px;
+    /* position: absolute;  */
+    margin-top: 20px;
+    margin-left: 350px;
+    background-color: rgba(34, 34, 34, 0.349);
+    width: 430px;
+    height: 30px;
+    padding-top: 10px;
+    padding-left: 40px;
+    /* margin-bottom: 10px; */
+    border-radius: 10px;
 }
 
-.sidebar {
-    background-color: rgba(35, 55, 75, 0.9);
-    color: #fff;
-    padding: 6px 12px;
-    font-family: monospace;
-    z-index: 1;
-    /* position: absolute; */
-    top: 0;
-    left: 0;
-    margin: 12px;
-    border-radius: 4px;
+.mapboxgl-popup-content{
+    border-radius: 10px;
+    font-size: 0.7rem;
+    color: rgb(22, 22, 22);
 }
 
-.marker {
-    /* background-image: url('/Users/kirti/Desktop/mevert/frontend/src/assets/mapbox-icon.png'); */
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+.mapbox-popup-close-button{
+    text-decoration: none;
+    border: none;
+}
+h4{
+    font-size: 0.9rem;
+   font-weight: 600;
+   color: rgb(204, 90, 44);
+
+}
