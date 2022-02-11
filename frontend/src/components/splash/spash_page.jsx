@@ -19,13 +19,14 @@ class SplashPage extends React.Component {
                                 <p className="splash-main-copy">Carpe Diem <span>your</span> <span>way</span> with personalized activity suggestions.</p>
                             </div>
                         </div>
-                        <div className="right-wrapper">
-                           
-                            <div className='splash-nav-links-div'>
+                        <div className='splash-nav-links-div'>
                                 <button className="splash-nav-links" onClick={() => this.props.openModal('signup')}>SIGN UP</button>
                                 <button className="splash-nav-links" onClick={() => this.props.openModal('login')}>LOG IN</button>
-                            </div>
-                        </div>  
+                        </div>
+                        {/* <div className="right-wrapper">
+            
+                            
+                        </div>   */}
                     </div>
                 </div>  
                 <div className="how-to-div">

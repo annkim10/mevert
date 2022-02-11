@@ -8,14 +8,8 @@
   z-index: 100;
 }
 
-
 .modal-child {
   position: absolute;
-  /* background: whitesmoke; */
-  /* background-image: url('dog-pattern.png'); */
-  /* background-repeat: no-repeat;
-  background-position: center;
-  background-size: 680px 680px; */
   top: 50%;
   left: 50%;
   min-width: auto;
@@ -111,12 +105,28 @@
 /* LOGIN FORM */
 
 .login-form-div {
-    background: rgb(11,101,101);
-    background: linear-gradient(45deg, rgba(11,101,101,1) 0%, rgba(104,157,157,1) 100%);
-    height: 97%;
+    background: white;
+    height: 70%;
     width: 100%;
     border-radius: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+.login-form-div > h1 {
+    font-size: 35px;
+    font-weight: 300;
+    color: #0b6565;
+    padding: 40px;
+}
+
+.login-form-div input[type="text"], .login-form-div input[type="password"] {
+    height: 45px;
+    width: 350px;
+    border-radius: 30px;
+    border: 1.5px solid lightgray;
+    font-size: 15px;
+    padding-left: 20px
 }
