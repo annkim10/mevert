@@ -49,7 +49,7 @@ class EditReview extends React.Component {
                         return(
                             <label id="lightradio" key={i}>
                             <input id="lighteningradioinput" type="radio" value={ratingValue} onChange={this.update("ratings")}/>
-                            <BsLightningChargeFill color={ratingValue <= this.state.ratings ? "#4eeb1e" : "#e4e5e9"} id="lighteningratinginreview" size={35}/>
+                            <BsLightningChargeFill color={ratingValue <= this.state.ratings ? "#89D99D" : "#e4e5e9"} id="lighteningratinginreview" size={35}/>
                         </label>
                     )})}
                     </div>

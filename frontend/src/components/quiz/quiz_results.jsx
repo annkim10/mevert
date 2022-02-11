@@ -22,6 +22,9 @@ class QuizResults extends React.Component {
         return (
             <div className="quiz-results-outer-div">
                 <h1>YOUR RESULTS</h1>
+                <div className="quiz-results-button-div">
+                    <button className="quiz-results-button" onClick={() => this.props.history.push({ pathname:'/activities', state: {extro: extro, intro: intro} })}>GENERATE ACTIVITIES</button>
+                </div>
                 <div className="results-div">
                     <div className="score-wrapper">
                         <div className="score-div">
@@ -49,11 +52,6 @@ class QuizResults extends React.Component {
                             </div>     
                         </div>
                     </div>    
-                </div>
-                <div className="quiz-results-lower-div">
-                    <div className="quiz-results-button-div">
-                      <button onClick={() => this.props.history.push({ pathname:'/activities', state: {extro: extro, intro: intro} })}>GENERATE ACTIVITIES</button>
-                    </div>
                 </div>
             </div>
         )

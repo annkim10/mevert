@@ -85,7 +85,7 @@ class ActivityShow extends React.Component {
                                     return(
                                         <label id="lightradio" key={i}>
                                             <input id="lighteningradioinput" type="radio" value={ratingValue}/>
-                                            <BsLightningChargeFill color={ratingValue <= average ? "#4eeb1e" : "#e4e5e9"} id="lighteningratinginreview" size={20}/>
+                                            <BsLightningChargeFill color={ratingValue <= average ? "#89D99D" : "#e4e5e9"} id="lighteningratinginreview" size={20}/>
                                         </label>
                                 )})}
                                 </div>
