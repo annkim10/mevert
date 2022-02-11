@@ -1,12 +1,14 @@
 .navbar-wrapper {
     /* background-color: blue; */
     width: 100vw;
-    height: 100px;
+    height: 80px;
+    background-color: white;
     position: sticky;
     top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 200;
 }
 
 .navbar-div {
