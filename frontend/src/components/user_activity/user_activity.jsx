@@ -57,8 +57,9 @@ class UserActivity extends React.Component {
         })
         console.log(this.props.reviews)
         return(
-            <div>
-                <h1 id="UserWelcome">Welcome to your Planning Page {this.props.user.firstName}</h1>
+            <div className="user-activity-outer-div">
+                <div className="user-activity-inner-div">
+                <h1 id="UserWelcome">{this.props.user.firstName}'s Activities Planner </h1>
                 <div id="useractivityactivityandreviews">
                     <div id="useractdiv">
                     <p id="selectedactivities">Selected Activities</p>
@@ -74,8 +75,10 @@ class UserActivity extends React.Component {
                                     < BiDollar id="dollarsign"key={i}/>
                                 ))}
                             </div>
-                            <Link id="calenderlink" to={`/users/${this.props.user.id}`}>Schedule this Event</Link>
-                            <Link id="reviewlink" to={`/activities/${act._id}/review`}>Create a Review</Link>
+                            <div className="user-links-div">
+                                <Link id="calenderlink" to={`/users/${this.props.user.id}`}>SCHEDULE ACTIVITY</Link>
+                                <Link id="reviewlink" to={`/activities/${act._id}/review`}>CREATE REVIEW</Link>
+                            </div>
                         </div>
                     ))}
                      </div>
@@ -107,6 +110,8 @@ class UserActivity extends React.Component {
                         </div>
                     </div>
                 </div>
+                </div>
+                
             </div>
         )
     }

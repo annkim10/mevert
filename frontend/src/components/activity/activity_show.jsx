@@ -45,8 +45,7 @@ class ActivityShow extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         const activityData = {activityId: this.props.match.params.activityId}
-        this.props.postUserActivity(this.props.currentUser.id, activityData).then(this.setState({addedActivity: true}))
-        // this.props.openModal('addActivity')
+        this.props.postUserActivity(this.props.currentUser.id, activityData.activityId).then(this.setState({addedActivity: true}))
     }
 
     render() {
