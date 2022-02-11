@@ -107,7 +107,7 @@ class ActivityShow extends React.Component {
                     </div>
                 </div>
                  <div className="resources-map-div">
-                        <h1>Map goes here</h1>
+                        {/* <h1>Map goes here</h1> */}
                         <Map />
                     </div>
 
