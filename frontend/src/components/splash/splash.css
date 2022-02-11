@@ -1,20 +1,15 @@
 .splash-div {
-    min-width: 1224px;
-    max-width: 1420px;
+    /* min-width: 1224px;
+    max-width: 1420px; */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.splash-nav-links-div {
-    background-color: blue;
-    position: absolute;
-    
-}
-
 .splash-main-div {
     display: flex;
-    height: 800px;
+    justify-content: center;
+    height: 780px;
     overflow: hidden;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
@@ -25,25 +20,50 @@
     object-fit: cover;
 }
 
+.splash-main-wrapper {
+    /* background-color: rgba(0, 0, 255, 0.212); */
+    min-width: 1224px;
+    max-width: 1420px;
+    z-index: 100;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+
+.splash-nav-links-div {
+    background-color: white;
+    width: 350px;
+    height: 80px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 130px;
+}
+
+.splash-logo {
+    padding: 120px 0 20px;
+    width: 200px;
+}
+
 .splash-copy-div {
     display: flex;
     flex-direction: column;
-    color: white;
-    margin-top: 130px;
-    margin-left: 130px;
+    color: #023535;
+    margin-top: 25px;
 }
 
 .splash-header {
     /* background-color: beige; */
-    font-size: 35px;
+    font-size: 40px;
     font-weight: 700;
-    color: white;
+    color: #23606E;
 }
 
 .splash-main-copy {
     width: 350px;
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.3;
 }
 
@@ -51,14 +71,14 @@
     font-family: 'Dawning of a New Day', cursive ;
     font-size: 50px;
     padding: 0 5px;
-    color: #6DFC74
+    color: #008F8C;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.137)
 }
 
 /* HOW TO DIV */
 
 .how-to-div {
     background-color: #8dc0c0;
-    margin-top: 45px;
     width: 100vw;
     height: 380px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
@@ -70,7 +90,7 @@
     padding: 20px 50px;
     font-family: 'Dawning of a New Day', cursive ;
     font-size: 60px;
-    color: white;
+    color: #23606E
 }
 
 .how-to-copy-div {

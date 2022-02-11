@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Modal from "../components/modal/modal"
 import "./app.css"
 
-import SplashPage from "./splash/spash_page"
+import SplashContainer from './splash/splash_container';
 // import LoginContainer from "./session/login_container"
 // import SignupContainer from "./session/signup_container"
 import NavbarContainer from "./navbar/navbar_container"
@@ -23,7 +23,7 @@ const App = () => (
     <div className='app-outer-div'>
         <Modal />
         <Switch>
-            <Route exact path="/" component={SplashPage} />
+            <Route exact path="/" component={SplashContainer} />
             <div className='app-div'>
                 <NavbarContainer />
                 <ProtectedRoute exact path="/quiz" component={QuizFormContainer} />

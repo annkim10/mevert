@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import img from "../../assets/splash-img.jpg"
+import logo from "../../assets/mevert_logo.png"
 import "./splash.css"
 
 class SplashPage extends React.Component {
@@ -8,16 +9,24 @@ class SplashPage extends React.Component {
     render() {
         return (
             <div className="splash-div">
-                <div className='splash-nav-links-div'>
-                    <button className="splash-nav-links" onClick={() => this.props.openModal('signup')}>SIGN UP</button>
-                    <button className="splash-nav-links" onClick={() => this.props.openModal('login')}>LOG IN</button>
-                </div>
                 <div className="splash-main-div">
                     <img className="splash-img" src={img} />
-                    {/* <div className="splash-copy-div">
-                        <h1 className="splash-header">Everyone is different.</h1>
-                        <p className="splash-main-copy">Carpe Diem <span>your</span> <span>way</span> with personalized activity suggestions.</p>
-                    </div> */}
+                    <div className="splash-main-wrapper">
+                        <div className="left-wrapper">
+                            <img src={logo} className="splash-logo" />
+                             <div className="splash-copy-div">
+                                <h1 className="splash-header">Everyone is different.</h1>
+                                <p className="splash-main-copy">Carpe Diem <span>your</span> <span>way</span> with personalized activity suggestions.</p>
+                            </div>
+                        </div>
+                        <div className="right-wrapper">
+                           
+                            <div className='splash-nav-links-div'>
+                                <button className="splash-nav-links" onClick={() => this.props.openModal('signup')}>SIGN UP</button>
+                                <button className="splash-nav-links" onClick={() => this.props.openModal('login')}>LOG IN</button>
+                            </div>
+                        </div>  
+                    </div>
                 </div>  
                 <div className="how-to-div">
                     <div className="how-to-inner-div">
