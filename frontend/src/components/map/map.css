@@ -37,7 +37,7 @@
 }
 
 .marker {
-    background-image: url('/Users/kirti/Desktop/mevert/frontend/src/assets/mapbox-icon.png');
+    /* background-image: url('/Users/kirti/Desktop/mevert/frontend/src/assets/mapbox-icon.png'); */
     background-size: cover;
     width: 50px;
     height: 50px;
