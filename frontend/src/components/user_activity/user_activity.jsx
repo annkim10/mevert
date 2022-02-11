@@ -140,10 +140,15 @@ class UserActivity extends React.Component {
                                         </label>
                                     )})}
                                 </div>
-                                <span id="reviewtitleuseractivity">{review.title}</span>
-                                <span id="reviewbodyuseractivity">{review.body}</span>
-                                <Link id="linktoeditreview" to={`/activities/${review.activity}/review/${review._id}`}>Edit</Link>
-                                <button id="buttontodelete" value={review._id} onClick={this.removereview}>Delete</button>
+                                <div className="review-description-div">
+                                    <span id="reviewtitleuseractivity">{review.title}</span>
+                                    <br/>
+                                    <span id="reviewbodyuseractivity">{review.body}</span>
+                                </div>     
+                                <div className="review-buttons-div">
+                                    <Link id="linktoeditreview" to={`/activities/${review.activity}/review/${review._id}`}>EDIT</Link>
+                                    <button id="buttontodelete" value={review._id} onClick={this.removereview}>DELETE</button>
+                                </div>
                             </div>
                         ))}
                         </div>
