@@ -15,6 +15,7 @@ class UserActivity extends React.Component {
     componentDidMount() {
         this.props.allactivities()
         this.props.allreview()
+        this.props.allevents()
     }
 
     activityfinder(review) {
@@ -29,6 +30,35 @@ class UserActivity extends React.Component {
         e.preventDefault()
         console.log("hello")
         this.props.deletereview(e.currentTarget.value)
+    }
+
+    eventstarttime(act) {
+        let earray = []
+        let starttime
+        if (this.props.events.length) {
+            this.props.events.forEach(event => {
+                if (event.user === this.props.user.id) earray.push(event)
+            })
+            if (earray.length) {
+                for (let i = 0; i < earray.length; i++) {
+                    if (earray[i].title === act.title) {
+                        let newdate = new Date(earray[i].start)
+                        let year = newdate.getFullYear().toString().substr(-2)
+                        let month = newdate.getMonth()
+                        let day = newdate.getDate()
+                        let nday = newdate.getDay()
+                        let hour = newdate.getHours()
+                        let minutes = newdate.getMinutes()
+                        let period = ""
+                        if (hour <= 11) period = "AM"
+                        if (hour > 11) period = "PM"
+                        let fulldate = `${month}/${nday}/${year} @ ${hour}:${minutes} ${period}`
+                        return fulldate
+                    }
+                }         
+            }
+        }
+        return null 
     }
 
     activitydate(date) {
@@ -79,7 +109,13 @@ class UserActivity extends React.Component {
                             </div>
                             
                             <div className="user-links-div">
-                                <Link id="calenderlink" to={`/users/${this.props.user.id}`}>SCHEDULE ACTIVITY</Link>
+                                <div>
+                                    {this.eventstarttime(act) ? (
+                                        <span>Activity Scheduled for: {this.eventstarttime(act)}</span>
+                                    ) : (
+                                        <Link id="calenderlink" to={`/users/${this.props.user.id}`}>SCHEDULE ACTIVITY</Link>
+                                    )}
+                                </div>
                                 <Link id="reviewlink" to={`/activities/${act._id}/review`}>CREATE REVIEW</Link>
                             </div>
                         </div>
