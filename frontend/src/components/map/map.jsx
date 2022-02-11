@@ -1,11 +1,8 @@
-
 import React, { Component } from 'react';
-import { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
-import { Marker } from 'mapbox-gl';
-// import mapboxgl from '!mapbox-gl';
+// import { Marker } from 'mapbox-gl';
+
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX
-// mapboxgl.accessToken  = 'pk.eyJ1Ijoia2lydGloYXJvZGUiLCJhIjoiY2t6ZGVvemM4MnVjaTJucDQzbW9mbHo5OCJ9.oK9bGGd04LDF6zpvLpupZA'
 
 const data = [
 	{
@@ -64,135 +61,21 @@ const data = [
 	}
 ]
 
-
-// class MapComponent extends React.Component {
-
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//           lat: 37.7577,
-//           lng: -122.4376,
-//           zoom: 13
-//         };
-//         this.mapContainer = null;
-//         // this.map = null;
-//       }
-  
-//     componentDidMount() {
-//         const { lng, lat, zoom } = this.state;
-  
-//         // const map = new mapboxgl.Map({
-//         //   container: 'map',
-//         //   center: [lng, lat],
-//         //   style: 'mapbox://styles/mapbox/streets-v10',
-//         //   zoom: zoom,
-  
-//         // });
-
-//         // if (this.map.current) return; 
-//         // initialize map only once
-//        const map = new mapboxgl.Map({
-//             container: this.mapContainer,
-//             center: [lng, lat],
-//             style: 'mapbox://styles/mapbox/streets-v11',
-//             zoom: zoom
-//         });
-
-//         // if (!this.map.current) return;
-//         // this.map.on('move', () => {
-//         //   const { lng, lat } = this.map.getCenter();
-  
-//         //   this.setState({
-//         //     lng: lng.toFixed(4),
-//         //     lat: lat.toFixed(4),
-//         //     zoom: this.map.getZoom().toFixed(2)
-//         //   });
-//         // });
-//     }
-  
-//     render() {
-//         const { lng, lat, zoom } = this.state;
-//         return (
-//         //   <div className="map-container">
-//         //       <div className="map-params">
-//         //         <div>{`Longitude: ${lng} Latitude: ${lat} Zoom: ${zoom}`} </div>
-//         //       </div>
-//         //     <div id="map" />
-//         //   </div>
-
-//         <div>
-//             <div className="sidebar">
-//             Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-//             </div>
-//             <div ref={this.mapContainer} className="map-container" />
-//          </div>
-//         );
-//     }
-//   }
-  
-  
-// function MapComponent(){
-  
-//     const mapContainer = useRef(null);
-//     const map = useRef(null);
-//     const [lng, setLng] = useState(-117.1945);
-//     const [lat, setLat] = useState(37.9868);
-//     const [zoom, setZoom] = useState(6);
-
-
-//     useEffect(() => {
-//         if (map.current) return; // initialize map only once
-//         map.current = new mapboxgl.Map({
-//             container: mapContainer.current,
-//             style: 'mapbox://styles/mapbox/streets-v11',
-//             center: [lng, lat],
-//             zoom: zoom
-//         });
-
-//         if (!map.current) return; // wait for map to initialize
-//         map.current.on('move', () => {
-//             setLng(map.current.getCenter().lng.toFixed(4));
-//             setLat(map.current.getCenter().lat.toFixed(4));
-//             setZoom(map.current.getZoom().toFixed(2));
-//         });
-  
-       
-//     }, []);
-
-    
-//     //  data.forEach((location) => {
-//     //     console.log(location)
-//     //     var marker = new mapboxgl.Marker()
-//     //                     .setLngLat(location.coordinates)
-//     //                     .setPopup(new mapboxgl.Popup({ offset: 30 })
-//     //                     .setHTML('<h4>' + location.city + '</h4>' + location.location))
-//     //                     .addTo(map);
-
-//     // })
-//     return (
-//         <div>
-//         <div className="sidebar">
-//         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-//         </div>
-//         <div ref={mapContainer} className="map-container" />
-//         </div>
-//     );
-
-// }
-
-class Mapp extends React.Component{
-
-	// Set up states for updating map 
+class MapComponent extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			lng: -122.2409,
-			lat: 37.5467,
-			zoom: 9.5
+			lng: -122.1516 ,
+			lat: 37.6203,
+			zoom: 9.4
 		}
 	}
 
-	// Create map and lay over markers
+    // handlePopup(){
+    //     return (
+    //         new mapboxgl.Popup({ offset: 30 }).setHTML()
+    //     )
+    // }
 	componentDidMount(){
 		const map = new mapboxgl.Map({
 			container: this.mapContainer,
@@ -202,23 +85,20 @@ class Mapp extends React.Component{
 		})
 
         map.on('move', () => {
-                    const { lng, lat } = map.getCenter();
-            
-                    this.setState({
-                      lng: lng.toFixed(4),
-                      lat: lat.toFixed(4),
-                      zoom: map.getZoom().toFixed(2)
-                    });
+            const { lng, lat } = map.getCenter();
+            this.setState({
+                lng: lng.toFixed(4),
+                lat: lat.toFixed(4),
+                zoom: map.getZoom().toFixed(2)
+            });
         });
 
 		data.forEach((location) => {
-			// console.log(location)
 			var marker = new mapboxgl.Marker()
-							.setLngLat(location.coordinates)
-							.setPopup(new mapboxgl.Popup({ offset: 30 })
-							.setHTML('<h4 className="marker-box">' + location.city + '</h4>' + location.location))
-							.addTo(map);
-
+                        .setLngLat(location.coordinates)
+                        .setPopup(new mapboxgl.Popup({ offset: 30 })
+                            .setHTML( '<h4 className="popup-heading">' + location.city + '</h4>' + location.location ))
+                        .addTo(map);
 		})
 	}
 
@@ -232,7 +112,6 @@ class Mapp extends React.Component{
 			</div>
 		)
 	}
-}
-export default Mapp;
+};
 
-// export default MapComponent;
+export default MapComponent;
