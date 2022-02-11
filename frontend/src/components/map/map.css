@@ -5,15 +5,42 @@
     width:100%;
 } */
 
-.map-App{
+/* .map-container{
     display: flex;
     bottom: 10px;
     top: 80px;
     height: 600px;
-    /* margin-top: 30px; */
+    width: 500px;
+    margin-top: 30px;
 }
 .map-params{
-    /* display: inline-block; */
-    /* position: absolute;  */
+    display: inline-block;
+    position: absolute; 
     
+} */
+
+.map-container {
+    height: 400px;
 }
+
+.sidebar {
+    background-color: rgba(35, 55, 75, 0.9);
+    color: #fff;
+    padding: 6px 12px;
+    font-family: monospace;
+    z-index: 1;
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    margin: 12px;
+    border-radius: 4px;
+}
+
+.marker {
+    background-image: url('/Users/kirti/Desktop/mevert/frontend/src/assets/mapbox-icon.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  }

@@ -5,6 +5,7 @@ import {updateEvent, deleteEvent} from '../../actions/calendar_action'
 import Datetime from 'react-datetime';
 import {EVENTINFO} from './calendar';
 import {fetchEvents} from '../../actions/calendar_action';
+import moment from 'moment';
 
 class EditEvent extends React.Component{
 
@@ -38,7 +39,7 @@ class EditEvent extends React.Component{
     }
 
     handleDelete(e){
-        debugger
+        // debugger
         e.preventDefault();
         this.props.deleteEvent(this.state._id)
         .then(this.props.closeModal)
@@ -46,9 +47,20 @@ class EditEvent extends React.Component{
 
     handleDateTimePicker = (moment, name) => this.setState({ [name]: moment.toDate() });
 
+
+    disablePastDt = current => {
+        const yesterday = moment().subtract(1, 'day');
+        return current.isAfter(yesterday);
+    };
+
+    disableEndLessThanStart = current => {
+        const startDate = this.state.start
+        return current.isAfter(startDate);
+    };
+
     render(){
-        console.log("inside edit event render, printing props",this.props);
-        console.log("inside edit event render, printing state",this.state);
+        // console.log("inside edit event render, printing props",this.props);
+        // console.log("inside edit event render, printing state",this.state);
          let title = (this.props.activities.map((activity, index) => {
             return (<option key={index} value={activity.title}>{activity.title}</option>)
         }));
@@ -68,12 +80,12 @@ class EditEvent extends React.Component{
                     
                     <div className="event-start">
                         <label>Start</label>
-                        <Datetime value={this.state.start} onChange={moment => this.handleDateTimePicker(moment, 'start')} className="start-select"/>
+                        <Datetime isValidDate={this.disablePastDt} value={this.state.start} onChange={moment => this.handleDateTimePicker(moment, 'start')} className="start-select"/>
                     </div>
 
                     <div className="event-end">
                         <label>End</label>
-                        <Datetime value={this.state.end} onChange={moment => this.handleDateTimePicker(moment, 'end')} className="end-select"/>
+                        <Datetime isValidDate={this.disableEndLessThanStart} value={this.state.end} onChange={moment => this.handleDateTimePicker(moment, 'end')} className="end-select"/>
                     </div>
                     <div className="edit-btn-div">
                         <button onClick={this.handleSubmit} type='button' className="event-save">Save</button>
@@ -89,22 +101,10 @@ class EditEvent extends React.Component{
 const mapStateToProps = (state) => {
     let eventObj;
     let allEvents;
-// if(state.calendar.all){
-    let event = Object.values(state.calendar).filter(event => event.title === EVENTINFO )
-    console.log(event)
-    // if(event){
-        // eventObj = {
-        //     title: event[0].title,
-        //     start: event[0].start,
-        //     end: event[0].end,
-        //     _id: event[0]._id
-        // }
-    // }
+    let event = Object.values(state.calendar).filter(event => event._id === EVENTINFO )
     eventObj = event[0]
     allEvents = Object.values(state.calendar)
-    console.log(allEvents)
-// }
-    // console.log(eventObj)
+
     return {
         activities: Object.values(state.activities),
         eventObj,

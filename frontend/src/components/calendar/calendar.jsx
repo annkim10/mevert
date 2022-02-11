@@ -4,51 +4,22 @@ import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from "@fullcalendar/interaction";
 import { connect } from 'react-redux';
 import {openModal} from '../../actions/modal_actions';
-import moment from 'moment';
+
 import {getUserEvents} from '../../actions/calendar_action';
 
 export let EVENTINFO = null ;
 
  class  Calendar extends React.Component {
-    
     constructor(props){
         super(props)
         this.calendarRef = null;
         this.handleEventClick = this.handleEventClick.bind(this)
     }
-    
-     onEventAdd = (event) => {
-        let calendarApi = this.calendarRef.current.getApi()
-        calendarApi.addEvent({
-            start: moment(event.start).toDate(),
-            end: moment(event.end).toDate(),
-            title: event.title
-        })
-    }
-
+   
     handleEventClick = (clickInfo) => {
-        // if ((`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
-        //   clickInfo.event.remove()
-        // }
-        // return (<div>
-        //     <button>Edit</button>
-        //     <button>Delete</button>
-        // </div>)
-
-        // return clickInfo.event.title
-        //     // <div>
-        //     //     <addEventContainer />
-        //     // </div>
-       EVENTINFO = (clickInfo.event.title)
-        console.log("inside handle event click, clickinfo", clickInfo);
+       EVENTINFO = (clickInfo.event.id)
         return (
-            // <div>
-            //     <button onClick={() => this.show()}>
-            //         {clickInfo.event.title}
-            //     </button>
-            // </div>
             this.props.openModal('editEvent')
-
         )
     }
 
@@ -58,7 +29,8 @@ export let EVENTINFO = null ;
             let eventObj = {
                 title: event.title,
                 start: event.start,
-                end: event.end
+                end: event.end,
+                id: event._id
             }
             events.push(eventObj)
         })
@@ -72,13 +44,8 @@ export let EVENTINFO = null ;
                         events={events}
                         plugins={[ dayGridPlugin, interactionPlugin ]}
                         initialView="dayGridMonth"
-                        // eventAdd={(event) => this.handleEventAdd(event)}
-                        // datesSet={(date) => this.handleDatesSet(date)}
                         editable={true}
                         selectable={true}
-                        // eventChange={function(){}}
-                        // eventRemove={function(){}}
-                        // eventContent={this.renderEventContent}
                         eventClick={this.handleEventClick}
                     />
                 </div>
