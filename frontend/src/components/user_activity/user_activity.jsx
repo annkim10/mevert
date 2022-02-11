@@ -109,13 +109,13 @@ class UserActivity extends React.Component {
                             </div>
                             
                             <div className="user-links-div">
-                                <div>
+                                {/* <div className="user-links-scheduled"> */}
                                     {this.eventstarttime(act) ? (
-                                        <span>Activity Scheduled for: {this.eventstarttime(act)}</span>
+                                        <span className="activity-schedule-time">Activity Scheduled for: <br/> {this.eventstarttime(act)}</span>
                                     ) : (
                                         <Link id="calenderlink" to={`/users/${this.props.user.id}`}>SCHEDULE ACTIVITY</Link>
                                     )}
-                                </div>
+                                {/* </div> */}
                                 <Link id="reviewlink" to={`/activities/${act._id}/review`}>CREATE REVIEW</Link>
                             </div>
                         </div>
