@@ -26,29 +26,12 @@ class Navbar extends React.Component {
                 {/* <Link to={'/profile'}>Profile</Link> */}
 
               <div className='nav-links-div'>
-                <Link to={`/users/${this.props.user.id}`} className='user-show-link'>
-                  <p>{this.props.user.firstName} {this.props.user.lastName}</p>
-                </Link>
-                <div className="logout-button" onClick={this.logoutUser}>LOGOUT</div>
+                <div className="user-button" onClick={`/users/${this.props.user.id}`} >{this.props.user.firstName} {this.props.user.lastName}</div>
+                <div className="user-button" onClick={this.logoutUser}>LOGOUT</div>
               </div>
                
             </div>
-        );
-      } else {
-        return (
-            <div className='navbar-div'>
-              <div className='logo-div'>
-                  <Link to="/"> <img className='logo-img' src={logo} /></Link>
-              </div>
-              <div className='nav-links-div'>
-                <button className="nav-links" onClick={() => this.props.openModal('signup')}>SIGN UP</button>
-                <button className="nav-links" onClick={() => this.props.openModal('login')}>LOG IN</button>
-                {/* <Link className='nav-links' to={'/signup'}>SIGN UP</Link>
-                <Link  className='nav-links' to={'/login'}>LOG IN</Link> */}
-              </div>
-            </div>
-        );
-      }
+        );}
   }
 
   render() {

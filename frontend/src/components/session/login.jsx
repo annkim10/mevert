@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this)
     this.renderErrors = this.renderErrors.bind(this);
   }
 
@@ -34,14 +35,13 @@ class LoginForm extends React.Component {
     }
   }
 
-  // Handle field updates (called in the render method)
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
   }
 
-  // Handle form submission
+
   handleSubmit(e) {
     e.preventDefault();
 
@@ -50,10 +50,9 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user); 
+    this.props.login(user).then(this.props.closeModal); 
   }
 
-  // Render the session errors if there are any
   renderErrors() {
     return(
       <ul>
@@ -66,8 +65,20 @@ class LoginForm extends React.Component {
     );
   }
 
+  demoLogin(e) {
+    e.preventDefault()
+
+    let demoUser = {
+      email: 'demo@demo.com',
+      password: 'password'
+    };
+
+    this.props.login(demoUser).then(this.props.closeModal); 
+
+  }
+
   render() {
- 
+    console.log("inside login", this.props)
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-div">
@@ -86,9 +97,8 @@ class LoginForm extends React.Component {
             <br/>
             <div className='buttons-div'>
               <input type="submit" className="signup-submit" value="LOG IN" />
-              <button className='signup-submit'>DEMO LOGIN</button>     
+              <button className='signup-submit' onClick={this.demoLogin}>DEMO LOGIN</button>     
             </div>
-            
             {this.renderErrors()}
         </form>
       </div>

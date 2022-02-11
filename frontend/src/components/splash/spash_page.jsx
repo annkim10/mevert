@@ -7,7 +7,37 @@ import { MdQuiz, MdPersonPin, MdEditCalendar } from "react-icons/md"
 
 class SplashPage extends React.Component {
 
+    constructor(props) {
+        super(props)
+    }
+
+    renderHeader() {
+        if (this.props.user.id) {
+            return <h1 className="splash-header">Welcome {this.props.user.firstName} {this.props.user.lastName}</h1>
+        } else {
+            return <h1 className="splash-header">Everyone is different.</h1>
+        }
+    }
+
+    renderLinks() {
+        if (this.props.user.id) {
+            return (
+                <div className='splash-nav-links-div-loggedin'>
+                    <button className="splash-nav-links" onClick={() => this.props.history.push('/quiz')}>TAKE THE QUIZ</button>
+                </div>
+            )
+        } else {
+            return (
+                <div className='splash-nav-links-div'>
+                    <button className="splash-nav-links" onClick={() => this.props.openModal('signup')}>SIGN UP</button>
+                    <button className="splash-nav-links" onClick={() => this.props.openModal('login')}>LOG IN</button>
+                </div>
+            )
+        }
+    }
+
     render() {
+        console.log("inside splash", this.props)
         return (
             <div className="splash-div">
                 <div className="splash-main-div">
@@ -16,15 +46,11 @@ class SplashPage extends React.Component {
                         <div className="left-wrapper">
                             <img src={logo} className="splash-logo" />
                              <div className="splash-copy-div">
-                                <h1 className="splash-header">Everyone is different.</h1>
+                                 {this.renderHeader()}
                                 <p className="splash-main-copy">Carpe Diem <span>your</span> <span>way</span> with personalized activity suggestions.</p>
                             </div>
-                            <div className='splash-nav-links-div'>
-                                <button className="splash-nav-links" onClick={() => this.props.openModal('signup')}>SIGN UP</button>
-                                <button className="splash-nav-links" onClick={() => this.props.openModal('login')}>LOG IN</button>
-                            </div>
+                            {this.renderLinks()}
                         </div>
-                       
                 <div className="how-to-div">
                     <div className="how-to-inner-div">
                         <h1>how it works :</h1>

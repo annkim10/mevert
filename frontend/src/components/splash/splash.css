@@ -51,6 +51,11 @@
     
 }
 
+.splash-nav-links-div-loggedin {
+    margin-top: 70px;
+}
+
+
 .splash-nav-links {
     background-color: rgb(235, 235, 235);
     width: 220px;
