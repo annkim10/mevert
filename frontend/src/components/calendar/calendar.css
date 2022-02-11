@@ -1,9 +1,10 @@
 .calendar-div{
-    position: relative;
+    /* position: relative; */
     z-index: 0;
-    width: 1000px;
+    width: 700px;
+    /* width: 1000px; */
     background-color: white;
-    margin-left: 100px;
+    /* margin-left: 100px; */
 }
 
 .add-event-btn{

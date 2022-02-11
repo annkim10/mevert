@@ -82,7 +82,7 @@
 }
 
 .buttons-div {
-  width: 70%;
+  width: 370px;
   display: flex;
   justify-content: space-between;
 }
@@ -90,7 +90,7 @@
 .signup-submit {
     background-color: rgb(238, 238, 238);
     margin-top: 15px;
-    width: 150px;
+    width: 170px;
     height: 40px;
     font-size: 17px;
     border: none;
@@ -118,10 +118,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .login-form-div > h1 {
+    margin-top: 60px;
     font-size: 35px;
     font-weight: 300;
     color: #0b6565;

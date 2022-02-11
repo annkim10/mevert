@@ -62,10 +62,10 @@ const addUserActivity = userActivities => ({
     userActivities
 })
 
-export const postUserActivity = (userId, activityId) => dispatch => (
-    APIUtil.postUserActivity(userId, activityId).then(res => {
-        dispatch(addUserActivity(res.data.activities))
+export const postUserActivity = (userId, activityData) => dispatch => {
+    return APIUtil.postUserActivity(userId, activityData).then(res => {
+        dispatch(addUserActivity(res.data.activities[res.data.activities.length -1]))
     }, err => (
         dispatch(receiveErrors(err.response.data))
     ))
-)
+}

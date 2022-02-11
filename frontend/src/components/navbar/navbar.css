@@ -1,12 +1,14 @@
 .navbar-wrapper {
     /* background-color: blue; */
     width: 100vw;
-    height: 100px;
+    height: 80px;
+    background-color: white;
     position: sticky;
     top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 200;
 }
 
 .navbar-div {
@@ -18,7 +20,7 @@
     align-items: center;
     font-weight: 400;
     border-radius: 40px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .logo-div {
@@ -38,33 +40,30 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-left: 60%
+    margin-left: 55%
 }
 
-.nav-links, .logout-button {
+.user-button {
     background: none;
     border: none;
-    width: 100px;
+    width: 150px;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: rgb(44, 44, 44);
-    font-size: 16px
+    color: #015958;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 
-.nav-links:hover, .logout-button:hover {
+.user-button:hover {
     background-color: rgb(236, 236, 236);
     border-radius: 40px;
 }
 
-.nav-links-div > p {
-    text-transform: uppercase;
-}
-
-.user-show-link{
+/* .user-show-link{
     cursor: pointer;
     color: rgb(44, 44, 44);
     font-size: 18px
-}
+} */

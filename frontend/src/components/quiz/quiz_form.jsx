@@ -1,6 +1,7 @@
 import React from "react";
 import "./quiz.css"
 import QuizResults from "./quiz_results";
+import { MdOutlineNavigateNext } from "react-icons/md"
 
 class QuizForm extends React.Component {
 
@@ -112,11 +113,15 @@ class QuizForm extends React.Component {
 
     renderButton() {
          if (this.state.questionCount === 9) {
-             return <button className="quiz-form-button" onClick={this.handleSubmit}>GET RESULTS</button>
+             return (
+                 <div className="button-div">
+                     <button className="quiz-form-button" onClick={this.handleSubmit}>GET RESULTS <MdOutlineNavigateNext /> </button>
+                 </div>
+             )
          } else {
              return (
-                 <div>
-                     <button className="quiz-form-button" onClick={() => this.setState({questionCount: this.state.questionCount + 1}, () => {return null})}>NEXT</button>
+                 <div className="button-div">
+                     <button className="quiz-form-button" onClick={() => this.setState({questionCount: this.state.questionCount + 1}, () => {return null})}>NEXT <MdOutlineNavigateNext /></button>
                  </div>
              )
          }

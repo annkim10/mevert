@@ -11,7 +11,7 @@
 .activities-user-outer-div > h1 {
     font-size: 35px;
     font-weight: 300;
-    color: #0b6565;
+    color: #015958;
     padding-bottom: 50px
 }
 
@@ -54,7 +54,7 @@
     font-size: 15px;
     font-weight: 600;
     margin-top: 20px;
-    color: #0b6565;
+    color: #015958;
     text-align: center;
 }
 
@@ -116,7 +116,7 @@
 .activity-show-main-header {
     width: 60%;
     font-size: 30px;
-    color: #0b6565;
+    color: #015958;
     font-weight: 700;
     padding-top: 40px;
     padding-left: 25px;
@@ -130,7 +130,7 @@
 
 .activity-show-description p {
     font-weight: 700;
-    color:#689d9d;
+    color:#008F8C;
     padding-top: 10px;
 }
 
@@ -197,7 +197,7 @@
     font-weight: 700;
     padding: 40px 40px 20px;
     /* background-color: #0b6565; */
-    color: #0b6565;
+    color: #015958;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
 }
@@ -223,19 +223,11 @@
 
 /* ADD ACTIVITY MODAL */
 
-.modal-background-transparent {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 100;
-}
 
 .activity-add-modal {
-    background-color:#689d9df6;
+    background-color:#23606E;
     width: 280px;
-    height: 161px;
+    height: 180px;
     z-index: 150;
     position: fixed;
     border-radius: 20px;
@@ -273,6 +265,9 @@
     height: 40px;
     border-radius: 40px;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

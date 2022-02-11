@@ -55,10 +55,11 @@ class UserActivity extends React.Component {
         this.props.reviews.forEach(review => {
             if (review.user === this.props.user.id) rarray.push(review)
         })
-        console.log(this.props.reviews)
+        console.log("narray", narray)
         return(
-            <div>
-                <h1 id="UserWelcome">Welcome to your Planning Page {this.props.user.firstName}</h1>
+            <div className="user-activity-outer-div">
+                <div className="user-activity-inner-div">
+                <h1 id="UserWelcome">{this.props.user.firstName}'s Activities Planner </h1>
                 <div id="useractivityactivityandreviews">
                     <div id="useractdiv">
                     <p id="selectedactivities">Selected Activities</p>
@@ -66,16 +67,21 @@ class UserActivity extends React.Component {
                     {narray.map((act,i) => (
                         <div id="individualactivityuseractivity" key={i}>
                             <img id="useractivityimg" src={Images[act.title]}/>
-                            <span id="acttitle">{act.title}</span>
-                            <span id="acttype">{act.type}</span>
-                            <div id="pricediv">
-                            <span>Price: </span>
-                                {[...Array(act.price)].map((price,i) => (
-                                    < BiDollar id="dollarsign"key={i}/>
-                                ))}
+                            <div className="activity-descript-div"> 
+                                <span id="acttitle">{act.title}</span>
+                                <span id="acttype">{act.type}</span>
+                                <div id="pricediv">
+                                <span>Price: </span>
+                                    {[...Array(act.price)].map((price,i) => (
+                                        < BiDollar id="dollarsign"key={i}/>
+                                    ))}
+                                </div>
                             </div>
-                            <Link id="calenderlink" to={`/users/${this.props.user.id}`}>Schedule this Event</Link>
-                            <Link id="reviewlink" to={`/activities/${act._id}/review`}>Create a Review</Link>
+                            
+                            <div className="user-links-div">
+                                <Link id="calenderlink" to={`/users/${this.props.user.id}`}>SCHEDULE ACTIVITY</Link>
+                                <Link id="reviewlink" to={`/activities/${act._id}/review`}>CREATE REVIEW</Link>
+                            </div>
                         </div>
                     ))}
                      </div>
@@ -107,6 +113,8 @@ class UserActivity extends React.Component {
                         </div>
                     </div>
                 </div>
+                </div>
+                
             </div>
         )
     }

@@ -2,37 +2,47 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    background-color: #23606E;
+    width: 100vw;
+    height: 1800px;
 }
 
 .splash-main-div {
+    background-color: white;
+    position: absolute;
     display: flex;
     justify-content: center;
     height: 780px;
-    overflow: hidden;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.splash-img-div {
+    position: relative;
+    height: 780px;
+    overflow: hidden;
 }
 
 .splash-img {
     width: 100vw;
-    height: 900px;
+    height: 780px;
     object-fit: cover;
-    object-position: 500px 50%;
+    object-position: 500px 55%;
 }
 
 .splash-main-wrapper {
     /* background-color: rgba(0, 0, 255, 0.212); */
-    min-width: 1224px;
-    max-width: 1420px;
-    height: 85%;
+    min-width: 1024px;
+    max-width: 1220px;
     z-index: 10;
     position: absolute;
     display: flex;
     flex-direction: column;
+    gap: 22rem;
 }
 
 .splash-nav-links-div {
     width: 350px;
-    height: 300px;
     display: flex;
     gap: 2rem;
     justify-content: center;
@@ -40,6 +50,11 @@
     margin-top: 80px;
     
 }
+
+.splash-nav-links-div-loggedin {
+    margin-top: 70px;
+}
+
 
 .splash-nav-links {
     background-color: rgb(235, 235, 235);
@@ -97,19 +112,14 @@
 /* HOW TO DIV */
 
 .how-to-div {
-    background-color: #23606E;
-    width: 100vw;
     height: 780px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     display: flex;
     flex-direction: column;
-    padding-left: 90px;
 }
 
 .how-to-inner-div {
     min-width: 1224px;
     max-width: 1420px;
-    padding: 50px;
 }
 
 .how-to-inner-div > h1{

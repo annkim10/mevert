@@ -1,5 +1,24 @@
+.user-activity-outer-div {
+    background-color: rgb(240, 240, 240);
+    width: 100vw;
+    height: 1500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-activity-inner-div {
+    background-color: white;
+    min-width: 1024px;
+    max-width: 1220px;
+    height: 80%;
+    margin-top: 50px;
+    border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 #useractivityimg {
-    width: 350px;
+    width: 300px;
     height: 150px;
     object-fit: cover;
     margin-bottom:10px;
@@ -7,34 +26,58 @@
     border-top-right-radius: 40px;
 }
 
+.activity-descript-div {
+    /* background-color: blue; */
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    gap: 0.3rem;
+}
+
 #acttitle {
     font-weight:700;
-    margin-bottom:5px;
-    font-size:18px;
+    font-size:17px;
+    text-align: center;
+    line-height: 1.4;
 }
 
 #acttype {
-    margin-bottom: 5px;
+    font-size: 15px;
 }
 
 #pricediv {
     display:flex;
     flex-direction:row;
-    margin-bottom:15px;
+    font-size: 15px;
+}
+
+.user-links-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #calenderlink, #reviewlink, #linktoeditreview, #buttontodelete {
-    line-height:26px;
-    background-color:#e9b0aa;
-    border-radius:10px;
-    width:150px;
+    background-color: rgb(233, 233, 233);
+    border-radius:40px;
+    width:230px;
+    height: 40px;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align:center;
-    font-weight:700;
+    /* font-weight:700; */
     text-decoration: none;
     color:rgb(11,101,101);
-    margin-bottom:15px;
+    margin-bottom:10px;
+}
+
+#calenderlink:hover, #reviewlink:hover {
+    background-color: #008F8C;
+    color: white;
 }
 
 #reviewlink {
@@ -60,17 +103,17 @@
 
 #individualactivityuseractivity {
     display:flex;
+    background-color: white;
     flex-direction:column;
     align-items:center;
     border-radius:40px;
-    width:max-content;
-    /* overflow: hidden; */
+    width:300px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     cursor: pointer;
-    height:350px;
+    height:360px;
     padding-bottom:20px;
     margin-right:40px;
-    font-family: 'Roboto Condensed', sans-serif ;
+    color: #015958
 }
 
 #activitiesdisplayinuseractivities::-webkit-scrollbar, #overflowreview::-webkit-scrollbar {
@@ -89,8 +132,9 @@
     gap:80px; */
     /* background-color: aqua; */
     display:flex;
+    align-items: center;
     overflow-x:auto;
-    width:1200px;
+    width:1050px;
     height:400px;
     /* background-color: aquamarine; */
 }
@@ -181,17 +225,19 @@
 
 #UserWelcome {
     align-self:center;
-    font-size:45px;
-    margin-top:10px;
+    font-size:35px;
+    margin-top:50px;
     margin-bottom:35px;
-    font-family: 'Dawning of a New Day', cursive ;
+    /* font-family: 'Dawning of a New Day', cursive ; */
     margin-left:100px;
-    
+    font-weight: 700;
+    color: #015958;
 }
 
 #selectedactivities, #reviewactivities {
     font-weight:700;
-    font-size:32px;
-    margin-bottom:10px;
+    font-size:25px;
+    margin-bottom:30px;
+    color: #008F8C;
 }
 
