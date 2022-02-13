@@ -92,7 +92,7 @@ class MapComponent extends React.Component{
                 zoom: map.getZoom().toFixed(2)
             });
         });
-
+		// console.log("this is map_data" + this.props.data)
 		data.forEach((location) => {
 			var marker = new mapboxgl.Marker()
                         .setLngLat(location.coordinates)
