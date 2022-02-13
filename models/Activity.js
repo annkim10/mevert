@@ -38,6 +38,10 @@ const ActivitySchema = new Schema ({
     category: {
         type: String,
         required: true 
+    },
+    map_data: {
+        type: Array,
+        required: true
     }
 })
 
