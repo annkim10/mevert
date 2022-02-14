@@ -4,7 +4,7 @@
     /* background-color: rgb(202, 202, 202); */
     min-width: 1024px;
     max-width: 1220px;
-    height: 1500px;
+    height: 800px;
     display: flex;
     flex-direction: column;
 }
@@ -121,7 +121,7 @@
     /* background-color: blue; */
     min-width: 1024px;
     max-width: 1220px;
-    height: 1500px;
+    height: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
