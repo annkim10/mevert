@@ -37,7 +37,6 @@ const App = () => (
                 <ProtectedRoute exact path='/users/:userId/activities' component={UserActivityContainer} />
                 <ProtectedRoute exact path='/users/:userId' component={ProfileContainer} />
             </React.Fragment>
-
         </Switch>
         </div>
        
