@@ -5,8 +5,6 @@ import Modal from "../components/modal/modal"
 import "./app.css"
 
 import SplashContainer from './splash/splash_container';
-// import LoginContainer from "./session/login_container"
-// import SignupContainer from "./session/signup_container"
 import NavbarContainer from "./navbar/navbar_container"
 import QuizFormContainer from './quiz/quiz_container';
 import QuizResultsContainer from './quiz/quiz_results_container';
@@ -18,6 +16,8 @@ import ReviewContainer from "./review/review_container"
 import EditReviewContainer from "./review/edit_review_container"
 import UserActivityContainer from "./user_activity/user_activity_container"
 import PersonalActivityContainer from "./activity/personal_activity_container"
+
+import Footer from './footer/footer';
 
 const App = () => (
     <div className='app-outer-div'>
@@ -39,7 +39,7 @@ const App = () => (
             </React.Fragment>
         </Switch>
         </div>
-       
+       <Footer />
 
     </div>
 );

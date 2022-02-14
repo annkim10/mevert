@@ -60,7 +60,7 @@ class SplashPage extends React.Component {
                             <div className="how-to-wrapper">
                                 <MdQuiz className="how-to-icon"/>
                                 <div className="take-quiz-div"> 
-                                    <Link to="/quiz">Take the quiz</Link>
+                                    <h1>Take the quiz</h1>
                                     <p>Are you more of an Introvert or an Extrovert?</p>
                                 </div>
                             </div>
