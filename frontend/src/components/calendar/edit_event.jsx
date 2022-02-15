@@ -15,6 +15,7 @@ class EditEvent extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this)
         this.updateDropdown = this.updateDropdown.bind(this)
         this.handleDelete = this.handleDelete.bind(this)
+        this.formatDate = this.formatDate.bind(this)
     }
 
     componentDidUpdate(prevProps, prevState){
@@ -22,6 +23,21 @@ class EditEvent extends React.Component{
         if(prevProps.eventObj !== this.state){
             this.props.fetchEvents()
         }
+    }
+
+    formatDate(date) {
+        let newdate = new Date(date)
+        let year = newdate.getFullYear()
+        let month = newdate.getMonth()
+        let day = newdate.getDate()
+        let hour = newdate.getHours()
+        let minutes = newdate.getMinutes()
+        let period = ""
+        if (hour <= 11) period = "AM"
+        if (hour > 11) period = "PM"
+        let time = newdate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+        let fulldate = `${month}/${day}/${year} ${time}`
+        return fulldate
     }
 
     handleSubmit(e){
@@ -82,12 +98,12 @@ class EditEvent extends React.Component{
                     
                     <div className="event-start">
                         <label>Start</label>
-                        <Datetime isValidDate={this.disablePastDt} value={this.state.start} onChange={moment => this.handleDateTimePicker(moment, 'start')} className="start-select"/>
+                        <Datetime isValidDate={this.disablePastDt} value={this.formatDate(this.state.start)} onChange={moment => this.handleDateTimePicker(moment, 'start')} className="start-select"/>
                     </div>
 
                     <div className="event-end">
                         <label>End</label>
-                        <Datetime isValidDate={this.disableEndLessThanStart} value={this.state.end} onChange={moment => this.handleDateTimePicker(moment, 'end')} className="end-select"/>
+                        <Datetime isValidDate={this.disableEndLessThanStart} value={this.formatDate(this.state.end)} onChange={moment => this.handleDateTimePicker(moment, 'end')} className="end-select"/>
                     </div>
                     <div className="edit-btn-div">
                         <button onClick={this.handleSubmit} type='button' className="event-save">Save</button>
@@ -105,6 +121,8 @@ const mapStateToProps = (state) => {
     let allEvents;
     let event = Object.values(state.calendar).filter(event => event._id === EVENTINFO )
     eventObj = event[0]
+    console.log(eventObj)
+    console.log()
     allEvents = Object.values(state.calendar)
 
     return {

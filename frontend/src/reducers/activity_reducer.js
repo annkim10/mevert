@@ -5,7 +5,11 @@ const ActivityReducer = (state={}, action) => {
     let nextState = Object.assign({}, state)
     switch (action.type) {
         case RECEIVE_ACTIVITIES:
-            return action.activities.data 
+            // action.activities.data.map(activity => (
+            //     nextState[activity._id] = activity
+            // ))
+            // return nextState;
+            return action.activities.data
         case RECEIVE_ACTIVITY:
             nextState[action.activity.data._id] = action.activity.data 
             return nextState 

@@ -40,11 +40,20 @@ class AddEvent extends React.Component {
     };
 
     render(){
-     
-        let title = (this.props.activities.map((activity, index) => {
+        const {userActivitiesId, activities} = this.props
+        if(!userActivitiesId || !activities) return null;
+        let selectedActivities = [];
+        activities.forEach(activity => {
+            if(userActivitiesId.includes(activity._id)){
+                selectedActivities.push(activity)
+            }
+        })
+        // console.log(selectedActivities)
+        let title;
+        title =  selectedActivities.map((activity, index) => {
             return (<option key={index} value={activity.title}>{activity.title}</option>)
-        }));
-
+        })
+       
         return(
             <div className="add-event-div">
                 <form className="add-event-form" onSubmit={this.handleSubmit}> 
@@ -80,7 +89,8 @@ class AddEvent extends React.Component {
 
 const mapStateToProps = state => ({
     user: state.session.user,
-    activities: Object.values(state.activities)
+    activities: Object.values(state.activities),
+    userActivitiesId: state.session.user.activities
 });
 
 const mapDispatchToProps = dispatch => ({
