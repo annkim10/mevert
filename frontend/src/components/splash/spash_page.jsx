@@ -78,14 +78,16 @@ class SplashPage extends React.Component {
                             <div className="how-to-wrapper">
                                 <MdPersonPin className="how-to-icon"/>
                                 <div className="activities-div">
-                                    <h1>Get curated activities</h1>
+                                    <h1 onClick={ loggedIn ? () => this.props.history.push("/activities") : () => this.props.openModal('login')}>
+                                        Get curated activities</h1>
                                     <p>Things to do that are tailored to your personality traits</p>
                                 </div>      
                             </div>
                             <div className="how-to-wrapper">
                                 <MdEditCalendar className="how-to-icon"/>
                                 <div className="planner-div">
-                                    <h1>Plan and Accomplish</h1>
+                                    <h1 onClick={ loggedIn ? () => this.props.history.push(`/users/${this.props.user.id}`) : () => this.props.openModal('login')}>
+                                        Plan and Accomplish</h1>
                                     <p>Get the tools and resources to accomplish each activity</p>
                                 </div>
                             </div>
