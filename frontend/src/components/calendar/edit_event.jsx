@@ -49,12 +49,14 @@ class EditEvent extends React.Component{
 
 
     disablePastDt = current => {
-        const yesterday = moment().subtract(1, 'day');
+        // console.log(moment())
+        const yesterday = moment().subtract(1, 'day');;
         return current.isAfter(yesterday);
     };
 
     disableEndLessThanStart = current => {
         const startDate = this.state.start
+        // console.log("this is from calendar" + startDate)
         return current.isAfter(startDate);
     };
 
