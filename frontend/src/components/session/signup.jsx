@@ -30,7 +30,9 @@ class SignupForm extends React.Component {
       this.setState({signedIn: prevProps.signedIn});
 
       if (this.props.signedIn === true) {
-        this.props.history.push('/login');
+        this.props.login({email: this.state.email, password: this.state.password})
+        .then(this.props.closeModal)
+        // this.props.history.push('/login');
       }
     }
   }
