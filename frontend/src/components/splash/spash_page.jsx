@@ -24,9 +24,17 @@ class SplashPage extends React.Component {
     renderLinks() {
         if (this.props.loggedIn) {
             return (
-                <div className='splash-nav-links-div-loggedin'>
-                    <button className="splash-nav-links" onClick={() => this.props.history.push('/quiz')}>TAKE THE QUIZ</button>
-                </div>
+                <div className="splash-nav-links-div-loggedin-outer">
+                    <div className='splash-nav-links-div-loggedin'>
+                        <button className="splash-nav-links" onClick={() => this.props.history.push('/quiz')}>TAKE THE QUIZ</button>
+                    </div>
+                    <div className="splash-upper-right-links">
+                        <Link className="splash-upper-right-link" to={`/users/${this.props.user.id}`}>
+                            {this.props.user.firstName} {this.props.user.lastName}</Link>
+                        <Link className="splash-upper-right-link" to="/activities">ACTIVITIES</Link>
+                        <button className="splash-upper-right-link" onClick={() => this.props.logout()}>LOG OUT</button>
+                    </div>
+                </div>              
             )
         } else {
             return (

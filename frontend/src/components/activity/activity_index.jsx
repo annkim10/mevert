@@ -36,7 +36,7 @@ class ActivityIndex extends React.Component {
         // console.log("filter", this.filterActivities(activities, intro, extro))
         return(
             <div className="activities-user-outer-div">
-                <h1>More Activities</h1>
+                <h1>All Activities</h1>
                 <div className="card-div">
                         {activities.map(activity => <ActivityIndexItem activity={activity} />)}
                 </div>
