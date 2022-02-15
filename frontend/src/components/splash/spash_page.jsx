@@ -21,7 +21,7 @@ class SplashPage extends React.Component {
         }
     }
 
-    renderLinks() {
+    renderNavLinks() {
         if (this.props.loggedIn) {
             return (
                 <div className="splash-nav-links-div-loggedin-outer">
@@ -48,6 +48,8 @@ class SplashPage extends React.Component {
 
     render() {
         console.log("inside splash", this.props)
+        const { loggedIn } = this.props
+
         return (
             <div className="splash-div">
                 <div className="splash-main-div">
@@ -59,7 +61,7 @@ class SplashPage extends React.Component {
                                  {this.renderHeader()}
                                 <p className="splash-main-copy">Carpe Diem <span>your</span> <span>way</span> with personalized activity suggestions.</p>
                             </div>
-                            {this.renderLinks()}
+                            {this.renderNavLinks()}
                         </div>
                 <div className="how-to-div">
                     <div className="how-to-inner-div">
@@ -68,7 +70,8 @@ class SplashPage extends React.Component {
                             <div className="how-to-wrapper">
                                 <MdQuiz className="how-to-icon"/>
                                 <div className="take-quiz-div"> 
-                                    <h1>Take the quiz</h1>
+                                    <h1 onClick={ loggedIn ? () => this.props.history.push("/quiz") : () => this.props.openModal('login') }>
+                                        Take the quiz</h1>
                                     <p>Are you more of an Introvert or an Extrovert?</p>
                                 </div>
                             </div>

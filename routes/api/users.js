@@ -67,7 +67,7 @@ router.post("/login", (req, res) => {
 
   User.findOne({ email }).then(user => {
     if (!user) {
-      errors.handle = "This user does not exist";
+      errors.email = "User does not exist";
       return res.status(400).json(errors);
     }
 

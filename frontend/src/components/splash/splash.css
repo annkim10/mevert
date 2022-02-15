@@ -168,7 +168,7 @@
     /* font-family: 'Dawning of a New Day', cursive ; */
     font-weight: 700;
     font-size: 60px;
-    color: white
+    color: white;
 }
 
 .how-to-copy-div {
@@ -194,7 +194,8 @@
     font-size: 25px;
     font-weight: 700;
     color: #FACFCE;
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    cursor: pointer;
 }
 
 .take-quiz-div > p, .activities-div > p, .planner-div > p{
