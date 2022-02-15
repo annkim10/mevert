@@ -22,6 +22,3 @@ Live Link to the site: https://mevert.herokuapp.com/?#/
 
 3) Users also have access to resources to accomplish the selected activities. We added some youtube videos utilizing the react-youtube library, and   implemented a map to provide locations related to the activity using Mapbox API.
 
-
-
-4) 
