@@ -117,6 +117,25 @@ router.post("/:id/activities", (req, res) => {
   
 }); 
 
+//DELETE USER ACTIVITES 
+
+
+router.delete("/:id/activities", (req, res) => {
+  console.log("router post")
+   User.findOne({ "_id": req.params.id })
+   .then( user => {
+        if (!user) {
+           res.status(400).send("User is not found");
+        } else {
+            let i = user.activities.indexOf(req.body.activityId)
+            user.activities.splice(i,1)
+            user.save()
+            res.json(user)
+        }
+    });
+  
+}); 
+
 // FETCH USER ACTIVITIES
 
 router.get("/:userId/activities", (req, res) => {
