@@ -10,6 +10,7 @@ import img from "../../assets/profile_pic.jpg"
 class Profile extends React.Component {
 
     componentDidMount(){
+        window.scroll(0,0)
         this.props.fetchEvents()
         this.props.fetchActivities()
     }

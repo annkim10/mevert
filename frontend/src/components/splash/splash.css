@@ -33,7 +33,7 @@
 .splash-main-wrapper {
     /* background-color: rgba(0, 0, 255, 0.212); */
     min-width: 1024px;
-    max-width: 1220px;
+    max-width: 1420px;
     z-index: 10;
     position: absolute;
     display: flex;
@@ -71,6 +71,48 @@
     color: white;
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.splash-upper-right-links {
+    background-color: white;
+    position: fixed;
+    top:0;
+    left: 80%;
+    width: fit-content;
+    height: 40px;
+    text-transform: uppercase;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    border-radius: 40px;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+    color: #015958;
+}
+
+.splash-upper-right-link {
+    background-color: rgba(0, 0, 255, 0);
+    border: none;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #015958;
+    padding: 0px 20px
+}
+
+.splash-upper-right-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 2px;
+    font-weight: 700;
 }
 
 .splash-logo {
@@ -126,7 +168,7 @@
     /* font-family: 'Dawning of a New Day', cursive ; */
     font-weight: 700;
     font-size: 60px;
-    color: white
+    color: white;
 }
 
 .how-to-copy-div {
@@ -152,7 +194,8 @@
     font-size: 25px;
     font-weight: 700;
     color: #FACFCE;
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    cursor: pointer;
 }
 
 .take-quiz-div > p, .activities-div > p, .planner-div > p{

@@ -9,12 +9,12 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      errors: {}
+      errors: {},
+      demo: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this)
-    this.renderErrors = this.renderErrors.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState){
@@ -26,21 +26,27 @@ class LoginForm extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if(prevProps.errors !== this.props.errors){
-      //Perform some operation here
       this.setState({errors: prevProps.errors});
-
-      if (this.props.currentUser === true) {
-        this.props.history.push('/tweets');
-      }
     }
+
+    if (this.props.loggedIn) {
+      this.props.history.push('/')
+      this.props.closeModal()
+    } 
   }
+
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    if (!this.state.demo) {
+      return e => this.setState({
+          [field]: e.currentTarget.value
+        });
+    } 
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors()
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -50,59 +56,42 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user).then(this.props.closeModal); 
-  }
-
-  renderErrors() {
-    return(
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
+    this.props.login(user)
   }
 
   demoLogin(e) {
     e.preventDefault()
-
-    let demoUser = {
-      email: 'demo@demo.com',
-      password: 'password'
-    };
-
-    this.props.login(demoUser).then(this.props.closeModal); 
-
+    this.setState({demo: true, email: "demo@demo.com", password: "password"}, () => this.handleSubmit(e))
   }
 
+ 
   render() {
-    console.log("inside login", this.props)
-    return (
-      <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-div">
-              <h1>Log in to your account</h1>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-              />
-            <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-              />
-            <br/>
-            <div className='buttons-div'>
-              <input type="submit" className="signup-submit" value="LOG IN" />
-              <button className='signup-submit' onClick={this.demoLogin}>DEMO LOGIN</button>     
-            </div>
-            {this.renderErrors()}
-        </form>
-      </div>
-    );
+    console.log("inside login", this.state)
+      return (
+        <div className="signup-form-container">
+              <form onSubmit={this.handleSubmit} className="login-form-div">
+                    <h1>Log in to your account</h1>
+                    <p className='login-error-message'>{this.state.errors.email}</p>
+                    <input className={this.state.errors.length === 0 ? "login-input" : "err-input"} type="text"
+                      value={ this.state.email}
+                      onChange={this.update('email')}
+                      placeholder="Email"
+                    />
+                  <br/>
+                    <p className='login-error-message'>{this.state.errors.password}</p>
+                    <input className={this.state.errors.length === 0 ? "login-input" : "err-input"} type="password"
+                      value={this.state.password}
+                      onChange={this.update('password')}
+                      placeholder="Password"
+                    />
+                  <br/>
+                  <div className='buttons-div'>
+                    <input type="submit" className="signup-submit" value="LOG IN" />
+                    <button className='signup-submit' onClick={this.demoLogin}>DEMO LOGIN</button>     
+                  </div>
+              </form>
+        </div>
+      )
   }
 }
 

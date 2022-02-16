@@ -6,9 +6,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 1000px;
-    overflow: hidden;
-    overflow-y: auto;
+    min-height: 900px;
+
 }
 
 .activities-user-outer-div > h1 {
@@ -21,7 +20,7 @@
 .card-div {
     margin-top: 20px;
     min-width: 50%;
-    height: 1900px;
+    /* height: 1900px; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
     gap: 2rem;
@@ -218,12 +217,6 @@
     width: 300px;
 }
 
-.resources-map-div {
-    /* background-color: gray;
-    width: 47%;
-    border-radius: 40px;
-    margin-top: 40px; */
-}
 
 /* ADD ACTIVITY MODAL */
 
@@ -301,7 +294,7 @@
 }
 
 #personalactivitieslink {
-    margin-top: 80px;
+    margin-top: 20px;
     background-color: rgb(235, 235, 235);
     width: 220px;
     height: 40px;

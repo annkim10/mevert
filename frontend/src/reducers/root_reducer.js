@@ -6,6 +6,7 @@ import modal from "./secondary/modal_reducer"
 import activities from "./activity_reducer"
 import review from "./review_reducer"
 import calendar from './secondary/calendar_reducer'
+import userActivities from './secondary/user_activities_reducer';
 
 
 const RootReducer = combineReducers({
@@ -15,7 +16,8 @@ const RootReducer = combineReducers({
   modal,
   activities,
   review,
-  calendar
+  calendar,
+  userActivities
 });
 
 export default RootReducer;

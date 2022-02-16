@@ -18,9 +18,15 @@
     height: 50px;
     display: flex;
     align-items: center;
-    font-weight: 400;
     border-radius: 40px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.navbar-inner-div {
+    min-width: 1170px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo-div {
@@ -35,7 +41,7 @@
 
 .nav-links-div {
     /* background-color: aquamarine; */
-    width: 300px;
+    width: 650px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -43,27 +49,58 @@
     margin-left: 55%
 }
 
+.menu-list {
+    /* background-color: pink; */
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px
+}
+
 .user-button {
     background: none;
     border: none;
-    width: 150px;
-    height: 30px;
+    min-width: 130px;
+    height: 40px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-left: 25px;
     cursor: pointer;
     color: #015958;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
+    /* border-bottom: 1px solid lightgray */
 }
 
 .user-button:hover {
-    background-color: rgb(236, 236, 236);
-    border-radius: 40px;
+    background-color: rgb(245, 245, 245);
+    font-weight: 700;
 }
 
-/* .user-show-link{
+.user-links-right-div {
+    /* background-color: blueviolet; */
+    display: flex;
+    justify-content: center;
+}
+
+/* MENU DROPDOWN */
+
+.menu-outer-div {
+    /* background-color: aqua; */
     cursor: pointer;
-    color: rgb(44, 44, 44);
-    font-size: 18px
-} */
+    display: flex;
+    justify-content: flex-end;
+    min-width: 500px;
+    gap: 1rem;
+    height: 20px;
+    color: #015958;
+}
+
+.menu-wrapper {
+    background-color: white;
+    position: fixed;
+    top: 70px;
+    height: 240px;
+    width: 200px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

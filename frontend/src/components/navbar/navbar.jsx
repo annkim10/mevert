@@ -1,40 +1,50 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { FiMenu } from "react-icons/fi"
+import Menu from './menu';
 import "./navbar.css"
 import logo from "../../assets/mevert_logo.png"
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    this.logoutUser = this.logoutUser.bind(this);
+    this.state = {
+      click: false,
+      menu: false
+    }
     this.getLinks = this.getLinks.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
-  logoutUser(e) {
-      console.log("inside logout", this.props)
-      e.preventDefault();
-      this.props.logout();
-      this.props.history.push("/");
+  handleClick(e) {
+    e.preventDefault()
+    if (!this.state.click) {
+      this.setState({click: true, menu: true})
+    } else {
+      this.setState({click: false, menu: false})
+    }
   }
 
-  // Selectively render links dependent on whether the user is logged in
   getLinks() {
       if (this.props.loggedIn) {
         return (
             <div className='navbar-div'>
-              <div className='logo-div'>
-                <Link to="/"> <img className='logo-img' src={logo} /></Link>
+              <div className='navbar-inner-div'>
+                  <div className='logo-div'>
+                    <Link to="/"> <img className='logo-img' src={logo} /></Link>
+                  </div>
+                  <div className='menu-outer-div' onClick={this.handleClick}>
+                    <FiMenu />
+                    <h1>{this.props.user.firstName} {this.props.user.lastName}</h1>
+                    { this.state.menu ? <Menu user={this.props.user} logout={this.props.logout}/> : ""}
+                  </div>
               </div>
-              <div className='nav-links-div'>
-                <Link className="user-button" to={`/users/${this.props.user.id}`}>{this.props.user.firstName} {this.props.user.lastName}</Link>
-                <div className="user-button" onClick={this.logoutUser}>LOGOUT</div>
-              </div>
-               
             </div>
         );}
   }
 
   render() {
+    console.log("inside navbar", this.state)
       return (
         <div className='navbar-wrapper'>
             { this.getLinks() }

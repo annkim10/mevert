@@ -22,6 +22,7 @@ class ActivityShow extends React.Component {
         window.scroll(0,0)
         this.props.getactivity(this.props.match.params.activityId)
         this.props.allreviews()
+        this.props.getUserActivities(this.props.currentUser.id)
     }
 
 

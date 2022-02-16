@@ -26,13 +26,24 @@ class SignupForm extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+ 
     if(prevProps.signedIn !== this.props.signedIn){
       this.setState({signedIn: prevProps.signedIn});
-
-      if (this.props.signedIn === true) {
-        this.props.history.push('/login');
-      }
     }
+    
+    if(prevProps.errors !== this.props.errors){
+      this.setState({errors: this.props.errors});
+    }
+ 
+     if (this.props.signedIn === true) {
+        this.props.login({email: this.state.email, password: this.state.password})
+        .then(this.props.closeModal)
+        // this.props.history.push('/login');
+      }
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors()
   }
 
   update(field) {
@@ -67,44 +78,48 @@ class SignupForm extends React.Component {
   }
 
   render() {
+    console.log("inside signup render", Object.values(this.state.errors))
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit} className="signup-form-div">
           <h1>Create an account</h1>
           <div className="signup-form">
-            <br />
-            <input type="text"
+             <p className='login-error-message'>{ this.state.errors.firstName }</p>
+            <input className={ this.state.errors.firstName ? "err-input" : "login-input"} 
+                type="text"
                 value={this.state.firstName}
                 onChange={this.update('firstName')}
                 placeholder="First name"
             />
-            <br/>
-              <input type="text"
-                value={this.state.lastName}
-                onChange={this.update('lastName')}
-                placeholder="Last Name"
-              />
-            <br/>
-              <input type="text"
+            <p className='login-error-message'>{this.state.errors.lastname }</p>
+            <input className={ this.state.errors.lastname ? "err-input" : "login-input" } 
+              type="text"
+              value={this.state.lastName}
+              onChange={this.update('lastName')}
+              placeholder="Last Name"
+            />
+             <p className='login-error-message'>{this.state.errors.email}</p>
+              <input className={ this.state.errors.email ? "err-input" : "login-input" } 
+                type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 placeholder="Email"
               />
-            <br/>
-              <input type="password"
+             <p className='login-error-message'>{this.state.errors.password} </p>
+              <input className={ this.state.errors.password ? "err-input" : "login-input" } 
+                type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 placeholder="Password"
               />
-            <br/>
-              <input type="password"
+              <p className='login-error-message'>{this.state.errors.password2} </p>
+              <input className={ this.state.errors.password2 ? "err-input" : "login-input" } 
+                type="password"
                 value={this.state.password2}
                 onChange={this.update('password2')}
                 placeholder="Confirm Password"
               />
-            <br/>
             <input className='signup-submit' type="submit" value="SUBMIT" />
-            {this.renderErrors()}
           </div>
         </form>
       </div>

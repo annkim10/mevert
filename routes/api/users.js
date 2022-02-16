@@ -67,7 +67,7 @@ router.post("/login", (req, res) => {
 
   User.findOne({ email }).then(user => {
     if (!user) {
-      errors.handle = "This user does not exist";
+      errors.email = "User does not exist";
       return res.status(400).json(errors);
     }
 
@@ -111,7 +111,21 @@ router.post("/:id/activities", (req, res) => {
         } else {
             user.activities.push(req.body.activityId)
             user.save()
-            res.json(user)
+            res.json(user.activities)
+        }
+    });
+  
+}); 
+
+// FETCH USER ACTIVITIES
+
+router.get("/:userId/activities", (req, res) => {
+
+   User.findOne({ "_id": req.params.userId }).then( user => {
+        if (!user) {
+           res.status(400).send("User is not found");
+        } else {
+            res.json(user.activities)
         }
     });
   
