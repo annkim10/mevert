@@ -1,6 +1,6 @@
 import {connect} from "react-redux"
 import { fetchActivity } from "../../actions/activity_action"
-import { postUserActivity } from "../../actions/session_actions"
+import { postUserActivity, getUserActivities } from "../../actions/session_actions"
 import ActivityShow from "./activity_show"
 import {getReviews} from "../../actions/review_actions.js"
 
@@ -15,7 +15,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
     getactivity: id => dispatch(fetchActivity(id)),
     postUserActivity: (userId, activityId) => dispatch(postUserActivity(userId, activityId)),
-    allreviews: () => dispatch(getReviews())
+    allreviews: () => dispatch(getReviews()),
+    getUserActivities: userId => dispatch(getUserActivities(userId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActivityShow)

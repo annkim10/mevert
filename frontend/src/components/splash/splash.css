@@ -33,7 +33,7 @@
 .splash-main-wrapper {
     /* background-color: rgba(0, 0, 255, 0.212); */
     min-width: 1024px;
-    max-width: 1220px;
+    max-width: 1420px;
     z-index: 10;
     position: absolute;
     display: flex;

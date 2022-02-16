@@ -71,7 +71,22 @@ const addUserActivity = userActivities => ({
 
 export const postUserActivity = (userId, activityData) => dispatch => {
     return APIUtil.postUserActivity(userId, activityData).then(res => {
-        dispatch(addUserActivity(res.data.activities[res.data.activities.length -1]))
+        dispatch(addUserActivity(res))
+    }, err => (
+        dispatch(receiveErrors(err.response.data))
+    ))
+}
+
+export const FETCH_USER_ACTIVITIES = "FETCH_USER_ACTIVITIES"
+
+const fetchUserActivities = userActivities => ({
+    type: FETCH_USER_ACTIVITIES,
+    userActivities
+})
+
+export const getUserActivities = userId => dispatch => {
+    return APIUtil.fetchUserActivities(userId).then(res => {
+        dispatch(fetchUserActivities(res.data))
     }, err => (
         dispatch(receiveErrors(err.response.data))
     ))

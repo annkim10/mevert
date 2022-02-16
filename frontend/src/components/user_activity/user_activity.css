@@ -135,9 +135,9 @@
     color: #015958
 }
 
-#activitiesdisplayinuseractivities::-webkit-scrollbar, #overflowreview::-webkit-scrollbar {
-    width: 20px;
-    background-color:transparent;
+#activitiesdisplayinuseractivities::-webkit-scrollbar-thumb, #overflowreview::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
 }
 
 #activitiesdisplayinuseractivities, #overflowreview {
@@ -148,7 +148,7 @@
     /* background-color: aqua; */
     display:flex;
     align-items: center;
-    overflow-x:auto;
+    overflow-x: scroll;
     width:1050px;
     height:530px;
     /* background-color: aquamarine; */

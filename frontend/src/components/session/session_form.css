@@ -133,13 +133,13 @@
     height: 45px;
     width: 350px;
     border-radius: 30px;
-    border: 2px solid rgb(255, 67, 67);
+    border: 2px solid #e77b79;
     font-size: 15px;
     padding-left: 20px
 }
 
 .login-error-message {
-  color: rgb(182, 35, 35);
+  color: #e77b79;
   padding: 10px;
   font-size: 13px;
   font-weight: 700;
