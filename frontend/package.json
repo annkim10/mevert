@@ -14,7 +14,7 @@
     "dotenv": "^16.0.0",
     "gl-matrix": "^3.4.3",
     "jwt-decode": "^3.1.2",
-    "mapbox-gl": "^2.7.0",
+    "mapbox-gl": "^1.13.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-datetime": "^3.1.1",
