@@ -16,6 +16,7 @@ class UserActivity extends React.Component {
         this.props.allactivities()
         this.props.allreview()
         this.props.allevents()
+        this.props.getUserActivities(this.props.user.id)
     }
 
     activityfinder(review) {
@@ -79,7 +80,7 @@ class UserActivity extends React.Component {
         if (!this.props.activities.length) return null
         let narray = []
         this.props.activities.forEach(act => {
-            if (this.props.user.activities.includes(act._id)) narray.push(act)
+            if (this.props.userActivities.includes(act._id)) narray.push(act)
         })
         let rarray = []
         this.props.reviews.forEach(review => {
