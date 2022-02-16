@@ -1,7 +1,7 @@
 import {connect} from "react-redux"
 import UserActivity from "./user_activity"
 import { fetchActivities } from "../../actions/activity_action"
-import { getUserActivities } from "../../actions/session_actions"
+import { getUserActivities, deleteActivity } from "../../actions/session_actions"
 import { getReviews, removereview} from "../../actions/review_actions"
 import {fetchEvents} from "../../actions/calendar_action.js"
 
@@ -18,7 +18,8 @@ const mapDispatchToProps = dispatch => ({
     allreview: () => dispatch(getReviews()),
     deletereview: id => dispatch(removereview(id)),
     allevents: () => dispatch(fetchEvents()),
-    getUserActivities: userId => dispatch(getUserActivities(userId))
+    getUserActivities: userId => dispatch(getUserActivities(userId)),
+    removeactivity: (userId, activityId) => dispatch(deleteActivity(userId, activityId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserActivity)

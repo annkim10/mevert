@@ -91,3 +91,18 @@ export const getUserActivities = userId => dispatch => {
         dispatch(receiveErrors(err.response.data))
     ))
 }
+
+export const REMOVE_USER_ACTIVITY = "REMOVE_USER_ACTIVITY"
+
+const removeUserActivity = userActivities => ({
+    type: REMOVE_USER_ACTIVITY,
+    userActivities
+})
+
+export const deleteActivity = (userId, activityId) => dispatch => {
+    return (
+        APIUtil.deleteUserActivity(userId, activityId)
+        .then(user => dispatch(removeUserActivity(user.data.activities)))
+    )
+}
+

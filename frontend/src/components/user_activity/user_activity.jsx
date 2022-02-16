@@ -10,6 +10,7 @@ class UserActivity extends React.Component {
     constructor(props) {
         super(props)
         this.removereview = this.removereview.bind(this)
+        this.removethisact = this.removethisact.bind(this)
     }
 
     componentDidMount() {
@@ -25,6 +26,11 @@ class UserActivity extends React.Component {
             if (act._id === review.activity) name = act.title 
         })
         return name
+    }
+
+    removethisact(e) {
+        e.preventDefault()
+        this.props.removeactivity(this.props.user.id, e.currentTarget.value)
     }
 
     removereview(e) {
@@ -118,6 +124,7 @@ class UserActivity extends React.Component {
                                     )}
                                 {/* </div> */}
                                 <Link id="reviewlink" to={`/activities/${act._id}/review`}>CREATE REVIEW</Link>
+                                <button id="reviewlink" value={act._id} onClick={this.removethisact}>DELETE ACTIVITY</button>
                             </div>
                         </div>
                     ))}
