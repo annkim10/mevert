@@ -38,7 +38,7 @@ class ActivityIndex extends React.Component {
             <div className="activities-user-outer-div">
                 <h1>All Activities</h1>
                 <div className="card-div">
-                        {activities.map(activity => <ActivityIndexItem activity={activity} />)}
+                        {activities.map((activity, idx) => <ActivityIndexItem key={idx} activity={activity} />)}
                 </div>
             </div>
         )
