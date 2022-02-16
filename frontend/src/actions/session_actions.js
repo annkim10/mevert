@@ -7,10 +7,13 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 
-export const receiveCurrentUser = currentUser => ({
+export const receiveCurrentUser = currentUser => {
+    debugger
+    return {
     type: RECEIVE_CURRENT_USER,
     currentUser
-});
+    }
+}
 
 export const receiveUserSignIn = () => ({
     type: RECEIVE_USER_SIGN_IN
@@ -56,6 +59,7 @@ export const logout = () => dispatch => {
 
 //ACTIVITIES
 export const ADD_USER_ACTIVITY = "ADD_USER_ACTIVITY"
+export const UPDATE_USER = "UPDATE_USER"
 
 const addUserActivity = userActivities => ({
     type: ADD_USER_ACTIVITY,
@@ -68,4 +72,28 @@ export const postUserActivity = (userId, activityData) => dispatch => {
     }, err => (
         dispatch(receiveErrors(err.response.data))
     ))
+}
+
+const updatethisuser = user => {
+    debugger
+    return {
+    type: UPDATE_USER,
+    user
+    }
+}
+
+// export const deleteActivity = (userId,activityId) => dispatch => {
+//     debugger
+//     return (
+//     APIUtil.deleteUserActivity(userId, activityId)
+//     .then(user => dispatch(updatethisuser(user.data.activities)))
+//     )
+// }
+
+export const deleteActivity = (userId,activityId) => dispatch => {
+    debugger
+    return (
+    APIUtil.deleteUserActivity(userId, activityId)
+    .then(user => dispatch(receiveCurrentUser(user.data)))
+    )
 }

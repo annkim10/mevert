@@ -19,3 +19,8 @@ export const login = (userData) => {
 export const postUserActivity = (userId, activityData) => {
    return axios.post(`/api/users/${userId}/activities`, activityData)
 };
+
+export const deleteUserActivity = (userId, activityId) => {
+  debugger
+  return axios.get(`/api/users/${userId}/activities`, activityId)
+}

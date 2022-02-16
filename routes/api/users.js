@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const validateRegisterInput = require('../../validations/register');
 const validateLoginInput = require("../../validations/login")
 const passport = require('passport');
-
+const Activity = require('../../models/Activity')
 
 // REGISTER ROUTE
 
@@ -110,6 +110,25 @@ router.post("/:id/activities", (req, res) => {
            res.status(400).send("User is not found");
         } else {
             user.activities.push(req.body.activityId)
+            user.save()
+            res.json(user)
+        }
+    });
+  
+}); 
+
+// DELETE USER ACTIVITY 
+
+router.get("/:id/activities", (req, res) => {
+  console.log("router post")
+   User.findOne({ "_id": req.params.id })
+   .then( user => {
+        if (!user) {
+           res.status(400).send("User is not found");
+        } else {
+            debugger
+            let i = user.activities.indexOf(req.body.activityId)
+            user.activities.splice(i,1)
             user.save()
             res.json(user)
         }

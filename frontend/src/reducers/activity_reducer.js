@@ -1,4 +1,4 @@
-import {RECEIVE_ACTIVITIES, RECEIVE_ACTIVITY} from "../actions/activity_action"
+import {RECEIVE_ACTIVITIES, RECEIVE_ACTIVITY, REMOVE_ACTIVITY} from "../actions/activity_action"
 
 const ActivityReducer = (state={}, action) => {
     Object.freeze(state)
@@ -13,6 +13,12 @@ const ActivityReducer = (state={}, action) => {
         case RECEIVE_ACTIVITY:
             nextState[action.activity.data._id] = action.activity.data 
             return nextState 
+        case REMOVE_ACTIVITY:
+            let newarray = []
+            nextState.activities.forEach(act => {
+                if (act._id !== action.id) newarray.push(act)
+            })
+            return newarray
         default: 
             return state 
     }

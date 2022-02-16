@@ -4,12 +4,18 @@ import {BiDollar} from "react-icons/bi"
 import {Link} from "react-router-dom"
 import "./user_activity.css"
 import {BsLightningChargeFill} from "react-icons/bs"
+// import { unregister } from './registerServiceWorker';
+
 
 class UserActivity extends React.Component {
 
     constructor(props) {
         super(props)
         this.removereview = this.removereview.bind(this)
+        this.removethisact = this.removethisact.bind(this)
+        this.state = {
+            removedactivity: false
+        }
     }
 
     componentDidMount() {
@@ -17,6 +23,13 @@ class UserActivity extends React.Component {
         this.props.allreview()
         this.props.allevents()
     }
+
+    // componentDidUpdate(prevProps) {
+    //     if (prevProps.user.activities.length !== this.state.activities.length) {
+    //         this.props.allactivities()
+    //     }
+    // }
+
 
     activityfinder(review) {
         let name 
@@ -26,10 +39,31 @@ class UserActivity extends React.Component {
         return name
     }
 
+    // emptyCache(){
+    //     if('caches' in window){
+    //     caches.keys().then((names) => {
+    //             // Delete all the cache files
+    //             names.forEach(name => {
+    //                 caches.delete(name);
+    //             })
+    //         });
+    
+    //         // Makes sure the page reloads. Changes are only visible after you refresh.
+    //         window.location.reload(true);
+    //     }
+    // }
+
     removereview(e) {
         e.preventDefault()
         console.log("hello")
         this.props.deletereview(e.currentTarget.value)
+    }
+
+    removethisact(e) {
+        debugger
+        e.preventDefault()
+        this.props.updateUser(this.props.user.id, e.currentTarget.value)
+        .then(this.setState({ removedactivity: true}), () => console.log(this.state))
     }
 
     eventstarttime(act) {
@@ -76,6 +110,7 @@ class UserActivity extends React.Component {
     }
 
     render() {
+        // unregister()
         if (!this.props.activities.length) return null
         let narray = []
         this.props.activities.forEach(act => {
@@ -85,7 +120,7 @@ class UserActivity extends React.Component {
         this.props.reviews.forEach(review => {
             if (review.user === this.props.user.id) rarray.push(review)
         })
-        console.log("narray", narray)
+        // console.log("narray", narray)
         return(
             <div className="user-activity-outer-div">
                 <div className="user-activity-inner-div">
@@ -117,6 +152,7 @@ class UserActivity extends React.Component {
                                     )}
                                 {/* </div> */}
                                 <Link id="reviewlink" to={`/activities/${act._id}/review`}>CREATE REVIEW</Link>
+                                <button id="reviewlink" value={act._id} onClick={this.removethisact}>DELETE ACTIVITY</button>
                             </div>
                         </div>
                     ))}

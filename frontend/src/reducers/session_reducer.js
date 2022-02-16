@@ -1,4 +1,4 @@
-import { RECEIVE_USER_LOGOUT, RECEIVE_CURRENT_USER, RECEIVE_USER_SIGN_IN, ADD_USER_ACTIVITY } from '../actions/session_actions';
+import { RECEIVE_USER_LOGOUT, RECEIVE_CURRENT_USER, RECEIVE_USER_SIGN_IN, ADD_USER_ACTIVITY, UPDATE_USER } from '../actions/session_actions';
 
 const initialState = {
   isAuthenticated: false,
@@ -13,11 +13,17 @@ export default function(state = initialState, action) {
         user: undefined
       };
     case RECEIVE_CURRENT_USER:
+      debugger
       return {
         ...state,
         isAuthenticated: !!action.currentUser,
         user: action.currentUser
       };
+    case UPDATE_USER:
+      debugger
+      const nState = Object.assign({}, state)
+      nState.user.activities = action.user
+      return nState
     case RECEIVE_USER_SIGN_IN:
       return {
         ...state,
