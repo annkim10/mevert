@@ -4,12 +4,18 @@ import img from "../../assets/splash-img.jpg"
 import logo from "../../assets/mevert_logo.png"
 import "./splash.css"
 import { MdQuiz, MdPersonPin, MdEditCalendar } from "react-icons/md"
+import { FiMenu } from "react-icons/fi"
+import Menu from "../navbar/menu"
 
 class SplashPage extends React.Component {
 
     constructor(props) {
         super(props)
-        console.log("inside splash", this.props )
+        this.state = {
+        click: false,
+        menu: false
+        }
+        this.handleClick = this.handleClick.bind(this)
     }
 
     renderHeader() {
@@ -21,18 +27,28 @@ class SplashPage extends React.Component {
         }
     }
 
+    handleClick(e) {
+        e.preventDefault()
+        if (!this.state.click) {
+        this.setState({click: true, menu: true})
+        } else {
+        this.setState({click: false, menu: false})
+        }
+    }
+
     renderNavLinks() {
         if (this.props.loggedIn) {
             return (
                 <div className="splash-nav-links-div-loggedin-outer">
                     <div className='splash-nav-links-div-loggedin'>
                         <button className="splash-nav-links" onClick={() => this.props.history.push('/quiz')}>TAKE THE QUIZ</button>
+                        <br/><br/>
+                        <button className="splash-nav-links" onClick={() => this.props.history.push('/activities')}>EXPLORE ACTIVITIES</button>
                     </div>
-                    <div className="splash-upper-right-links">
-                        <Link className="splash-upper-right-link" to={`/users/${this.props.user.id}`}>
-                            {this.props.user.firstName} {this.props.user.lastName}</Link>
-                        <Link className="splash-upper-right-link" to="/activities">ACTIVITIES</Link>
-                        <button className="splash-upper-right-link" onClick={() => this.props.logout()}>LOG OUT</button>
+                    <div className="splash-upper-right-links" onClick={this.handleClick}>
+                        <FiMenu />
+                        <h1>{this.props.user.firstName} {this.props.user.lastName}</h1>
+                        { this.state.menu ? <Menu user={this.props.user} logout={this.props.logout}/> : ""}
                     </div>
                 </div>              
             )

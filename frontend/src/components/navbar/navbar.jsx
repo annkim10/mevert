@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { FiMenu } from "react-icons/fi"
+import Menu from './menu';
 import "./navbar.css"
 import logo from "../../assets/mevert_logo.png"
 
@@ -11,16 +12,8 @@ class Navbar extends React.Component {
       click: false,
       menu: false
     }
-    this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
     this.handleClick = this.handleClick.bind(this)
-  }
-
-  logoutUser(e) {
-      console.log("inside logout", this.props)
-      e.preventDefault();
-      this.props.logout();
-      this.props.history.push("/");
   }
 
   handleClick(e) {
@@ -30,24 +23,6 @@ class Navbar extends React.Component {
     } else {
       this.setState({click: false, menu: false})
     }
-  }
-
-  showMenu() {
-    if (this.state.menu) {
-      return (
-      <div className='menu-wrapper'>
-        <ul className='menu-list'>
-          <li><Link className="user-button" to={`/users/${this.props.user.id}`}>
-                MY CALENDAR</Link></li>
-          <li><Link className="user-button" to={`/users/${this.props.user.id}/activities`}>
-                MY ACTIVITIES</Link></li>
-          <li><Link className='user-button' to="/activities">EXPLORE ACTIVITIES</Link></li>
-          <li><Link className='user-button' to="/quiz">TAKE QUIZ</Link></li>
-        </ul>
-      </div>
-      )
-    } 
-   
   }
 
   getLinks() {
@@ -61,7 +36,7 @@ class Navbar extends React.Component {
                   <div className='menu-outer-div' onClick={this.handleClick}>
                     <FiMenu />
                     <h1>{this.props.user.firstName} {this.props.user.lastName}</h1>
-                    {this.showMenu()}
+                    { this.state.menu ? <Menu user={this.props.user} logout={this.props.logout}/> : ""}
                   </div>
               </div>
             </div>

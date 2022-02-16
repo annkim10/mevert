@@ -63,7 +63,7 @@
     height: 40px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-left: 25px;
     cursor: pointer;
     color: #015958;
     font-size: 14px;
@@ -72,7 +72,7 @@
 }
 
 .user-button:hover {
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(245, 245, 245);
     font-weight: 700;
 }
 
@@ -99,7 +99,7 @@
     background-color: white;
     position: fixed;
     top: 70px;
-    height: 200px;
+    height: 240px;
     width: 200px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
