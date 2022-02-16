@@ -107,28 +107,38 @@ class QuizForm extends React.Component {
                 this.state.q10
             ]
         }
-        console.log("results", quizResults)
         this.props.postQuiz(quizResults).then(this.props.history.push('/quiz/results'))
     }
 
     renderButton() {
          if (this.state.questionCount === 9) {
+             debugger
              return (
                  <div className="button-div">
                      <button className="quiz-form-button" onClick={this.handleSubmit}>GET RESULTS <MdOutlineNavigateNext /> </button>
                  </div>
              )
          } else {
+            console.log("question count - renderbutton", this.state.questionCount)
+             debugger
              return (
                  <div className="button-div">
-                     <button className="quiz-form-button" onClick={() => this.setState({questionCount: this.state.questionCount + 1}, () => {return null})}>NEXT <MdOutlineNavigateNext /></button>
+                    {/* <button className="quiz-form-button" onClick={() => this.setState({questionCount: this.state.questionCount + 1})}>NEXT <MdOutlineNavigateNext /></button> */}
+                    <button className="quiz-form-button" 
+                        onClick={(e) => {
+                            e.preventDefault()
+                            this.setState({questionCount: this.state.questionCount + 1})
+                        }}>
+                        NEXT <MdOutlineNavigateNext />
+                    </button>
                  </div>
              )
          }
     }
-
+    // , () => {return null}
     renderQuestions(field) {
-            console.log("field", field, this.state.field)
+            console.log("question count - renderQuestion", this.state.questionCount)
+            debugger
             return(
                 <div className="question-div">
                     <h1>Question: {this.state.questionCount+1} of 10</h1>
@@ -150,7 +160,8 @@ class QuizForm extends React.Component {
     }
 
     render() {
-        console.log("render", this.props)
+        console.log("question count - render", this.state.questionCount)
+        debugger
         return(
             <div className="quiz-form-outer-div">
                 <div className="quiz-form-header-div">
