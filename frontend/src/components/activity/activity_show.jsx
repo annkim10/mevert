@@ -35,7 +35,7 @@ class ActivityShow extends React.Component {
                         <MdOutlinePostAdd className="add-modal-icon"/>
                         <h1 className="add-modal-text">Activity added</h1>
                     </div>
-                    <Link className="add-modal-button" to={`/users/${this.props.currentUser.id}`}>SEE ALL ACTIVITIES</Link>
+                    <Link className="add-modal-button" to={`/users/${this.props.currentUser.id}/activities`}>SEE ALL ACTIVITIES</Link>
                 </div>
             )
         } else {

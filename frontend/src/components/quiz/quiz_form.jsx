@@ -121,13 +121,11 @@ class QuizForm extends React.Component {
          } else {
              return (
                  <div className="button-div">
-                     <button className="quiz-form-button" onClick={() => this.setState({questionCount: this.state.questionCount + 1})}>NEXT <MdOutlineNavigateNext /></button>
+                     <button className="quiz-form-button" onClick={() => this.setState({questionCount: this.state.questionCount + 1}, () => {return null})}>NEXT <MdOutlineNavigateNext /></button>
                  </div>
              )
          }
     }
-
-    //  () => {return null}
 
     renderQuestions(field) {
             console.log("field", field, this.state.field)
