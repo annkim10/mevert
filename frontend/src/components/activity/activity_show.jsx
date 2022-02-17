@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { BiCategory } from "react-icons/bi"
 import { FiInfo } from "react-icons/fi"
 import { MdAdd, MdClose, MdOutlinePostAdd } from "react-icons/md"
+import { AiOutlineExclamationCircle } from "react-icons/ai"
 import ResourceItem from "./activity_resource_item"
 import Map from "../map/map"
 import {BsLightningChargeFill} from "react-icons/bs"
@@ -14,7 +15,8 @@ class ActivityShow extends React.Component {
         super(props)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.state = {
-            addedActivity: false 
+            addedActivity: false,
+            errors: {}
         }
     }
 
@@ -25,9 +27,25 @@ class ActivityShow extends React.Component {
         this.props.getUserActivities(this.props.currentUser.id)
     }
 
+    static getDerivedStateFromProps(nextProps, prevState){
+        if(nextProps.errors !== prevState.errors){
+        return { errors: nextProps.errors };
+        }
+        else return null;
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(prevProps.errors !== this.props.errors){
+        this.setState({errors: prevProps.errors});
+        }
+    }
+
+    componentWillUnmount() {
+        this.props.clearErrors()
+    }
 
     renderAddedPopup() {
-        if (this.state.addedActivity) {
+        if (this.state.addedActivity && this.state.errors.length === 0) {
                 return (
                 <div className="activity-add-modal">
                     <div onClick={() => this.setState({addedActivity: false})}><MdClose className="close-button" /></div>
@@ -35,7 +53,18 @@ class ActivityShow extends React.Component {
                         <MdOutlinePostAdd className="add-modal-icon"/>
                         <h1 className="add-modal-text">Activity added</h1>
                     </div>
-                    <Link className="add-modal-button" to={`/users/${this.props.currentUser.id}/activities`}>SEE ALL ACTIVITIES</Link>
+                    <Link className="add-modal-button" to={`/users/${this.props.currentUser.id}/activities`}>SEE MY ACTIVITIES</Link>
+                </div>
+            )
+        } else if (this.state.addedActivity && this.state.errors.length !== 0) {
+            return (
+                <div className="activity-add-modal">
+                    <div onClick={() => this.setState({addedActivity: false})}><MdClose className="close-button" /></div>
+                    <div className="add-modal-copy-div">
+                        <AiOutlineExclamationCircle className="add-modal-icon"/>
+                        <h1 className="add-modal-text-err">{this.state.errors}</h1>
+                    </div>
+                    <Link className="add-modal-button" to={`/users/${this.props.currentUser.id}/activities`}>SEE MY ACTIVITIES</Link>
                 </div>
             )
         } else {
@@ -50,7 +79,7 @@ class ActivityShow extends React.Component {
     }
 
     render() {
-        console.log("inside show", this.props)
+        console.log("inside show", this.state)
 
         const { activity } = this.props
         if (!activity) return null

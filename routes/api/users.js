@@ -108,6 +108,8 @@ router.post("/:id/activities", (req, res) => {
    User.findOne({ "_id": req.params.id }).then( user => {
         if (!user) {
            res.status(400).send("User is not found");
+        } else if (user && user.activities.includes(req.body.activityId)) {
+           res.status(400).send("Activity already added");
         } else {
             user.activities.push(req.body.activityId)
             user.save()
