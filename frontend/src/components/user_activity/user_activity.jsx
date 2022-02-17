@@ -82,6 +82,7 @@ class UserActivity extends React.Component {
         return fulldate
     }
 
+
     render() {
         if (!this.props.activities.length) return null
         let narray = []
@@ -96,38 +97,35 @@ class UserActivity extends React.Component {
         return(
             <div className="user-activity-outer-div">
                 <div className="user-activity-inner-div">
-                <h1 id="UserWelcome">{this.props.user.firstName}'s Activities Planner </h1>
+                <h1 id="UserWelcome">{this.props.user.firstName}'s Planner </h1>
                 <div id="useractivityactivityandreviews">
                     <div id="useractdiv">
                     <p id="selectedactivities">Selected Activities</p>
                     <div id="activitiesdisplayinuseractivities">
-                    {narray.map((act,i) => (
-                        <div id="individualactivityuseractivity" key={i}>
-                            <img id="useractivityimg" src={Images[act.title]}/>
-                            <div className="activity-descript-div"> 
-                                <span id="acttitle">{act.title}</span>
-                                <span id="acttype">{act.type}</span>
-                                <div id="pricediv">
-                                <span>Price: </span>
-                                    {[...Array(act.price)].map((price,i) => (
-                                        < BiDollar id="dollarsign"key={i}/>
-                                    ))}
+                         {narray.map((act,i) => (
+                            <div id="individualactivityuseractivity" key={i}>
+                                <img id="useractivityimg" src={Images[act.title]}/>
+                                <div className="activity-descript-div"> 
+                                    <span id="acttitle">{act.title}</span>
+                                    <span id="acttype">{act.type}</span>
+                                    <div id="pricediv">
+                                    <span>Price: </span>
+                                        {[...Array(act.price)].map((price,i) => (
+                                            < BiDollar id="dollarsign"key={i}/>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="user-links-div">
+                                        {this.eventstarttime(act) ? (
+                                            <span className="activity-schedule-time">Activity Scheduled for: <br/> {this.eventstarttime(act)}</span>
+                                        ) : (
+                                            <Link id="calenderlink" to={`/users/${this.props.user.id}`}>SCHEDULE ACTIVITY</Link>
+                                        )}
+                                    <Link id="reviewlink" to={`/activities/${act._id}/review`}>CREATE REVIEW</Link>
+                                    <button id="reviewlink" value={act._id} onClick={this.removethisact}>DELETE ACTIVITY</button>
                                 </div>
                             </div>
-                            
-                            <div className="user-links-div">
-                                {/* <div className="user-links-scheduled"> */}
-                                    {this.eventstarttime(act) ? (
-                                        <span className="activity-schedule-time">Activity Scheduled for: <br/> {this.eventstarttime(act)}</span>
-                                    ) : (
-                                        <Link id="calenderlink" to={`/users/${this.props.user.id}`}>SCHEDULE ACTIVITY</Link>
-                                    )}
-                                {/* </div> */}
-                                <Link id="reviewlink" to={`/activities/${act._id}/review`}>CREATE REVIEW</Link>
-                                <button id="reviewlink" value={act._id} onClick={this.removethisact}>DELETE ACTIVITY</button>
-                            </div>
-                        </div>
-                    ))}
+                        ))}
                      </div>
                     </div>
                     <div id="reviewdivuseractivities">
