@@ -32,7 +32,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 300px;
+    height: 115px;
     gap: 0.3rem;
 }
 
@@ -69,10 +69,11 @@
     align-items: center;
     justify-content: center;
     text-align:center;
-    /* font-weight:700; */
+    border: none;
     text-decoration: none;
     color:rgb(11,101,101);
     margin-bottom:10px;
+    font-size: 15px
 }
 
 #calenderlink:hover, #reviewlink:hover {
@@ -94,10 +95,6 @@
 }
 
 
-
-#reviewlink {
-    margin-bottom:4px;
-}
 #linktoeditreview {
     margin-top:px;
 }
@@ -126,32 +123,42 @@
     flex-direction:column;
     align-items:center;
     border-radius:40px;
-    width:300px;
+    width:430px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     cursor: pointer;
-    height:380px;
+    height:430px;
     padding-bottom:20px;
     margin-right:40px;
     color: #015958
 }
 
-#activitiesdisplayinuseractivities::-webkit-scrollbar-thumb, #overflowreview::-webkit-scrollbar-thumb {
-  background: red; 
-  border-radius: 10px;
+#activitiesdisplayinuseractivities::-webkit-scrollbar-track, #overflowreview::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  background-color: #F5F5F5;
+}
+
+#activitiesdisplayinuseractivities::-webkit-scrollbar, #overflowreview::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+#activitiesdisplayinuseractivities::-webkit-scrollbar-thumb,  #overflowreview::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: rgb(231, 231, 231);
 }
 
 #activitiesdisplayinuseractivities, #overflowreview {
-    /* display:grid; */
-    /* align-self:flex-start; */
-    /* grid-template-columns: repeat(2, 260px);
-    gap:80px; */
-    /* background-color: aqua; */
     display:flex;
     align-items: center;
     overflow-x: scroll;
     width:1050px;
     height:530px;
-    /* background-color: aquamarine; */
+}
+
+#overflowreview {
+    height: 580px;
 }
 
 #useractivityactivityandreviews {
@@ -170,6 +177,7 @@
     width:395px;
     margin-right:10px;
     margin-left:100px;
+    margin-top: 40px
 }
 
 #useractdiv {
@@ -266,7 +274,6 @@
 #selectedactivities, #reviewactivities {
     font-weight:700;
     font-size:25px;
-    margin-bottom:30px;
     color: #008F8C;
 }
 

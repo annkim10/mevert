@@ -30,6 +30,7 @@ class EditReview extends React.Component {
     }
 
     componentDidMount() {
+        window.scroll(0,0)
         this.props.fetchreview(this.props.match.params.reviewId)
         this.props.getactivity(this.props.match.params.activityId)
     }
@@ -37,6 +38,7 @@ class EditReview extends React.Component {
 
     render() {
         if (!Object.values(this.props.review).length) return null
+        
         return(
             <div id="outterreviewpagediv">
                 <h1 id="reviewheader">Edit Diary Entry</h1>

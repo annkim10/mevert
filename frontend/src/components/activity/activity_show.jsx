@@ -79,7 +79,6 @@ class ActivityShow extends React.Component {
     }
 
     render() {
-        console.log("inside show", this.state)
 
         const { activity } = this.props
         if (!activity) return null

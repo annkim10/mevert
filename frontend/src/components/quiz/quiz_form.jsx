@@ -73,7 +73,6 @@ class QuizForm extends React.Component {
     }
 
     handleChange(e) {
-        console.log("inside handle", e)
         if (this.state.questionCount === 9) {
             this.setState({[e.target.htmlFor]: e.target.id, checked: e.target.innerText})
         } else{
@@ -112,15 +111,12 @@ class QuizForm extends React.Component {
 
     renderButton() {
          if (this.state.questionCount === 9) {
-             debugger
              return (
                  <div className="button-div">
                      <button className="quiz-form-button" onClick={this.handleSubmit}>GET RESULTS <MdOutlineNavigateNext /> </button>
                  </div>
              )
          } else {
-            console.log("question count - renderbutton", this.state.questionCount)
-             debugger
              return (
                  <div className="button-div">
                     {/* <button className="quiz-form-button" onClick={() => this.setState({questionCount: this.state.questionCount + 1})}>NEXT <MdOutlineNavigateNext /></button> */}
@@ -137,8 +133,6 @@ class QuizForm extends React.Component {
     }
     // , () => {return null}
     renderQuestions(field) {
-            console.log("question count - renderQuestion", this.state.questionCount)
-            debugger
             return(
                 <div className="question-div">
                     <h1>Question: {this.state.questionCount+1} of 10</h1>
@@ -160,8 +154,6 @@ class QuizForm extends React.Component {
     }
 
     render() {
-        console.log("question count - render", this.state.questionCount)
-        debugger
         return(
             <div className="quiz-form-outer-div">
                 <div className="quiz-form-header-div">

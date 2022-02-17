@@ -19,7 +19,6 @@ class EditEvent extends React.Component{
     }
 
     componentDidUpdate(prevProps, prevState){
-        // console.log(preprops)
         if(prevProps.eventObj !== this.state){
             this.props.fetchEvents()
         }
@@ -41,7 +40,6 @@ class EditEvent extends React.Component{
     }
 
     handleSubmit(e){
-        // debugger
         e.preventDefault();
         this.props.updateEvent(this.state).then(this.props.closeModal)
     }
@@ -55,7 +53,6 @@ class EditEvent extends React.Component{
     }
 
     handleDelete(e){
-        // debugger
         e.preventDefault();
         this.props.deleteEvent(this.state._id)
         .then(this.props.closeModal)
@@ -65,20 +62,16 @@ class EditEvent extends React.Component{
 
 
     disablePastDt = current => {
-        // console.log(moment())
         const yesterday = moment().subtract(1, 'day');;
         return current.isAfter(yesterday);
     };
 
     disableEndLessThanStart = current => {
         const startDate = this.state.start
-        // console.log("this is from calendar" + startDate)
         return current.isAfter(startDate);
     };
 
     render(){
-        // console.log("inside edit event render, printing props",this.props);
-        // console.log("inside edit event render, printing state",this.state);
          let title = (this.props.activities.map((activity, index) => {
             return (<option key={index} value={activity.title}>{activity.title}</option>)
         }));
@@ -121,8 +114,6 @@ const mapStateToProps = (state) => {
     let allEvents;
     let event = Object.values(state.calendar).filter(event => event._id === EVENTINFO )
     eventObj = event[0]
-    console.log(eventObj)
-    console.log()
     allEvents = Object.values(state.calendar)
 
     return {

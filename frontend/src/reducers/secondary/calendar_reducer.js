@@ -13,12 +13,6 @@ import { RECEIVE_EVENTS, RECEIVE_USER_EVENTS, RECEIVE_NEW_EVENT, REMOVE_EVENT } 
         newState[action.event.data._id] = action.event.data
         return newState
       case REMOVE_EVENT:
-        // let arr = []
-        // newState = newState.all.filter(e => e._id !== action.eventId
-        // )
-        // return arr;
-        // newState.all = arr;
-        // console.log(arr)
         delete newState[action.eventId]
         return newState
       default:

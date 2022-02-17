@@ -18,8 +18,11 @@ class SplashPage extends React.Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
+    componentDidMount() {
+        window.scroll(0,0)
+    }
+
     renderHeader() {
-        console.log(this.props.loggedIn)
         if (this.props.loggedIn) {
             return <h1 className="splash-header">Welcome {this.props.user.firstName} {this.props.user.lastName}</h1>
         } else {
@@ -63,7 +66,7 @@ class SplashPage extends React.Component {
     }
 
     render() {
-        console.log("inside splash", this.props)
+
         const { loggedIn } = this.props
 
         return (

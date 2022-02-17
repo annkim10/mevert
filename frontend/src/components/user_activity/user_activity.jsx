@@ -32,7 +32,6 @@ class UserActivity extends React.Component {
     removethisact(e) {
         e.preventDefault()
         let activityId = e.currentTarget.value
-        debugger
         this.props.removeactivity(this.props.user.id, activityId)
     }
 
@@ -95,7 +94,7 @@ class UserActivity extends React.Component {
         this.props.reviews.forEach(review => {
             if (review.user === this.props.user.id) rarray.push(review)
         })
-        console.log("narray", narray)
+   
         return(
             <div className="user-activity-outer-div">
                 <div className="user-activity-inner-div">

@@ -17,8 +17,6 @@ class QuizResults extends React.Component {
         const extro = ( quiz.filter(answer => answer === '0').length / 10 ) * 100
         const intro = ( quiz.filter(answer => answer === '1').length / 10 ) * 100
 
-        console.log("inside results props", this.props)
-        console.log("inside results extro", extro)
         return (
             <div className="quiz-results-outer-div">
                 <h1>YOUR RESULTS</h1>

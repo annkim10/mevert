@@ -18,7 +18,6 @@ class AddEvent extends React.Component {
     }
 
     handleSubmit(e){
-        // debugger
         e.preventDefault();
         this.props.createEvent(this.state).then(this.props.closeModal)
     }
@@ -48,7 +47,7 @@ class AddEvent extends React.Component {
                 selectedActivities.push(activity)
             }
         })
-        // console.log(selectedActivities)
+    
         let title;
         title =  selectedActivities.map((activity, index) => {
             return (<option key={index} value={activity.title}>{activity.title}</option>)
