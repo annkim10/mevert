@@ -104,7 +104,7 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
 // POST USER ACTIVITY
 
 router.post("/:id/activities", (req, res) => {
-  console.log("router post")
+
    User.findOne({ "_id": req.params.id }).then( user => {
         if (!user) {
            res.status(400).send("User is not found");
@@ -122,17 +122,16 @@ router.post("/:id/activities", (req, res) => {
 //DELETE USER ACTIVITES 
 
 
-router.delete("/:id/activities", (req, res) => {
-  console.log("router post")
+router.delete("/:id/activities/:activityId", (req, res) => {
    User.findOne({ "_id": req.params.id })
    .then( user => {
         if (!user) {
-           res.status(400).send("User is not found");
+           res.status(400).send("User is not found"); 
         } else {
-            let i = user.activities.indexOf(req.body.activityId)
+            let i = user.activities.indexOf(req.params.activityId)
             user.activities.splice(i,1)
             user.save()
-            res.json(user)
+            res.json(user.activities)
         }
     });
   

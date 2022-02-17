@@ -64,12 +64,18 @@ export const logout = () => dispatch => {
 //ACTIVITIES
 export const ADD_USER_ACTIVITY = "ADD_USER_ACTIVITY"
 
-const addUserActivity = userActivities => ({
-    type: ADD_USER_ACTIVITY,
-    userActivities
-})
+const addUserActivity = userActivities => {
+    debugger
+    return ( {
+        type: ADD_USER_ACTIVITY,
+        userActivities
+    })
+}
+
+
 
 export const postUserActivity = (userId, activityData) => dispatch => {
+    debugger
     return APIUtil.postUserActivity(userId, activityData).then(res => {
         dispatch(addUserActivity(res))
     }, err => (
@@ -94,15 +100,20 @@ export const getUserActivities = userId => dispatch => {
 
 export const REMOVE_USER_ACTIVITY = "REMOVE_USER_ACTIVITY"
 
-const removeUserActivity = userActivities => ({
-    type: REMOVE_USER_ACTIVITY,
-    userActivities
-})
+const removeUserActivity = userActivities => {
+    debugger
+    return ( {
+        type: REMOVE_USER_ACTIVITY,
+        userActivities
+    })
+  
+}
 
 export const deleteActivity = (userId, activityId) => dispatch => {
+    debugger
     return (
         APIUtil.deleteUserActivity(userId, activityId)
-        .then(user => dispatch(removeUserActivity(user.data.activities)))
+        .then(res => dispatch(removeUserActivity(res.data)))
     )
 }
 

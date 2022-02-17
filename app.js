@@ -10,6 +10,8 @@ const activities = require("./routes/api/activities")
 const calendar = require('./routes/api/calendar')
 const review = require("./routes/api/reviews")
 const path = require('path');
+const morgan = require("morgan-body")
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -24,6 +26,8 @@ mongoose.connect(db, { useNewUrlParser: true })
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+morgan(app)
 
 app.use("/api/users", users);
 app.use("/api/quiz", quiz)
