@@ -21,17 +21,6 @@ class Review extends React.Component {
         })
     }
 
-    // rendererrors() {
-    //     // let array = Object.values(this.props.errors)
-    //     return (
-    //         <ul>
-    //             {Object.keys(this.props.errors).map(key => {
-    //                 <li></li>
-    //             })}
-    //         </ul>
-    //     )
-    // }
-
     update(field) {
         return e => {
             this.setState({ [field]: e.currentTarget.value })
@@ -40,6 +29,10 @@ class Review extends React.Component {
 
     componentDidMount() {
         this.props.getactivity(this.props.match.params.activityId)
+    }
+
+    componentWillUnmount() {
+        this.props.clearErrors()
     }
 
 
