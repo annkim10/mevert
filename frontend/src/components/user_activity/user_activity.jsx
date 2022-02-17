@@ -14,6 +14,7 @@ class UserActivity extends React.Component {
     }
 
     componentDidMount() {
+        window.scroll(0,0)
         this.props.allactivities()
         this.props.allreview()
         this.props.allevents()
@@ -30,12 +31,13 @@ class UserActivity extends React.Component {
 
     removethisact(e) {
         e.preventDefault()
-        this.props.removeactivity(this.props.user.id, e.currentTarget.value)
+        let activityId = e.currentTarget.value
+        debugger
+        this.props.removeactivity(this.props.user.id, activityId)
     }
 
     removereview(e) {
         e.preventDefault()
-        console.log("hello")
         this.props.deletereview(e.currentTarget.value)
     }
 

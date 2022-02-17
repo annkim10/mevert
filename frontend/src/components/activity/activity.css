@@ -249,6 +249,13 @@
     line-height: 1.4;
 }
 
+.add-modal-text-err {
+    padding-left: 10px;
+    font-size: 17px;
+    color:white;
+    line-height: 1.4;
+}
+
 .add-modal-icon {
     font-size: 2rem;
     color: white;
