@@ -13,7 +13,6 @@ class PersonalActivity extends React.Component {
     }
 
     render() {
-        console.log(this.props.activities)
         const { activities } = this.props
         // const { intro, extro }  = this.props.location.state
         if (!activities.length ) return null
@@ -48,10 +47,7 @@ class PersonalActivity extends React.Component {
             }
             actindex.push(extroActivities[num])
         }
-        // console.log(introActivities)
-        // console.log(introActivities)
-        // console.log(extroActivities)
-        console.log(actindex)
+
         return(
             <div className="activities-user-outer-div">
                 <h1>Your Curated Activities</h1>

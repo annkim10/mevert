@@ -21,7 +21,6 @@ export const postUserActivity = (userId, activityData) => {
 };
 
 export const deleteUserActivity = (userId, activityId) => {
-  debugger
   return axios.delete(`/api/users/${userId}/activities/${activityId}`)
 }
 

@@ -15,9 +15,8 @@ module.exports = function validateReviewInput(data) {
         errors.body = "Review body is required"
     }
 
-
-    if (!Validator.isInt(data.ratings, {min: 1, max: 5})) {
-        errors.ratings = "Review Rating is required"
+    if (data.ratings === 0) {
+        errors.ratings = "Review ratings is required"
     }
 
     return {

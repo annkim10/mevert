@@ -44,7 +44,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-    console.log("inside navbar", this.state)
       return (
         <div className='navbar-wrapper'>
             { this.getLinks() }

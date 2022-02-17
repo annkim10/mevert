@@ -66,7 +66,7 @@ class LoginForm extends React.Component {
 
  
   render() {
-    console.log("inside login", this.state)
+
       return (
         <div className="signup-form-container">
               <form onSubmit={this.handleSubmit} className="login-form-div">

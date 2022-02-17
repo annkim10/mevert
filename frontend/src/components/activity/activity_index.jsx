@@ -27,13 +27,10 @@ class ActivityIndex extends React.Component {
     }
 
     render() {
-        console.log("props", this.props)
 
         const { activities } = this.props
         // const { intro, extro }  = this.props.location.state
         if (!activities ) return null
-       
-        // console.log("filter", this.filterActivities(activities, intro, extro))
         return(
             <div className="activities-user-outer-div">
                 <h1>All Activities</h1>
