@@ -12,10 +12,25 @@ class Review extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         this.props.processReview(this.state)
-        .then(() => this.props.activity.reviews.push(Object.values(this.props.createdreview)[0]._id))
-        .then(() => this.props.updateActivity(this.props.activity))
-        .then(() => this.props.history.push(`/users/${this.props.user}/activities`)) 
+        .then(() => {
+            if (!Object.values(this.props.errors).length) {
+                this.props.activity.reviews.push(Object.values(this.props.createdreview)[0]._id)
+                this.props.updateActivity(this.props.activity)
+                this.props.history.push(`/users/${this.props.user}/activities`)
+            }
+        })
     }
+
+    // rendererrors() {
+    //     // let array = Object.values(this.props.errors)
+    //     return (
+    //         <ul>
+    //             {Object.keys(this.props.errors).map(key => {
+    //                 <li></li>
+    //             })}
+    //         </ul>
+    //     )
+    // }
 
     update(field) {
         return e => {
@@ -32,6 +47,7 @@ class Review extends React.Component {
         return(
             <div id="outterreviewpagediv">
                 <h1 id="reviewheader">New Diary Entry</h1>
+                {/* {this.rendererrors} */}
                 <form id="reviewformouter" onSubmit={this.handleSubmit}>
                     
                     <label id="reviewratingdiv"  >How did this activity make you feel?
@@ -41,17 +57,38 @@ class Review extends React.Component {
                         return(
                         <label id="lightradio" key={i}>
                             <input id="lighteningradioinput" type="radio" value={ratingValue} onChange={this.update("ratings")}/>
-                            <BsLightningChargeFill color={ratingValue <= this.state.ratings ? "#89D99D" : "#e4e5e9"} id="lighteningratinginreview" size={35}/>
+                            <BsLightningChargeFill color={ratingValue <= this.state.ratings ? "#89D99D" : "#e4e5e9"} id={this.props.errors.ratings ? "errorlightening" :"lighteningratinginreview"} size={35}/>
                         </label>
                     )})}
+                    </div>
+                    <div>
+                    {this.props.errors.ratings ? (
+                        <p id="error">{this.props.errors.ratings}</p>
+                    ) : (
+                        null
+                    )}
                     </div>
                     </label>
                 
                     <label id="reviewtitleentry">Diary Entry Title
-                        <input id="reviewtitleinput" type="text" value={this.state.title} placeholder="What was the most important takeaway from this activity?" onChange={this.update("title")}/>
+                        <input id={this.props.errors.title ? "errortitle" : "reviewtitleinput"} type="text" value={this.state.title} placeholder="What was the most important takeaway from this activity?" onChange={this.update("title")}/>
+                        <div>
+                        {this.props.errors.title ? (
+                            <p id="error">{this.props.errors.title}</p>
+                         ) : (
+                            null
+                        )}
+                        </div>
                     </label>
                     <label id="reviewbodyentry">Diary Entry
-                        <input id="reviewbodyinput" type="text" value={this.state.body} placeholder="What did you like and dislike about this activity? Would you want to do again? Write down all your thoughts" onChange={this.update("body")}/>
+                        <textarea id={this.props.errors.body ? "errorbody" :"reviewbodyinput"} type="text" value={this.state.body} placeholder="What did you like and dislike about this activity? Would you want to do again? Write down all your thoughts" onChange={this.update("body")}/>
+                        <div>
+                        {this.props.errors.body ? (
+                            <p id="error">{this.props.errors.body}</p>
+                         ) : (
+                            null
+                        )}
+                        </div>
                     </label>
                     <input id="reviewsubmit" type="submit" value="Submit Review"/>        
                 </form>
