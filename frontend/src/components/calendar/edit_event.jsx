@@ -72,9 +72,19 @@ class EditEvent extends React.Component{
     };
 
     render(){
-         let title = (this.props.activities.map((activity, index) => {
+        // console.log("inside edit event render, printing props",this.props);
+        // console.log("inside edit event render, printing state",this.state);
+        const {userActivitiesId, activities} = this.props
+        if(!userActivitiesId || !activities) return null;
+        let selectedActivities = [];
+        activities.forEach(activity => {
+            if(userActivitiesId.includes(activity._id)){
+                selectedActivities.push(activity)
+            }
+        })
+         let   title =  selectedActivities.map((activity, index) => {
             return (<option key={index} value={activity.title}>{activity.title}</option>)
-        }));
+        })
 
         return(
             <div className="add-event-div">
@@ -119,7 +129,8 @@ const mapStateToProps = (state) => {
     return {
         activities: Object.values(state.activities),
         eventObj,
-        allEvents
+        allEvents,
+        userActivitiesId: state.session.user.activities
     }
 }
 
