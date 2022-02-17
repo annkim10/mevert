@@ -62,7 +62,7 @@ class EditReview extends React.Component {
                         <input id="reviewtitleinput" type="text" value={this.state.title} placeholder="What was the most important takeaway from this activity?" onChange={this.update("title")}/>
                     </label>
                     <label id="reviewbodyentry">Diary Entry
-                        <input id="reviewbodyinput" type="text" value={this.state.body} placeholder="What did you like and dislike about this activity? Would you want to do again? Write down all your thoughts" onChange={this.update("body")}/>
+                        <textarea id="reviewbodyinput" type="text" value={this.state.body} placeholder="What did you like and dislike about this activity? Would you want to do again? Write down all your thoughts" onChange={this.update("body")}/>
                     </label>
                     <div className="edit-review-button-div">
                         <input id="reviewsubmit" type="submit" value={this.props.form}/>     
