@@ -65,7 +65,8 @@
     padding-left: 10px;
     border-radius: 10px;
     margin-top:10px;
-    border: 1px solid white
+    border: 1px solid white;
+    font-size: 20px
 }
 
 
@@ -86,6 +87,12 @@
     border:1px solid #ff0000;
 }
 
+.edit-review-button-div {
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: #4eeb1e; */
+}
+
 #reviewsubmit {
     background-color: rgba(255, 255, 255, 0);
     border: 2px solid #ffffff;
@@ -98,6 +105,7 @@
     width:40%;
     align-self:center;
     border-radius:40px;
+    text-transform: uppercase;
 }
 
 #reviewsubmit:hover {

@@ -37,6 +37,7 @@ class EditReview extends React.Component {
 
 
     render() {
+        console.log(this.props)
         if (!Object.values(this.props.review).length) return null
         
         return(
@@ -63,7 +64,10 @@ class EditReview extends React.Component {
                     <label id="reviewbodyentry">Diary Entry
                         <input id="reviewbodyinput" type="text" value={this.state.body} placeholder="What did you like and dislike about this activity? Would you want to do again? Write down all your thoughts" onChange={this.update("body")}/>
                     </label>
-                    <input id="reviewsubmit" type="submit" value={this.props.form}/>        
+                    <div className="edit-review-button-div">
+                        <input id="reviewsubmit" type="submit" value={this.props.form}/>     
+                        <button id="reviewsubmit" onClick={() => this.props.history.push(`/users/${this.props.user}/activities`)}>CANCEL</button>   
+                    </div>
                 </form>
             </div>
         )
