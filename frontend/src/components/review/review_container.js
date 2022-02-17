@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
     activity: state.activities[ownProps.match.params.activityId],
     createdreview: state.review,
     form: "Submit Review",
+    errors: state.errors.review
 }}
 
 

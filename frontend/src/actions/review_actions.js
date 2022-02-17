@@ -4,6 +4,7 @@ export const RECEIVE_REVIEW = "RECEIVE_REVIEW"
 export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS"
 export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS"
 export const REMOVE_REVIEW = "REMOVE_REVIEW"
+export const CLEAR_REVIEW_ERRORS = "CLEAR_REVIEW_ERRORS"
 
 const receiveReview = review => ({
     type: RECEIVE_REVIEW,
@@ -24,6 +25,11 @@ export const receiveErrors = errors => ({
     type: RECEIVE_REVIEW_ERRORS,
     errors
 });
+
+export const clearErrors = errors => ({
+    type: CLEAR_REVIEW_ERRORS,
+    errors
+})
 
 
 

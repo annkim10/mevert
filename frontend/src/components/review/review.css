@@ -2,12 +2,13 @@
     display:none;
 }
 
-#lighteningratinginreview {
+#lighteningratinginreview, #errorlightening {
     cursor: pointer;
     transition: color 200ms;
     margin-top:8px;
     margin-bottom:10px;
 }
+
 
 #color {
     color: #4eeb1e
@@ -55,7 +56,7 @@
     flex-direction:row;
 }
 
-#reviewtitleinput, #reviewbodyinput {
+#reviewtitleinput, #reviewbodyinput, #errorbody, #errortitle {
     line-height: 32px;
     display: flex;
     align-items: center;
@@ -66,13 +67,27 @@
     border: 1px solid white
 }
 
-#reviewbodyinput {
-    line-height:200px;
+
+#reviewbodyinput, #errorbody {
+    /* line-height:200px; */
+    width: 100%;
+    height: 150px;
+    padding: 6px 12px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+#errorbody, #errortitle {
+    border:1px solid #ff0000;
 }
 
 #reviewsubmit {
     background-color: rgba(255, 255, 255, 0);
-    border: 2px solid white;
+    border: 2px solid #ffffff;
     height: 40px;
     font-size:18px;
     /* font-weight:700; */
@@ -95,4 +110,11 @@
     background-color:#ffb0a9;
     border: 1px solid #ffb0a9;
     box-shadow: inset 0px 0px 10px #1b1b1b;
+}
+
+#error {
+    color:rgb(129, 3, 3);
+    font-size:16px;
+    font-weight:700;
+    margin-top:5px;
 }
