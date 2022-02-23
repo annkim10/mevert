@@ -6,6 +6,7 @@ import Datetime from 'react-datetime';
 import {EVENTINFO} from './calendar';
 import {fetchEvents} from '../../actions/calendar_action';
 import moment from 'moment';
+import { getUserActivities} from "../../actions/session_actions"
 
 class EditEvent extends React.Component{
 
@@ -24,6 +25,10 @@ class EditEvent extends React.Component{
         }
     }
 
+    componentDidMount(){
+        this.props.getUserActivities(this.props.user.id)
+    }
+
     formatDate(date) {
         let newdate = new Date(date)
         let year = newdate.getFullYear()
@@ -35,13 +40,28 @@ class EditEvent extends React.Component{
         if (hour <= 11) period = "AM"
         if (hour > 11) period = "PM"
         let time = newdate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-        let fulldate = `${month}/${day}/${year} ${time}`
+        let fulldate = `${month + 1}/${day}/${year} ${time}`
         return fulldate
     }
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.updateEvent(this.state).then(this.props.closeModal)
+        
+        if(this.state.start >= this.state.end){
+            this.setState({isValid: false})
+        }
+        else{
+            let event = {
+                title: this.state.title, 
+                start: this.state.start, 
+                end: this.state.end,
+                _id: this.state._id,
+                createdAt: this.state.createdAt,
+                user: this.state.user
+            }
+            this.props.updateEvent(event).then(this.props.closeModal)
+        }
+        
     }
 
     update(field){
@@ -54,6 +74,7 @@ class EditEvent extends React.Component{
 
     handleDelete(e){
         e.preventDefault();
+        delete this.state.isValid
         this.props.deleteEvent(this.state._id)
         .then(this.props.closeModal)
     }
@@ -86,6 +107,15 @@ class EditEvent extends React.Component{
             return (<option key={index} value={activity.title}>{activity.title}</option>)
         })
 
+        let errors;
+        if(this.state.isValid === false){
+            errors = (
+                <span className="date-error">
+                    Invalid dates
+                </span>
+            )
+        }
+        
         return(
             <div className="add-event-div">
                 <form className="add-event-form" onSubmit={this.handleSubmit}> 
@@ -98,7 +128,6 @@ class EditEvent extends React.Component{
                             </select>
                         </div>
                     </div>
-                    
                     <div className="event-start">
                         <label>Start</label>
                         <Datetime isValidDate={this.disablePastDt} value={this.formatDate(this.state.start)} onChange={moment => this.handleDateTimePicker(moment, 'start')} className="start-select"/>
@@ -106,8 +135,9 @@ class EditEvent extends React.Component{
 
                     <div className="event-end">
                         <label>End</label>
-                        <Datetime isValidDate={this.disableEndLessThanStart} value={this.formatDate(this.state.end)} onChange={moment => this.handleDateTimePicker(moment, 'end')} className="end-select"/>
+                        <Datetime isValidDate={this.disableEndLessThanStart} value={this.formatDate(this.state.end)} onChange={moment => this.handleDateTimePicker(moment, 'end')} className={this.state.isValid ? "end-select" : "error-select"}/>
                     </div>
+                    {errors}
                     <div className="edit-btn-div">
                         <button onClick={this.handleSubmit} type='button' className="event-save">Save</button>
                         <button onClick={this.handleDelete} type='button' className="event-delete">Delete</button>
@@ -124,13 +154,18 @@ const mapStateToProps = (state) => {
     let allEvents;
     let event = Object.values(state.calendar).filter(event => event._id === EVENTINFO )
     eventObj = event[0]
+    if(eventObj){
+        eventObj.isValid = true 
+    }
+    console.log(eventObj)
     allEvents = Object.values(state.calendar)
 
     return {
         activities: Object.values(state.activities),
         eventObj,
         allEvents,
-        userActivitiesId: state.session.user.activities
+        userActivitiesId: state.userActivities,
+        user: state.session.user,
     }
 }
 
@@ -139,7 +174,9 @@ const mapDispatchToProps = dispatch => ({
     updateEvent: event => dispatch(updateEvent(event)),
     deleteEvent: eventId => dispatch(deleteEvent(eventId)),
     closeModal: () => dispatch(closeModal()),
-    fetchEvents: ()=> dispatch(fetchEvents())
+    fetchEvents: ()=> dispatch(fetchEvents()),
+    getUserActivities: userId => dispatch(getUserActivities(userId))
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditEvent);
