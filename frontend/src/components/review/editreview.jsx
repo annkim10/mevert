@@ -7,14 +7,15 @@ class EditReview extends React.Component {
         super(props)
         
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.reviewstate = this.reviewstate.bind(this)
         this.state = {
-            ratings: this.props.review.ratings,
-            title: this.props.review.title,
-            body: this.props.review.body,
-            activity: this.props.match.params.activityId,
-            id: this.props.match.params.reviewId
+            ratings: 0,
+            title: "",
+            body: "",
+            activity: "",
+            id: ""
         }
-    }
+}
 
     handleSubmit(e) {
         e.preventDefault()
@@ -31,15 +32,29 @@ class EditReview extends React.Component {
 
     componentDidMount() {
         window.scroll(0,0)
+        // console.log(this.props.match.params.reviewId)
         this.props.fetchreview(this.props.match.params.reviewId)
+        .then(this.reviewstate)
         this.props.getactivity(this.props.match.params.activityId)
+    }
+
+    reviewstate(e) {
+        this.setState({ 
+            ratings: this.props.review.ratings,
+            title: this.props.review.title,
+            body: this.props.review.body,
+            activity: this.props.match.params.activityId,
+            id: this.props.match.params.reviewId
+        })
     }
 
 
     render() {
-        console.log(this.props)
-        if (!Object.values(this.props.review).length) return null
-        
+        // console.log(this.props.review)
+        // if (!Object.values(this.props.review).length) return null
+        if (this.props.review === undefined) return null
+        console.log(this.props.review)
+        console.log(this.state)
         return(
             <div id="outterreviewpagediv">
                 <h1 id="reviewheader">Edit Diary Entry</h1>
@@ -51,7 +66,7 @@ class EditReview extends React.Component {
                         const ratingValue = i + 1
                         return(
                             <label id="lightradio" key={i}>
-                            <input id="lighteningradioinput" type="radio" value={ratingValue} onChange={this.update("ratings")}/>
+                            <input id="lighteningradioinput" type="radio" value={ratingValue} onClick={this.update("ratings")}/>
                             <BsLightningChargeFill color={ratingValue <= this.state.ratings ? "#89D99D" : "#e4e5e9"} id="lighteningratinginreview" size={35}/>
                         </label>
                     )})}
