@@ -23,7 +23,8 @@ class Review extends React.Component {
 
     update(field) {
         return e => {
-            this.setState({ [field]: e.currentTarget.value })
+            console.log("Entered")
+            this.setState({ [field]: e.currentTarget.value }, () => {return null})
         }
     }
 
@@ -37,6 +38,7 @@ class Review extends React.Component {
 
 
     render() {
+        console.log(this.state)
         return(
             <div id="outterreviewpagediv">
                 <h1 id="reviewheader">New Diary Entry</h1>
@@ -45,14 +47,35 @@ class Review extends React.Component {
                     
                     <label id="reviewratingdiv"  >How did this activity make you feel?
                     <div id="lightradio">
-                    {[...Array(5)].map((star,i) => {
+                    {/* {[...Array(5)].map((star,i) => {
                         const ratingValue = i + 1
                         return(
                         <label id="lightradio" key={i}>
                             <input id="lighteningradioinput" type="radio" value={ratingValue} onChange={this.update("ratings")}/>
                             <BsLightningChargeFill color={ratingValue <= this.state.ratings ? "#89D99D" : "#e4e5e9"} id={this.props.errors.ratings ? "errorlightening" :"lighteningratinginreview"} size={35}/>
                         </label>
-                    )})}
+                    )})} */}
+                        <label id="lightradio">
+                            <input id="lighteningradioinput" type="radio" value="1" onClick={this.update("ratings")}/>
+                            <BsLightningChargeFill color={1 <= this.state.ratings ? "#89D99D" : "#e4e5e9"} id={this.props.errors.ratings ? "errorlightening" :"lighteningratinginreview"} size={35}/>
+                        </label>
+                        <label id="lightradio">
+                            <input id="lighteningradioinput" type="radio" value="2" onClick={this.update("ratings")}/>
+                            <BsLightningChargeFill color={2 <= this.state.ratings ? "#89D99D" : "#e4e5e9"} id={this.props.errors.ratings ? "errorlightening" :"lighteningratinginreview"} size={35}/>
+                        </label>
+                        <label id="lightradio">
+                            <input id="lighteningradioinput" type="radio" value="3" onClick={this.update("ratings")}/>
+                            <BsLightningChargeFill color={3 <= this.state.ratings ? "#89D99D" : "#e4e5e9"} id={this.props.errors.ratings ? "errorlightening" :"lighteningratinginreview"} size={35}/>
+                        </label>
+                        <label id="lightradio">
+                            <input id="lighteningradioinput" type="radio" value="4" onClick={this.update("ratings")}/>
+                            <BsLightningChargeFill color={4 <= this.state.ratings ? "#89D99D" : "#e4e5e9"} id={this.props.errors.ratings ? "errorlightening" :"lighteningratinginreview"} size={35}/>
+                        </label>
+                        <label id="lightradio">
+                            <input id="lighteningradioinput" type="radio" value="5" onClick={this.update("ratings")}/>
+                            <BsLightningChargeFill color={5 <= this.state.ratings ? "#89D99D" : "#e4e5e9"} id={this.props.errors.ratings ? "errorlightening" :"lighteningratinginreview"} size={35}/>
+                        </label>
+
                     </div>
                     <div>
                     {this.props.errors.ratings ? (
