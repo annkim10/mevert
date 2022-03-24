@@ -3,6 +3,8 @@ Mevert is an application where users can take a quiz, which determine their leve
 
 Live Link to the site: https://mevert.herokuapp.com/?#/
 
+![Mevert](https://github.com/annkim10/mevert/blob/main/frontend/public/mevert.gif)
+
 ## Technologies Used:
 1) Mapbox Map API
 2) Full Calendar API
@@ -72,6 +74,8 @@ class  Calendar extends React.Component {
 3) Users also have access to resources to accomplish the selected activities. We added some youtube videos utilizing the react-youtube library, and   implemented a map to provide locations related to the activity using Mapbox API.
 
 4) Utilized Mapbox Map API to show near by places for users to accomplish the activity they have selected.
+
+
 ![calendar](https://github.com/annkim10/mevert/blob/main/frontend/public/map.png)
 
 code:
