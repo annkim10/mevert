@@ -72,6 +72,7 @@ class  Calendar extends React.Component {
 3) Users also have access to resources to accomplish the selected activities. We added some youtube videos utilizing the react-youtube library, and   implemented a map to provide locations related to the activity using Mapbox API.
 
 4) Utilized Mapbox Map API to show near by places for users to accomplish the activity they have selected.
+![calendar](https://github.com/annkim10/mevert/blob/main/frontend/public/map.png)
 
 code:
 ```js
